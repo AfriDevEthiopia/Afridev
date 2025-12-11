@@ -24,8 +24,10 @@ export function LanguageSwitcher() {
     setIsOpen(false);
   };
 
-  // Close dropdown when clicking outside
+  // Close dropdown when clicking outside - only add listener when open
   useEffect(() => {
+    if (!isOpen) return;
+
     const handleClickOutside = (event: MouseEvent) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
         setIsOpen(false);
@@ -34,17 +36,19 @@ export function LanguageSwitcher() {
 
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
+  }, [isOpen]);
 
-  // Close on escape key
+  // Close on escape key - only add listener when open
   useEffect(() => {
+    if (!isOpen) return;
+
     const handleEscape = (event: KeyboardEvent) => {
       if (event.key === "Escape") setIsOpen(false);
     };
 
     document.addEventListener("keydown", handleEscape);
     return () => document.removeEventListener("keydown", handleEscape);
-  }, []);
+  }, [isOpen]);
 
   return (
     <div className="relative" ref={dropdownRef}>
