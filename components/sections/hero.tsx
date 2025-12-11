@@ -37,8 +37,8 @@ export function Hero() {
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-1/4 -left-32 w-48 sm:w-72 lg:w-96 h-48 sm:h-72 lg:h-96 bg-primary/20 rounded-full blur-[80px] sm:blur-[128px] animate-pulse-glow" />
         <div className="absolute bottom-1/4 -right-32 w-48 sm:w-72 lg:w-96 h-48 sm:h-72 lg:h-96 bg-accent/20 rounded-full blur-[80px] sm:blur-[128px] animate-pulse-glow" style={{ animationDelay: "1.5s" }} />
-        <div className="hidden sm:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] lg:w-[800px] h-[600px] lg:h-[800px] bg-gradient-to-r from-primary/5 to-accent/5 rounded-full blur-[100px]" />
-        <div className="hidden md:block absolute inset-0 bg-[linear-gradient(rgba(99,102,241,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(99,102,241,0.03)_1px,transparent_1px)] bg-[size:32px_32px] lg:bg-[size:64px_64px]" />
+        <div className="hidden sm:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] lg:w-[800px] h-[600px] lg:h-[800px] bg-linear-to-r from-primary/5 to-accent/5 rounded-full blur-[100px]" />
+        <div className="hidden md:block absolute inset-0 bg-[linear-gradient(rgba(99,102,241,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(99,102,241,0.03)_1px,transparent_1px)] bg-size-[32px_32px] lg:bg-size-[64px_64px]" />
       </div>
 
       <div className="relative z-10 container mx-auto pt-20 sm:pt-24 lg:pt-28 pb-12 sm:pb-16">
@@ -104,7 +104,7 @@ export function Hero() {
           >
             <div className="relative w-full">
               {/* Glow effect behind video - Reduced on mobile */}
-              <div className="absolute -inset-1 sm:-inset-2 md:-inset-4 bg-gradient-to-r from-primary/20 to-accent/20 rounded-xl sm:rounded-2xl md:rounded-3xl blur-lg sm:blur-xl md:blur-2xl" />
+              <div className="absolute -inset-1 sm:-inset-2 md:-inset-4 bg-linear-to-r from-primary/20 to-accent/20 rounded-xl sm:rounded-2xl md:rounded-3xl blur-lg sm:blur-xl md:blur-2xl" />
               
               {/* Video Container */}
               <div className="relative glass rounded-lg sm:rounded-xl md:rounded-2xl p-1 sm:p-1.5 md:p-2 glow-sm sm:glow">
@@ -122,7 +122,7 @@ export function Hero() {
                 {/* Video Label - Simplified on mobile */}
                 <div className="flex items-center justify-between mt-1.5 sm:mt-2 md:mt-3 px-0.5 sm:px-1 md:px-2">
                   <div className="flex items-center gap-1.5 sm:gap-2">
-                    <div className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 rounded sm:rounded-md md:rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center flex-shrink-0">
+                    <div className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 rounded sm:rounded-md md:rounded-lg bg-linear-to-br from-primary to-accent flex items-center justify-center shrink-0">
                       <svg className="w-2.5 h-2.5 sm:w-3 sm:h-3 md:w-4 md:h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M8 5v14l11-7z" />
                       </svg>
@@ -136,7 +136,7 @@ export function Hero() {
                     href="https://youtu.be/DOEM7pu9shU"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[9px] sm:text-[10px] md:text-xs text-primary hover:underline hidden md:block flex-shrink-0"
+                    className="text-[9px] sm:text-[10px] md:text-xs text-primary hover:underline hidden md:block shrink-0"
                   >
                     Open in YouTube →
                   </a>
