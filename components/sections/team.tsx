@@ -65,7 +65,12 @@ export function Team() {
               </div>
 
               {/* Name */}
-              <h3 className="text-base sm:text-lg lg:text-xl font-bold mb-1.5 sm:mb-2">{member.name}</h3>
+              <h3 className="text-base sm:text-lg lg:text-xl font-bold mb-1">{member.name}</h3>
+              
+              {/* Title */}
+              <p className="text-[10px] sm:text-xs text-muted-foreground mb-2 sm:mb-3 leading-relaxed min-h-[2.5em] sm:min-h-[2.25em]">
+                {member.title}
+              </p>
 
               {/* Badge */}
               <span className={`inline-block px-2 sm:px-3 py-0.5 sm:py-1 rounded-full text-[10px] sm:text-xs font-medium mb-3 sm:mb-4 ${

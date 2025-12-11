@@ -73,6 +73,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
   {
     id: "tamirat",
     name: "Tamirat K.",
+    title: "Sr. Full Stack Engineer | Django, Next.js & AI Automation | n8n Expert",
     status: "100% Job Success",
     badge: "Top Rated",
     jobSuccess: "100%",
@@ -80,6 +81,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
   {
     id: "tolosa",
     name: "Tolosa M.",
+    title: "Full Stack | AI & Automation (n8n) | React.js | Next.js | Node.js",
     status: "100% Job Success",
     badge: "Rising Talent",
     jobSuccess: "100%",
@@ -87,6 +89,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
   {
     id: "abdi",
     name: "Abdi E.",
+    title: "Senior Full-Stack Developer | Node.js | TypeScript | Python | Automation",
     status: "100% Job Success",
     badge: "Top Rated",
     jobSuccess: "100%",

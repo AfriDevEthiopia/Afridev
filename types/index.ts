@@ -28,6 +28,7 @@ export interface Testimonial {
 export interface TeamMember {
   id: string;
   name: string;
+  title: string;
   status: string;
   badge: "Top Rated" | "Rising Talent";
   jobSuccess: string;
