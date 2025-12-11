@@ -197,27 +197,48 @@ section {
   pointer-events: none;
 }
 
-/* Responsive container */
+/* Responsive container - Consistent padding across all breakpoints */
 .container {
   width: 100%;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 16px;
-  padding-right: 16px;
+  padding-left: 1rem;    /* 16px - mobile */
+  padding-right: 1rem;
+}
+
+@media (min-width: 480px) {
+  .container {
+    padding-left: 1.25rem;  /* 20px - small mobile */
+    padding-right: 1.25rem;
+  }
 }
 
 @media (min-width: 640px) {
   .container {
-    padding-left: 24px;
-    padding-right: 24px;
+    padding-left: 1.5rem;  /* 24px - tablet */
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding-left: 2rem;    /* 32px - larger tablet */
+    padding-right: 2rem;
   }
 }
 
 @media (min-width: 1024px) {
   .container {
-    padding-left: 32px;
-    padding-right: 32px;
+    padding-left: 2rem;    /* 32px - desktop */
+    padding-right: 2rem;
     max-width: 1280px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    padding-left: 2.5rem;  /* 40px - large desktop */
+    padding-right: 2.5rem;
   }
 }
 

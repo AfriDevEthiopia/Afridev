@@ -42,7 +42,7 @@ export function Portfolio() {
       
       <div className="relative container mx-auto">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12 lg:mb-16 px-4">
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12 lg:mb-16">
           <span className="inline-block px-3 sm:px-4 py-1 sm:py-1.5 rounded-full bg-accent/10 border border-accent/20 text-xs sm:text-sm text-accent mb-3 sm:mb-4">
             Our Work
           </span>
@@ -55,7 +55,7 @@ export function Portfolio() {
         </div>
 
         {/* Portfolio Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 md:gap-6 lg:gap-8">
           {PROJECTS.map((project, index) => (
             <div
               key={project.id}

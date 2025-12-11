@@ -34,7 +34,7 @@ export function Team() {
       
       <div className="relative container mx-auto">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12 lg:mb-16 px-4">
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12 lg:mb-16">
           <span className="inline-block px-3 sm:px-4 py-1 sm:py-1.5 rounded-full bg-primary/10 border border-primary/20 text-xs sm:text-sm text-primary mb-3 sm:mb-4">
             Our Team
           </span>
@@ -47,7 +47,7 @@ export function Team() {
         </div>
 
         {/* Team Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 max-w-4xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6 lg:gap-8 max-w-4xl mx-auto">
           {TEAM_MEMBERS.map((member, index) => (
             <div
               key={member.id}

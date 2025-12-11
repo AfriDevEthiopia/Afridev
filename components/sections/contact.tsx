@@ -27,7 +27,7 @@ export function Contact() {
       
       <div className="relative container mx-auto">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12 lg:mb-16 px-4">
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12 lg:mb-16">
           <span className="inline-block px-3 sm:px-4 py-1 sm:py-1.5 rounded-full bg-accent/10 border border-accent/20 text-xs sm:text-sm text-accent mb-3 sm:mb-4">
             Get In Touch
           </span>
@@ -41,7 +41,7 @@ export function Contact() {
 
         {/* Contact Form */}
         <div className="max-w-2xl mx-auto">
-          <form onSubmit={handleSubmit} className="glass rounded-xl sm:rounded-2xl lg:rounded-3xl p-5 sm:p-8 lg:p-12 space-y-4 sm:space-y-5 lg:space-y-6">
+          <form onSubmit={handleSubmit} className="glass rounded-xl sm:rounded-2xl lg:rounded-3xl p-4 sm:p-6 md:p-8 lg:p-12 space-y-4 sm:space-y-5 lg:space-y-6">
             {/* Name & Email Row */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 lg:gap-6">
           <div>

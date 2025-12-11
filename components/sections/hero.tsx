@@ -10,11 +10,13 @@ export function Hero() {
   const rightRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const isDesktop = window.innerWidth >= 1024; // lg breakpoint
+    
     const animateElement = (element: HTMLElement | null, delay: number) => {
       if (!element) return;
       setTimeout(() => {
         element.style.opacity = "1";
-        element.style.transform = "translateY(0) translateX(0)";
+        element.style.transform = isDesktop ? "translate(0, 0)" : "translateY(0)";
       }, delay);
     };
 
@@ -40,73 +42,73 @@ export function Hero() {
       </div>
 
       <div className="relative z-10 container mx-auto pt-20 sm:pt-24 lg:pt-28 pb-12 sm:pb-16">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 xl:gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 xl:gap-16 items-center">
           {/* Left Content */}
           <div
             ref={leftRef}
-            className="opacity-0 -translate-x-4 sm:-translate-x-8 transition-all duration-1000 ease-out order-2 lg:order-1"
+            className="opacity-0 transition-all duration-1000 ease-out order-2 lg:order-1 w-full translate-y-5 lg:translate-y-0 lg:-translate-x-8"
           >
-          {/* Main Title */}
+            {/* Main Title */}
             <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-[1.15] mb-4 sm:mb-6">
-            {t("title")}{" "}
+              {t("title")}{" "}
               <span className="gradient-text">{t("titleHighlight")}</span>{" "}
-            {t("titleEnd")}
-          </h1>
+              {t("titleEnd")}
+            </h1>
 
-          {/* Description */}
+            {/* Description */}
             <p className="text-sm sm:text-base lg:text-lg text-muted-foreground mb-6 sm:mb-8 leading-relaxed max-w-xl">
-            {t("description")}
-          </p>
+              {t("description")}
+            </p>
 
-          {/* CTA Buttons */}
+            {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-8 sm:mb-12">
               <button
                 className="btn-primary flex items-center justify-center gap-2 group w-full sm:w-auto"
                 onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
-            >
-              {t("cta")}
+              >
+                {t("cta")}
                 <svg className="w-4 h-4 sm:w-5 sm:h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
+                </svg>
               </button>
               <button
                 className="btn-secondary w-full sm:w-auto"
                 onClick={() => document.getElementById("portfolio")?.scrollIntoView({ behavior: "smooth" })}
-            >
-              {t("ctaSecondary")}
+              >
+                {t("ctaSecondary")}
               </button>
-          </div>
+            </div>
 
             {/* Stats Grid */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3 lg:gap-4">
               {stats.map((stat, index) => (
-              <div
-                key={index}
+                <div
+                  key={index}
                   className="text-center p-3 sm:p-4 rounded-lg sm:rounded-xl bg-secondary/30 border border-border"
-                style={{
+                  style={{
                     animation: `fadeInUp 0.6s ease-out ${0.8 + index * 0.1}s forwards`,
-                  opacity: 0,
-                }}
-              >
+                    opacity: 0,
+                  }}
+                >
                   <div className="text-xl sm:text-2xl lg:text-3xl font-bold gradient-text">{stat.value}</div>
                   <div className="text-[10px] sm:text-xs text-muted-foreground mt-0.5 sm:mt-1 line-clamp-1">{stat.label}</div>
-              </div>
-            ))}
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
 
           {/* Right - YouTube Video */}
           <div
             ref={rightRef}
-            className="opacity-0 translate-x-4 sm:translate-x-8 transition-all duration-1000 ease-out order-1 lg:order-2"
+            className="opacity-0 transition-all duration-1000 ease-out order-1 lg:order-2 w-full translate-y-5 lg:translate-y-0 lg:translate-x-8"
           >
-            <div className="relative">
+            <div className="relative w-full">
               {/* Glow effect behind video - Reduced on mobile */}
-              <div className="absolute -inset-2 sm:-inset-4 bg-gradient-to-r from-primary/20 to-accent/20 rounded-2xl sm:rounded-3xl blur-xl sm:blur-2xl" />
+              <div className="absolute -inset-1 sm:-inset-2 md:-inset-4 bg-gradient-to-r from-primary/20 to-accent/20 rounded-xl sm:rounded-2xl md:rounded-3xl blur-lg sm:blur-xl md:blur-2xl" />
               
               {/* Video Container */}
-              <div className="relative glass rounded-xl sm:rounded-2xl p-1.5 sm:p-2 glow-sm sm:glow">
-                <div className="aspect-video rounded-lg sm:rounded-xl overflow-hidden bg-black">
+              <div className="relative glass rounded-lg sm:rounded-xl md:rounded-2xl p-1 sm:p-1.5 md:p-2 glow-sm sm:glow">
+                <div className="aspect-video rounded-md sm:rounded-lg md:rounded-xl overflow-hidden bg-black">
                   <iframe
                     src="https://www.youtube.com/embed/DOEM7pu9shU"
                     title="AfriDev Introduction"
@@ -118,23 +120,23 @@ export function Hero() {
                 </div>
                 
                 {/* Video Label - Simplified on mobile */}
-                <div className="flex items-center justify-between mt-2 sm:mt-3 px-1 sm:px-2">
-                  <div className="flex items-center gap-2">
-                    <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-md sm:rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center">
-                      <svg className="w-3 h-3 sm:w-4 sm:h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <div className="flex items-center justify-between mt-1.5 sm:mt-2 md:mt-3 px-0.5 sm:px-1 md:px-2">
+                  <div className="flex items-center gap-1.5 sm:gap-2">
+                    <div className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 rounded sm:rounded-md md:rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center flex-shrink-0">
+                      <svg className="w-2.5 h-2.5 sm:w-3 sm:h-3 md:w-4 md:h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M8 5v14l11-7z" />
                       </svg>
                     </div>
-                    <div>
-                      <p className="text-xs sm:text-sm font-medium">Watch Our Intro</p>
-                      <p className="text-[10px] sm:text-xs text-muted-foreground hidden sm:block">Learn more about AfriDev</p>
+                    <div className="min-w-0">
+                      <p className="text-[10px] sm:text-xs md:text-sm font-medium truncate">Watch Our Intro</p>
+                      <p className="text-[9px] sm:text-[10px] md:text-xs text-muted-foreground hidden sm:block">Learn more about AfriDev</p>
                     </div>
                   </div>
                   <a
                     href="https://youtu.be/DOEM7pu9shU"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[10px] sm:text-xs text-primary hover:underline hidden sm:block"
+                    className="text-[9px] sm:text-[10px] md:text-xs text-primary hover:underline hidden md:block flex-shrink-0"
                   >
                     Open in YouTube →
                   </a>

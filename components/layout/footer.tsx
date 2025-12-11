@@ -22,7 +22,7 @@ export function Footer() {
       <div className="absolute inset-0 bg-gradient-to-b from-transparent to-primary/5" />
       
       <div className="relative container mx-auto">
-        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-8 sm:gap-10 lg:gap-12 mb-10 sm:mb-12 lg:mb-16">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 md:gap-10 lg:gap-12 mb-8 sm:mb-10 md:mb-12 lg:mb-16">
           {/* Brand */}
           <div className="col-span-2 sm:col-span-2 md:col-span-2">
             <Link href="/" className="flex items-center gap-2 mb-3 sm:mb-4">
