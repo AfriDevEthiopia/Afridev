@@ -1,13 +1,53 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useId } from "react";
 import { usePathname, useRouter } from "@/i18n/routing";
 import { useLocale } from "next-intl";
+import { Globe, Languages, Check, ChevronDown } from "lucide-react";
+
+// Flag icons as SVG components for better rendering
+// Using useId to generate unique IDs for clipPath elements to avoid duplicate ID conflicts
+const FlagEN = () => {
+  const id = useId();
+  const clipId1 = `${id}-clip-s`;
+  const clipId2 = `${id}-clip-t`;
+  
+  return (
+    <svg className="w-6 h-6 rounded-sm overflow-hidden" viewBox="0 0 60 30">
+      <defs>
+        <clipPath id={clipId1}><path d="M0,0 v30 h60 v-30 z"/></clipPath>
+        <clipPath id={clipId2}><path d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z"/></clipPath>
+      </defs>
+      <g clipPath={`url(#${clipId1})`}>
+        <path d="M0,0 v30 h60 v-30 z" fill="#012169"/>
+        <path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" strokeWidth="6"/>
+        <path d="M0,0 L60,30 M60,0 L0,30" clipPath={`url(#${clipId2})`} stroke="#C8102E" strokeWidth="4"/>
+        <path d="M30,0 v30 M0,15 h60" stroke="#fff" strokeWidth="10"/>
+        <path d="M30,0 v30 M0,15 h60" stroke="#C8102E" strokeWidth="6"/>
+      </g>
+    </svg>
+  );
+};
+
+const FlagET = () => (
+  <svg className="w-6 h-6 rounded-sm overflow-hidden" viewBox="0 0 60 30">
+    <rect width="60" height="10" fill="#078930"/>
+    <rect y="10" width="60" height="10" fill="#FCDD09"/>
+    <rect y="20" width="60" height="10" fill="#DA121A"/>
+    <circle cx="30" cy="15" r="6" fill="#0F47AF"/>
+    <g fill="#FCDD09" transform="translate(30,15)">
+      {[0, 72, 144, 216, 288].map((angle, i) => (
+        <polygon key={i} points="0,-5 1,-1.5 5,-1.5 2,0.5 3,4 0,2 -3,4 -2,0.5 -5,-1.5 -1,-1.5" 
+          transform={`rotate(${angle})`} />
+      ))}
+    </g>
+  </svg>
+);
 
 const LANGUAGES = [
-  { code: "en", label: "English", flag: "🇬🇧", nativeName: "English" },
-  { code: "am", label: "Amharic", flag: "🇪🇹", nativeName: "አማርኛ" },
-  { code: "om", label: "Afaan Oromo", flag: "🇪🇹", nativeName: "Afaan Oromoo" },
+  { code: "en", label: "English", Flag: FlagEN, nativeName: "English" },
+  { code: "am", label: "Amharic", Flag: FlagET, nativeName: "አማርኛ" },
+  { code: "om", label: "Afaan Oromo", Flag: FlagET, nativeName: "Afaan Oromoo" },
 ];
 
 export function LanguageSwitcher() {
@@ -59,16 +99,9 @@ export function LanguageSwitcher() {
         aria-expanded={isOpen}
         aria-haspopup="listbox"
       >
-        <span className="text-lg">{currentLang.flag}</span>
+        <currentLang.Flag />
         <span className="text-sm font-medium hidden sm:block">{currentLang.code.toUpperCase()}</span>
-        <svg
-          className={`w-4 h-4 text-muted-foreground transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`}
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-        </svg>
+        <ChevronDown className={`w-4 h-4 text-muted-foreground transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`} />
       </button>
 
       {/* Dropdown Modal */}
@@ -86,9 +119,7 @@ export function LanguageSwitcher() {
               {/* Header */}
               <div className="px-4 py-3 border-b border-border">
                 <div className="flex items-center gap-2">
-                  <svg className="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
+                  <Languages className="w-5 h-5 text-primary" />
                   <span className="text-sm font-semibold">Select Language</span>
                 </div>
               </div>
@@ -108,7 +139,7 @@ export function LanguageSwitcher() {
                     aria-selected={locale === lang.code}
                   >
                     {/* Flag */}
-                    <span className="text-2xl">{lang.flag}</span>
+                    <lang.Flag />
                     
                     {/* Language Info */}
                     <div className="flex-1 text-left">
@@ -119,9 +150,7 @@ export function LanguageSwitcher() {
                     {/* Check mark for selected */}
                     {locale === lang.code && (
                       <div className="w-6 h-6 rounded-full bg-primary flex items-center justify-center">
-                        <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                        </svg>
+                        <Check className="w-4 h-4 text-white" />
                       </div>
                     )}
                   </button>
@@ -130,8 +159,8 @@ export function LanguageSwitcher() {
 
               {/* Footer */}
               <div className="px-4 py-3 border-t border-border bg-secondary/30">
-                <p className="text-xs text-muted-foreground text-center">
-                  🌍 Supporting 3 languages
+                <p className="text-xs text-muted-foreground text-center flex items-center justify-center gap-1">
+                  <Globe className="w-3 h-3" /> Supporting 3 languages
                 </p>
               </div>
             </div>

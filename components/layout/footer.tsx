@@ -2,6 +2,8 @@
 
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
+import { Heart } from "lucide-react";
+import Image from "next/image";
 
 export function Footer() {
   const t = useTranslations("footer");
@@ -24,9 +26,13 @@ export function Footer() {
           {/* Brand */}
           <div className="col-span-2 sm:col-span-2 md:col-span-2">
             <Link href="/" className="flex items-center gap-2 mb-3 sm:mb-4">
-              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center font-bold text-white text-sm sm:text-lg">
-                A
-              </div>
+              <Image
+                src="/images/logo-white.png"
+                alt="AfriDev Logo"
+                width={40}
+                height={40}
+                className="w-8 h-8 sm:w-10 sm:h-10"
+              />
               <span className="text-lg sm:text-xl font-bold">
                 Afri<span className="gradient-text">Dev</span>
               </span>
@@ -91,8 +97,8 @@ export function Footer() {
           <p className="text-[10px] sm:text-xs lg:text-sm text-muted-foreground">
             © {currentYear} AfriDev. {t("rights")}
           </p>
-          <p className="text-[10px] sm:text-xs lg:text-sm text-muted-foreground">
-            Built with ❤️ in Ethiopia
+          <p className="text-[10px] sm:text-xs lg:text-sm text-muted-foreground flex items-center gap-1">
+            Built with <Heart className="w-3 h-3 sm:w-4 sm:h-4 text-red-500 fill-red-500" /> in Ethiopia
           </p>
         </div>
       </div>

@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { Link } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
 import { LanguageSwitcher } from "@/components/ui/language-switcher";
+import Image from "next/image";
 
 export function Header() {
   const t = useTranslations("nav");
@@ -47,9 +48,13 @@ export function Header() {
         <div className="flex items-center justify-between h-14 sm:h-16 lg:h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 group z-50">
-            <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center font-bold text-white text-sm sm:text-lg">
-              A
-            </div>
+            <Image
+              src="/images/logo-white.png"
+              alt="AfriDev Logo"
+              width={40}
+              height={40}
+              className="w-8 h-8 sm:w-10 sm:h-10"
+            />
             <span className="text-lg sm:text-xl font-bold text-foreground">
               Afri<span className="gradient-text">Dev</span>
             </span>

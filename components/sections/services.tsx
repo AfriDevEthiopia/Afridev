@@ -2,14 +2,23 @@
 
 import { useTranslations } from "next-intl";
 import { useEffect, useRef } from "react";
+import { 
+  Rocket, 
+  Smartphone, 
+  Monitor, 
+  Bot, 
+  Cloud, 
+  Target,
+  type LucideIcon 
+} from "lucide-react";
 
-const SERVICES = [
-  { id: "fullstack", icon: "🚀", color: "from-blue-500 to-cyan-500" },
-  { id: "mobile", icon: "📱", color: "from-purple-500 to-pink-500" },
-  { id: "desktop", icon: "💻", color: "from-green-500 to-emerald-500" },
-  { id: "ai", icon: "🤖", color: "from-orange-500 to-red-500" },
-  { id: "cloud", icon: "☁️", color: "from-indigo-500 to-purple-500" },
-  { id: "consulting", icon: "🎯", color: "from-pink-500 to-rose-500" },
+const SERVICES: { id: string; Icon: LucideIcon; color: string }[] = [
+  { id: "fullstack", Icon: Rocket, color: "from-blue-500 to-cyan-500" },
+  { id: "mobile", Icon: Smartphone, color: "from-purple-500 to-pink-500" },
+  { id: "desktop", Icon: Monitor, color: "from-green-500 to-emerald-500" },
+  { id: "ai", Icon: Bot, color: "from-orange-500 to-red-500" },
+  { id: "cloud", Icon: Cloud, color: "from-indigo-500 to-purple-500" },
+  { id: "consulting", Icon: Target, color: "from-pink-500 to-rose-500" },
 ];
 
 export function Services() {
@@ -64,8 +73,8 @@ export function Services() {
               style={{ transitionDelay: `${index * 50}ms` }}
             >
               {/* Icon with gradient background */}
-              <div className={`w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-xl sm:rounded-2xl bg-gradient-to-br ${service.color} flex items-center justify-center text-2xl sm:text-2xl lg:text-3xl mb-4 sm:mb-5 lg:mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                {service.icon}
+              <div className={`w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-xl sm:rounded-2xl bg-gradient-to-br ${service.color} flex items-center justify-center mb-4 sm:mb-5 lg:mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                <service.Icon className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 text-white" />
               </div>
 
               {/* Title */}
