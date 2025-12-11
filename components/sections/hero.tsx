@@ -46,12 +46,6 @@ export function Hero() {
             ref={leftRef}
             className="opacity-0 -translate-x-4 sm:-translate-x-8 transition-all duration-1000 ease-out order-2 lg:order-1"
           >
-            {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-primary/10 border border-primary/20 mb-4 sm:mb-6">
-              <span className="w-1.5 sm:w-2 h-1.5 sm:h-2 bg-green-500 rounded-full animate-pulse" />
-              <span className="text-xs sm:text-sm text-muted-foreground line-clamp-1">{t("tagline")}</span>
-            </div>
-
             {/* Main Title */}
             <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-[1.15] mb-4 sm:mb-6">
               {t("title")}{" "}
