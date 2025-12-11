@@ -453,7 +453,7 @@ export function CursorGlow() {
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       setMousePosition({ x: e.clientX, y: e.clientY });
-      if (!isVisible) setIsVisible(true);
+      setIsVisible(true);
     };
 
     const handleMouseLeave = () => {
@@ -467,7 +467,7 @@ export function CursorGlow() {
       window.removeEventListener("mousemove", handleMouseMove);
       document.body.removeEventListener("mouseleave", handleMouseLeave);
     };
-  }, [isVisible]);
+  }, []);
 
   // Hide on mobile
   if (typeof window !== "undefined" && window.innerWidth < 768) {
@@ -571,22 +571,25 @@ export function TypingEffect({ text, className = "", speed = 50, delay = 0 }: Ty
   useEffect(() => {
     if (!isInView) return;
 
+    let interval: NodeJS.Timeout | null = null;
+    
     const timeout = setTimeout(() => {
       let index = 0;
-      const interval = setInterval(() => {
+      interval = setInterval(() => {
         if (index < text.length) {
           setDisplayText(text.slice(0, index + 1));
           index++;
         } else {
           setIsComplete(true);
-          clearInterval(interval);
+          clearInterval(interval!);
         }
       }, speed);
-
-      return () => clearInterval(interval);
     }, delay);
 
-    return () => clearTimeout(timeout);
+    return () => {
+      clearTimeout(timeout);
+      if (interval) clearInterval(interval);
+    };
   }, [isInView, text, speed, delay]);
 
   return (

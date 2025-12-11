@@ -47,7 +47,7 @@ export function Contact() {
   return (
     <section id="contact" className="py-16 sm:py-20 lg:py-28 relative noise-bg">
       {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-accent/5 via-transparent to-primary/5" />
+      <div className="absolute inset-0 bg-linear-to-b from-accent/5 via-transparent to-primary/5" />
       
       <div className="relative container mx-auto">
         {/* Section Header */}

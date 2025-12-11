@@ -19,7 +19,7 @@ export function Team() {
   return (
     <section id="team" className="py-16 sm:py-20 lg:py-28 relative overflow-hidden">
       {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent" />
+      <div className="absolute inset-0 bg-linear-to-b from-transparent via-primary/5 to-transparent" />
       
       <div className="relative container mx-auto">
         {/* ===== CLIENT REVIEWS SECTION ===== */}
@@ -316,7 +316,7 @@ function TeamCard({ member, t }: { member: typeof TEAM_MEMBERS[0]; t: ReturnType
       <div>
         {/* Avatar */}
         <motion.div 
-          className="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 mx-auto mb-4 sm:mb-5 lg:mb-6 rounded-full bg-gradient-to-br from-primary to-accent p-0.5 sm:p-1"
+          className="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 mx-auto mb-4 sm:mb-5 lg:mb-6 rounded-full bg-linear-to-br from-primary to-accent p-0.5 sm:p-1"
           whileHover={{ scale: 1.1, rotate: 5 }}
           transition={{ type: "spring", stiffness: 300, damping: 20 }}
         >

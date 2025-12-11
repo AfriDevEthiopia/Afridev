@@ -39,7 +39,7 @@ export function Footer() {
       transition={{ duration: 0.6 }}
     >
       {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-primary/5" />
+      <div className="absolute inset-0 bg-linear-to-b from-transparent to-primary/5" />
       
       <div className="relative container mx-auto">
         <StaggerContainer 

@@ -22,7 +22,7 @@ export function Portfolio() {
   return (
     <section id="portfolio" className="py-16 sm:py-20 lg:py-28 relative">
       {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-accent/5 to-transparent" />
+      <div className="absolute inset-0 bg-linear-to-b from-transparent via-accent/5 to-transparent" />
       
       <div className="relative container mx-auto">
         {/* Section Header */}
@@ -71,7 +71,7 @@ export function Portfolio() {
               >
                 {/* Project Header with Gradient */}
                 <motion.div 
-                  className={`h-20 sm:h-24 lg:h-32 bg-gradient-to-br ${typeColors[project.type] || "from-primary to-accent"} relative overflow-hidden`}
+                  className={`h-20 sm:h-24 lg:h-32 bg-linear-to-br ${typeColors[project.type] || "from-primary to-accent"} relative overflow-hidden`}
                   whileHover={{ scale: 1.02 }}
                   transition={{ duration: 0.3 }}
                 >

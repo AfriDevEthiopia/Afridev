@@ -31,7 +31,7 @@ export function Services() {
   return (
     <section id="services" className="py-16 sm:py-20 lg:py-28 relative noise-bg">
       {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent" />
+      <div className="absolute inset-0 bg-linear-to-b from-transparent via-primary/5 to-transparent" />
       
       <div className="relative container mx-auto">
         {/* Section Header */}
@@ -80,7 +80,7 @@ export function Services() {
               >
                 {/* Icon with gradient background */}
                 <motion.div 
-                  className={`w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-xl sm:rounded-2xl bg-gradient-to-br ${service.color} flex items-center justify-center mb-4 sm:mb-5 lg:mb-6`}
+                  className={`w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-xl sm:rounded-2xl bg-linear-to-br ${service.color} flex items-center justify-center mb-4 sm:mb-5 lg:mb-6`}
                   whileHover={{ scale: 1.1, rotate: 5 }}
                   transition={{ type: "spring", stiffness: 400, damping: 17 }}
                 >

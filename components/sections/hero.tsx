@@ -231,6 +231,8 @@ function CountUp({ value, delay, isLoaded }: { value: string; delay: number; isL
   useEffect(() => {
     if (!isLoaded || hasAnimated.current) return;
     
+    let interval: NodeJS.Timeout | null = null;
+    
     const timeout = setTimeout(() => {
       hasAnimated.current = true;
       const numericValue = parseFloat(value.replace(/[^0-9.]/g, "")) || 0;
@@ -240,7 +242,7 @@ function CountUp({ value, delay, isLoaded }: { value: string; delay: number; isL
       const stepDuration = duration / steps;
       let step = 0;
       
-      const interval = setInterval(() => {
+      interval = setInterval(() => {
         step++;
         const progress = step / steps;
         const easeOut = 1 - Math.pow(1 - progress, 3);
@@ -254,14 +256,15 @@ function CountUp({ value, delay, isLoaded }: { value: string; delay: number; isL
         
         if (step >= steps) {
           setDisplayValue(value);
-          clearInterval(interval);
+          clearInterval(interval!);
         }
       }, stepDuration);
-      
-      return () => clearInterval(interval);
     }, delay * 1000);
     
-    return () => clearTimeout(timeout);
+    return () => {
+      clearTimeout(timeout);
+      if (interval) clearInterval(interval);
+    };
   }, [isLoaded, value, delay]);
   
   return <>{displayValue}</>;
