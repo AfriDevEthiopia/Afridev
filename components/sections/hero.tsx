@@ -46,54 +46,54 @@ export function Hero() {
             ref={leftRef}
             className="opacity-0 -translate-x-4 sm:-translate-x-8 transition-all duration-1000 ease-out order-2 lg:order-1"
           >
-            {/* Main Title */}
+          {/* Main Title */}
             <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-[1.15] mb-4 sm:mb-6">
-              {t("title")}{" "}
+            {t("title")}{" "}
               <span className="gradient-text">{t("titleHighlight")}</span>{" "}
-              {t("titleEnd")}
-            </h1>
+            {t("titleEnd")}
+          </h1>
 
-            {/* Description */}
+          {/* Description */}
             <p className="text-sm sm:text-base lg:text-lg text-muted-foreground mb-6 sm:mb-8 leading-relaxed max-w-xl">
-              {t("description")}
-            </p>
+            {t("description")}
+          </p>
 
-            {/* CTA Buttons */}
+          {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-8 sm:mb-12">
               <button
                 className="btn-primary flex items-center justify-center gap-2 group w-full sm:w-auto"
                 onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
-              >
-                {t("cta")}
+            >
+              {t("cta")}
                 <svg className="w-4 h-4 sm:w-5 sm:h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
+              </svg>
               </button>
               <button
                 className="btn-secondary w-full sm:w-auto"
                 onClick={() => document.getElementById("portfolio")?.scrollIntoView({ behavior: "smooth" })}
-              >
-                {t("ctaSecondary")}
+            >
+              {t("ctaSecondary")}
               </button>
-            </div>
+          </div>
 
             {/* Stats Grid */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3 lg:gap-4">
               {stats.map((stat, index) => (
-                <div
-                  key={index}
+              <div
+                key={index}
                   className="text-center p-3 sm:p-4 rounded-lg sm:rounded-xl bg-secondary/30 border border-border"
-                  style={{
+                style={{
                     animation: `fadeInUp 0.6s ease-out ${0.8 + index * 0.1}s forwards`,
-                    opacity: 0,
-                  }}
-                >
+                  opacity: 0,
+                }}
+              >
                   <div className="text-xl sm:text-2xl lg:text-3xl font-bold gradient-text">{stat.value}</div>
                   <div className="text-[10px] sm:text-xs text-muted-foreground mt-0.5 sm:mt-1 line-clamp-1">{stat.label}</div>
-                </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
+        </div>
 
           {/* Right - YouTube Video */}
           <div

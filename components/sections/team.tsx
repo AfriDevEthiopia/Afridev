@@ -59,7 +59,7 @@ export function Team() {
               <div className="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 mx-auto mb-4 sm:mb-5 lg:mb-6 rounded-full bg-gradient-to-br from-primary to-accent p-0.5 sm:p-1 group-hover:scale-110 transition-transform duration-300">
                 <div className="w-full h-full rounded-full bg-card flex items-center justify-center">
                   <span className="text-xl sm:text-2xl lg:text-3xl font-bold gradient-text">
-                    {member.name.charAt(0)}
+                {member.name.charAt(0)}
                   </span>
                 </div>
               </div>
@@ -69,12 +69,12 @@ export function Team() {
 
               {/* Badge */}
               <span className={`inline-block px-2 sm:px-3 py-0.5 sm:py-1 rounded-full text-[10px] sm:text-xs font-medium mb-3 sm:mb-4 ${
-                member.badge === "Top Rated"
+                    member.badge === "Top Rated"
                   ? "bg-yellow-500/10 text-yellow-500 border border-yellow-500/20"
                   : "bg-blue-500/10 text-blue-500 border border-blue-500/20"
               }`}>
                 {member.badge === "Top Rated" ? t("topRated") : t("risingTalent")}
-              </span>
+                </span>
 
               {/* Job Success */}
               <div className="pt-3 sm:pt-4 border-t border-border">

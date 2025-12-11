@@ -76,8 +76,8 @@ export function Header() {
           {/* Right Section */}
           <div className="flex items-center gap-2 sm:gap-4">
             <div className="hidden sm:block">
-              <LanguageSwitcher />
-            </div>
+            <LanguageSwitcher />
+          </div>
             
             <a
               href="#contact"
@@ -86,21 +86,21 @@ export function Header() {
               Get Started
             </a>
 
-            {/* Mobile Menu Button */}
-            <button
+          {/* Mobile Menu Button */}
+          <button
               className="lg:hidden p-2 text-muted-foreground hover:text-foreground rounded-lg hover:bg-secondary/50 transition-colors z-50"
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              aria-label="Toggle menu"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label="Toggle menu"
               aria-expanded={isMobileMenuOpen}
-            >
+          >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                {isMobileMenuOpen ? (
+              {isMobileMenuOpen ? (
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                ) : (
+              ) : (
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                )}
-              </svg>
-            </button>
+              )}
+            </svg>
+          </button>
           </div>
         </div>
 
@@ -110,25 +110,25 @@ export function Header() {
             <div className="container h-full flex flex-col py-8">
               <div className="flex flex-col gap-2">
                 {navItems.map((item, index) => (
-                  <a
-                    key={item.href}
-                    href={item.href}
+                <a
+                  key={item.href}
+                  href={item.href}
                     className="px-4 py-4 text-lg font-medium text-foreground hover:text-primary hover:bg-secondary/50 rounded-xl transition-all"
-                    onClick={() => setIsMobileMenuOpen(false)}
+                  onClick={() => setIsMobileMenuOpen(false)}
                     style={{
                       animation: `fadeInUp 0.3s ease-out ${index * 0.05}s forwards`,
                       opacity: 0,
                     }}
-                  >
-                    {item.label}
-                  </a>
-                ))}
+                >
+                  {item.label}
+                </a>
+              ))}
               </div>
               
               <div className="mt-8 pt-8 border-t border-border space-y-6">
                 <div className="sm:hidden">
                   <p className="text-sm text-muted-foreground mb-3 px-4">Language</p>
-                  <LanguageSwitcher />
+                <LanguageSwitcher />
                 </div>
                 
                 <a

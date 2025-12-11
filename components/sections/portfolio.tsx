@@ -68,8 +68,8 @@ export function Portfolio() {
                 <div className="absolute inset-0 bg-black/20" />
                 <div className="absolute bottom-2 sm:bottom-3 lg:bottom-4 left-3 sm:left-4 lg:left-6">
                   <span className="px-2 sm:px-3 py-0.5 sm:py-1 bg-black/30 backdrop-blur-sm rounded-full text-[10px] sm:text-xs text-white font-medium">
-                    {project.type}
-                  </span>
+                  {project.type}
+                </span>
                 </div>
               </div>
 

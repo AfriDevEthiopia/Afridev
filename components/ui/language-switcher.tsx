@@ -118,7 +118,7 @@ export function LanguageSwitcher() {
             <div className="glass rounded-2xl border border-border shadow-2xl shadow-black/20 overflow-hidden">
               {/* Header */}
               <div className="px-4 py-3 border-b border-border">
-                <div className="flex items-center gap-2">
+    <div className="flex items-center gap-2">
                   <Languages className="w-5 h-5 text-primary" />
                   <span className="text-sm font-semibold">Select Language</span>
                 </div>
@@ -126,12 +126,12 @@ export function LanguageSwitcher() {
 
               {/* Language Options */}
               <div className="p-2" role="listbox">
-                {LANGUAGES.map((lang) => (
-                  <button
-                    key={lang.code}
-                    onClick={() => handleChange(lang.code)}
+      {LANGUAGES.map((lang) => (
+        <button
+          key={lang.code}
+          onClick={() => handleChange(lang.code)}
                     className={`w-full flex items-center gap-3 px-3 py-3 rounded-xl transition-all duration-200 ${
-                      locale === lang.code
+            locale === lang.code
                         ? "bg-primary/20 border border-primary/30"
                         : "hover:bg-secondary/50 border border-transparent"
                     }`}
@@ -153,8 +153,8 @@ export function LanguageSwitcher() {
                         <Check className="w-4 h-4 text-white" />
                       </div>
                     )}
-                  </button>
-                ))}
+        </button>
+      ))}
               </div>
 
               {/* Footer */}

@@ -44,70 +44,70 @@ export function Contact() {
           <form onSubmit={handleSubmit} className="glass rounded-xl sm:rounded-2xl lg:rounded-3xl p-5 sm:p-8 lg:p-12 space-y-4 sm:space-y-5 lg:space-y-6">
             {/* Name & Email Row */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 lg:gap-6">
-              <div>
+          <div>
                 <label htmlFor="name" className="block text-xs sm:text-sm font-medium mb-1.5 sm:mb-2">
-                  {t("name")}
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  required
+              {t("name")}
+            </label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              required
                   className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg sm:rounded-xl bg-secondary/50 border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all text-sm sm:text-base"
                   placeholder="John Doe"
-                />
-              </div>
-              <div>
+            />
+          </div>
+          <div>
                 <label htmlFor="email" className="block text-xs sm:text-sm font-medium mb-1.5 sm:mb-2">
-                  {t("email")}
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  required
+              {t("email")}
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
                   className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg sm:rounded-xl bg-secondary/50 border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all text-sm sm:text-base"
                   placeholder="john@example.com"
-                />
+            />
               </div>
-            </div>
+          </div>
 
             {/* Subject */}
-            <div>
+          <div>
               <label htmlFor="subject" className="block text-xs sm:text-sm font-medium mb-1.5 sm:mb-2">
-                {t("subject")}
-              </label>
-              <input
-                type="text"
-                id="subject"
-                name="subject"
-                required
+              {t("subject")}
+            </label>
+            <input
+              type="text"
+              id="subject"
+              name="subject"
+              required
                 className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg sm:rounded-xl bg-secondary/50 border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all text-sm sm:text-base"
                 placeholder="Project inquiry"
-              />
-            </div>
+            />
+          </div>
 
             {/* Message */}
-            <div>
+          <div>
               <label htmlFor="message" className="block text-xs sm:text-sm font-medium mb-1.5 sm:mb-2">
-                {t("message")}
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                required
+              {t("message")}
+            </label>
+            <textarea
+              id="message"
+              name="message"
+              required
                 rows={4}
                 className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg sm:rounded-xl bg-secondary/50 border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all resize-none text-sm sm:text-base"
                 placeholder="Tell us about your project..."
-              />
-            </div>
+            />
+          </div>
 
-            {/* Submit Button */}
+          {/* Submit Button */}
             <button
-              type="submit"
-              disabled={isSubmitting}
+            type="submit"
+            disabled={isSubmitting}
               className="w-full btn-primary py-3 sm:py-4 disabled:opacity-50 disabled:cursor-not-allowed text-sm sm:text-base lg:text-lg"
-            >
+          >
               {isSubmitting ? (
                 <span className="flex items-center justify-center gap-2">
                   <svg className="w-4 h-4 sm:w-5 sm:h-5 animate-spin" fill="none" viewBox="0 0 24 24">
@@ -121,18 +121,18 @@ export function Contact() {
               )}
             </button>
 
-            {/* Status Messages */}
-            {status === "success" && (
+          {/* Status Messages */}
+          {status === "success" && (
               <div className="p-3 sm:p-4 rounded-lg sm:rounded-xl bg-green-500/10 border border-green-500/20 text-green-500 text-xs sm:text-sm text-center">
-                {t("success")}
-              </div>
-            )}
-            {status === "error" && (
+              {t("success")}
+            </div>
+          )}
+          {status === "error" && (
               <div className="p-3 sm:p-4 rounded-lg sm:rounded-xl bg-red-500/10 border border-red-500/20 text-red-500 text-xs sm:text-sm text-center">
-                {t("error")}
-              </div>
-            )}
-          </form>
+              {t("error")}
+            </div>
+          )}
+        </form>
         </div>
       </div>
     </section>
