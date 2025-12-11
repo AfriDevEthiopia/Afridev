@@ -25,9 +25,9 @@ export function Hero() {
   }, []);
 
   const stats = [
-    { value: "88+", label: tStats("projects") },
+    { value: "12+", label: tStats("projects") },
     { value: "100%", label: tStats("satisfaction") },
-    { value: "15+", label: tStats("countries") },
+    { value: "5+", label: tStats("countries") },
     { value: "99.9%", label: tStats("uptime") },
   ];
 
