@@ -43,7 +43,7 @@ zds/
 │   └── om.json
 ├── types/
 │   └── index.ts            # TypeScript type definitions
-└── middleware.ts           # Next.js middleware for i18n
+└── proxy.ts                # Next.js proxy for i18n (formerly middleware.ts)
 ```
 
 ## 🛠️ Tech Stack

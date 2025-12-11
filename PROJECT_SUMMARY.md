@@ -91,7 +91,7 @@ zds/
 ├── types/
 │   └── index.ts               # TypeScript type definitions
 │
-├── middleware.ts              # Next.js i18n middleware
+├── proxy.ts                   # Next.js i18n proxy (formerly middleware.ts)
 ├── next.config.ts             # Next.js configuration
 ├── tailwind.config.ts         # Tailwind (v4 uses globals.css)
 ├── tsconfig.json              # TypeScript configuration

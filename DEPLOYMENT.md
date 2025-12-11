@@ -56,7 +56,7 @@ zds/
 ├── i18n/                  # Internationalization config
 ├── lib/                   # Utilities and constants
 ├── messages/              # Translation files (en, am, om)
-└── middleware.ts          # i18n middleware
+└── proxy.ts               # i18n proxy (formerly middleware.ts)
 ```
 
 ## 🏗️ Production Build
@@ -269,7 +269,7 @@ npm install
 
 **Issue:** Translations not loading
 - Verify JSON files in `messages/` folder
-- Check locale routing in middleware
+- Check locale routing in proxy
 - Ensure `next-intl` is configured correctly
 
 ### Performance Issues
