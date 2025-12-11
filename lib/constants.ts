@@ -67,6 +67,42 @@ export const TESTIMONIALS: Testimonial[] = [
     quote:
       "Fantastic Guy with a great team of people very efficient and thorough in his work and a proper gentleman",
   },
+  {
+    id: "3",
+    project: "Python Coder Needed for Script Adjustments and Modifications",
+    rating: 5,
+    period: "Aug 15, 2025 - Oct 15, 2025",
+    budget: "$773.34 ($10.00/hr • 77 hours)",
+    quote:
+      "Fantastic guy to work with absolute pleasure, patience and very professional",
+  },
+  {
+    id: "4",
+    project: "Backend vibe coder needed",
+    rating: 5,
+    period: "Jul 26, 2025 - Sep 6, 2025",
+    budget: "$570.00 (Fixed price)",
+    quote:
+      "Your clear communication, professionalism, and collaborative approach made the project smooth and enjoyable. I truly appreciate the trust and support, and I would be more than happy to work with you again.",
+  },
+  {
+    id: "5",
+    project: "Full-Stack Engineer with AI chatbot Integration Experience",
+    rating: 5,
+    period: "Jul 15, 2025 - Jul 16, 2025",
+    budget: "$8.75 (Fixed price)",
+    quote:
+      "Tamirat is exceptionally talented and consistently exceeded our expectations. His expertise in AI chatbot integration was clearly demonstrated throughout the project. He delivered high-quality work on time and communicated effectively.",
+  },
+  {
+    id: "6",
+    project: "EuroStack - MVP",
+    rating: 5,
+    period: "Jun 21, 2025 - Jun 21, 2025",
+    budget: "$40.00 ($20.00/hr • 2 hours)",
+    quote:
+      "I had a great experience working with Tamirat! From the very beginning, communication was smooth and professional. The quality of the design work exceeded expectations – clean, modern, and fully aligned with our vision.",
+  },
 ];
 
 export const TEAM_MEMBERS: TeamMember[] = [

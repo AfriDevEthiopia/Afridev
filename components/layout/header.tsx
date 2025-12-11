@@ -4,12 +4,20 @@ import { useState, useEffect } from "react";
 import { Link } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
 import { LanguageSwitcher } from "@/components/ui/language-switcher";
+import { ThemeToggle } from "@/components/theme-toggle";
+import { useTheme } from "next-themes";
 import Image from "next/image";
 
 export function Header() {
   const t = useTranslations("nav");
+  const { resolvedTheme } = useTheme();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
@@ -48,13 +56,18 @@ export function Header() {
         <div className="flex items-center justify-between h-14 sm:h-16 lg:h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 group z-50">
-            <Image
-              src="/images/logo-white.png"
-              alt="AfriDev Logo"
-              width={40}
-              height={40}
-              className="w-8 h-8 sm:w-10 sm:h-10"
-            />
+            {/* Show placeholder during SSR/hydration, then show themed logo */}
+            {!mounted ? (
+              <div className="w-8 h-8 sm:w-10 sm:h-10 bg-transparent" />
+            ) : (
+              <Image
+                src={resolvedTheme === "dark" ? "/images/logo-white.png" : "/images/logo-black.png"}
+                alt="AfriDev Logo"
+                width={40}
+                height={40}
+                className="w-8 h-8 sm:w-10 sm:h-10"
+              />
+            )}
             <span className="text-lg sm:text-xl font-bold text-foreground">
               Afri<span className="gradient-text">Dev</span>
             </span>
@@ -66,7 +79,7 @@ export function Header() {
               <a
                 key={item.href}
                 href={item.href}
-                className="px-3 xl:px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary/50 rounded-lg transition-all duration-200"
+                className="px-3 xl:px-4 py-2 text-sm font-medium text-foreground/80 hover:text-primary hover:bg-primary/10 rounded-lg transition-all duration-200"
               >
                 {item.label}
               </a>
@@ -79,6 +92,8 @@ export function Header() {
               <LanguageSwitcher />
             </div>
             
+            <ThemeToggle />
+
             <a
               href="#contact"
               className="hidden md:flex btn-primary text-xs sm:text-sm py-2 px-3 sm:px-4"
@@ -88,7 +103,7 @@ export function Header() {
 
             {/* Mobile Menu Button */}
             <button
-              className="lg:hidden p-2 text-muted-foreground hover:text-foreground rounded-lg hover:bg-secondary/50 transition-colors z-50"
+              className="lg:hidden p-2 text-foreground hover:text-primary rounded-lg hover:bg-primary/10 transition-colors z-50"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               aria-label="Toggle menu"
               aria-expanded={isMobileMenuOpen}
@@ -110,25 +125,30 @@ export function Header() {
             <div className="container h-full flex flex-col py-8">
               <div className="flex flex-col gap-2">
                 {navItems.map((item, index) => (
-                <a
-                  key={item.href}
-                  href={item.href}
-                    className="px-4 py-4 text-lg font-medium text-foreground hover:text-primary hover:bg-secondary/50 rounded-xl transition-all"
-                  onClick={() => setIsMobileMenuOpen(false)}
+                  <a
+                    key={item.href}
+                    href={item.href}
+                    className="px-4 py-4 text-lg font-medium text-foreground hover:text-primary hover:bg-primary/10 rounded-xl transition-all"
+                    onClick={() => setIsMobileMenuOpen(false)}
                     style={{
                       animation: `fadeInUp 0.3s ease-out ${index * 0.05}s forwards`,
                       opacity: 0,
                     }}
-                >
-                  {item.label}
-                </a>
-              ))}
+                  >
+                    {item.label}
+                  </a>
+                ))}
               </div>
               
               <div className="mt-8 pt-8 border-t border-border space-y-6">
+                <div className="flex items-center justify-between px-4 sm:hidden">
+                  <p className="text-sm text-foreground/70">Appearance</p>
+                  <ThemeToggle />
+                </div>
+
                 <div className="sm:hidden">
-                  <p className="text-sm text-muted-foreground mb-3 px-4">Language</p>
-                <LanguageSwitcher />
+                  <p className="text-sm text-foreground/70 mb-3 px-4">Language</p>
+                  <LanguageSwitcher />
                 </div>
                 
                 <a
