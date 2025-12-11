@@ -3,6 +3,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
+import { NoTranslate } from "@/components/NoTranslate";
 import "../globals.css";
 
 export const metadata: Metadata = {
@@ -19,6 +20,9 @@ export const metadata: Metadata = {
     "Cloud Computing",
     "DevOps",
   ],
+  other: {
+    "google": "notranslate",
+  },
 };
 
 export default async function LocaleLayout({
@@ -39,8 +43,9 @@ export default async function LocaleLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={locale} suppressHydrationWarning>
+    <html lang={locale} suppressHydrationWarning className="notranslate">
       <body className="antialiased">
+        <NoTranslate />
         <NextIntlClientProvider messages={messages}>
           {children}
         </NextIntlClientProvider>
