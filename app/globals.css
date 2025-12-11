@@ -909,6 +909,215 @@ html, body {
   animation: fadeInUp 0.6s ease-out forwards;
 }
 
+/* ===== ENHANCED ANIMATIONS ===== */
+
+/* Smooth page transitions */
+.page-transition-enter {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.page-transition-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+}
+
+.page-transition-exit {
+  opacity: 1;
+}
+
+.page-transition-exit-active {
+  opacity: 0;
+  transition: opacity 0.2s ease-in;
+}
+
+/* Enhanced button glow on hover */
+.btn-glow {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-glow::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(99, 102, 241, 0.4) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.btn-glow:hover::after {
+  opacity: 1;
+}
+
+/* Magnetic hover effect helper */
+.magnetic-hover {
+  transition: transform 0.2s cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+/* Text gradient animation */
+@keyframes gradient-x {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.animate-gradient-x {
+  background-size: 200% 200%;
+  animation: gradient-x 3s ease infinite;
+}
+
+/* Subtle scale on scroll trigger */
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.5s ease-out forwards;
+}
+
+/* Line reveal animation for text */
+@keyframes lineReveal {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+.animate-line-reveal {
+  animation: lineReveal 0.8s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
+/* Stagger children animation helper */
+.stagger-children > * {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.stagger-children.animate > *:nth-child(1) { animation: fadeInUp 0.5s ease-out 0.1s forwards; }
+.stagger-children.animate > *:nth-child(2) { animation: fadeInUp 0.5s ease-out 0.15s forwards; }
+.stagger-children.animate > *:nth-child(3) { animation: fadeInUp 0.5s ease-out 0.2s forwards; }
+.stagger-children.animate > *:nth-child(4) { animation: fadeInUp 0.5s ease-out 0.25s forwards; }
+.stagger-children.animate > *:nth-child(5) { animation: fadeInUp 0.5s ease-out 0.3s forwards; }
+.stagger-children.animate > *:nth-child(6) { animation: fadeInUp 0.5s ease-out 0.35s forwards; }
+
+/* Enhanced focus states for inputs */
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  box-shadow: 
+    0 0 0 3px rgba(99, 102, 241, 0.15),
+    0 0 20px rgba(99, 102, 241, 0.1);
+  border-color: var(--primary);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Smooth color transitions for interactive elements */
+a,
+button,
+[role="button"] {
+  transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Card lift effect */
+.card-lift {
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+}
+
+.card-lift:hover {
+  transform: translateY(-8px);
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.1),
+    0 0 40px rgba(99, 102, 241, 0.1);
+}
+
+/* Cursor glow overlay - only visible on desktop */
+@media (min-width: 768px) {
+  .cursor-glow-enabled body {
+    cursor: none;
+  }
+  
+  .cursor-glow-enabled a,
+  .cursor-glow-enabled button,
+  .cursor-glow-enabled [role="button"],
+  .cursor-glow-enabled input,
+  .cursor-glow-enabled textarea,
+  .cursor-glow-enabled select {
+    cursor: none;
+  }
+}
+
+/* Slide animations */
+@keyframes slideInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-slide-left {
+  animation: slideInFromLeft 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.animate-slide-right {
+  animation: slideInFromRight 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* Blur in animation */
+@keyframes blurIn {
+  from {
+    opacity: 0;
+    filter: blur(10px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+.animate-blur-in {
+  animation: blurIn 0.6s ease-out forwards;
+}
+
+/* Pulse animation for attention */
+@keyframes gentlePulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+}
+
+.animate-gentle-pulse {
+  animation: gentlePulse 2s ease-in-out infinite;
+}
+
 /* Safe area for notched phones */
 @supports (padding: env(safe-area-inset-bottom)) {
   body {
