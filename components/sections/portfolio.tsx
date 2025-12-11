@@ -109,7 +109,7 @@ export function Portfolio() {
                           transition={{ delay: 0.1 * idx }}
                         >
                           <motion.svg 
-                            className="w-4 h-4 sm:w-5 sm:h-5 text-green-500 flex-shrink-0 mt-0.5" 
+                            className="w-4 h-4 sm:w-5 sm:h-5 text-green-500 shrink-0 mt-0.5" 
                             fill="none" 
                             stroke="currentColor" 
                             viewBox="0 0 24 24"

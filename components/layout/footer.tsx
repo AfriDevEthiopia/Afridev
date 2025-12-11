@@ -197,7 +197,7 @@ export function Footer() {
             className="text-[10px] sm:text-xs lg:text-sm text-muted-foreground flex items-center gap-1"
             whileHover={{ scale: 1.02 }}
           >
-            Built by the AfriDev Team in Ethiopia
+            Built by the AfriDev Team
           </motion.p>
         </motion.div>
       </div>

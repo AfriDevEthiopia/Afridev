@@ -259,7 +259,7 @@ function Carousel<T extends { id: string }>({ items, renderItem, autoSlideInterv
             {visibleItems.map(({ item, originalIndex }, idx) => (
               <motion.div
                 key={`${item.id}-${originalIndex}-${currentIndex}`}
-                className={`flex-shrink-0 ${
+                className={`shrink-0 ${
                   itemsToShow === 1 ? "w-full" : itemsToShow === 2 ? "w-[calc(50%-0.375rem)] sm:w-[calc(50%-0.5rem)]" : "w-[calc(33.333%-0.667rem)] md:w-[calc(33.333%-1rem)]"
                 }`}
                 initial={{ opacity: 0, x: 50, scale: 0.9 }}
