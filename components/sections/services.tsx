@@ -97,6 +97,14 @@ export function Services() {
                   {t(`${service.id}.description`)}
                 </p>
 
+                {/* Showcase - if available */}
+                {t.has(`${service.id}.showcase`) && (
+                  <div className="mt-3 sm:mt-4 pt-3 sm:pt-4 border-t border-border/50">
+                    <span className="text-[10px] sm:text-xs text-muted-foreground">Showcase: </span>
+                    <span className="text-xs sm:text-sm font-medium text-primary">{t(`${service.id}.showcase`)}</span>
+                  </div>
+                )}
+
                 {/* Hover Arrow - Hidden on mobile */}
                 <motion.div 
                   className="mt-4 sm:mt-5 lg:mt-6 hidden sm:flex items-center gap-2 text-primary"

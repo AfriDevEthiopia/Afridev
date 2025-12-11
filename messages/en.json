@@ -27,28 +27,32 @@
     "title": "Our Services",
     "subtitle": "Comprehensive solutions for modern digital challenges",
     "fullstack": {
-      "title": "Full-Stack Development",
-      "description": "Expertise in Python, Node.js, Golang, PHP, React/Next.js with TypeScript"
+      "title": "Full-Stack Web Development",
+      "description": "Build high-performance web apps and integrate AI features like ChatGPT or custom LLMs. We help startups and tech teams build cloud-native, scalable applications using Python (Django/FastAPI), Node.js, React/Next.js, and more.",
+      "showcase": "Patient Health Monitoring System"
     },
     "mobile": {
       "title": "Mobile App Development",
-      "description": "High-performance iOS and Android apps using Flutter & FlutterFlow"
+      "description": "Create mobile applications that help users discover and engage. We build comprehensive apps with detailed profiles, user reviews and ratings, advanced search and filtering capabilities using Flutter & FlutterFlow.",
+      "showcase": "RateEat"
     },
     "desktop": {
-      "title": "Desktop Applications",
-      "description": "Robust applications for Windows, macOS, and Linux platforms"
+      "title": "Desktop Application Development",
+      "description": "Design and build robust, high-performance desktop applications that run seamlessly across platforms (Windows, macOS, Linux). From standalone utilities to real-time communication tools and full-scale business applications.",
+      "showcase": "SmartVid AI: Automate Video Creation & Posting"
     },
     "ai": {
-      "title": "AI & LLM Integration",
-      "description": "ChatGPT integration, custom LLMs, and AI automation features"
+      "title": "AI Apps & Integration",
+      "description": "Prepare for success with AI-powered solutions. We build personalized study materials, organized resources, and interactive learning tools. Integrate ChatGPT, custom LLMs, and AI automation into your products.",
+      "showcase": "Skill Bridge"
     },
     "cloud": {
       "title": "Cloud & DevOps",
-      "description": "AWS infrastructure, Docker, Kubernetes, and CI/CD pipelines"
+      "description": "AWS infrastructure, Docker, Kubernetes, and CI/CD pipelines for scalable cloud-native applications"
     },
     "consulting": {
       "title": "Consulting & Optimization",
-      "description": "Technical guidance, performance optimization, and architecture design"
+      "description": "Technical guidance, performance optimization, and architecture design for modern applications"
     }
   },
   "whyChoose": {

@@ -86,7 +86,7 @@ export function Hero() {
                 href={UPWORK_AGENCY_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-[#14a800] hover:bg-[#14a800]/90 text-white font-semibold transition-all shadow-lg shadow-[#14a800]/30 w-full sm:w-auto"
+                className="flex items-center justify-center gap-2 px-5 py-2 sm:px-6 sm:py-2.5 rounded-lg sm:rounded-xl bg-[#14a800] hover:bg-[#14a800]/90 text-white font-semibold transition-all shadow-lg shadow-[#14a800]/30 w-full sm:w-auto text-xs sm:text-sm"
                 whileHover={{ scale: 1.03, y: -2 }}
                 whileTap={{ scale: 0.98 }}
               >
