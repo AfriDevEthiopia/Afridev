@@ -1,0 +1,111 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "testimonials": "Testimonials",
+    "team": "Team",
+    "contact": "Contact"
+  },
+  "hero": {
+    "tagline": "Full Stack Developers | AI, LLM & Automation Experts | Web, Mobile & Desktop Apps",
+    "title": "Building the Future with",
+    "titleHighlight": "Cloud-Native & AI-Powered",
+    "titleEnd": "Applications",
+    "description": "At AfriDev, we help startups and tech teams build scalable, high-performance applications using modern technologies. From web and mobile apps to AI integration and DevOps, we turn complex ideas into seamless digital solutions.",
+    "cta": "Get Free Consultation",
+    "ctaSecondary": "View Our Work"
+  },
+  "stats": {
+    "projects": "Projects Delivered",
+    "satisfaction": "Client Satisfaction",
+    "countries": "Countries Served",
+    "uptime": "Average Uptime"
+  },
+  "services": {
+    "title": "Our Services",
+    "subtitle": "Comprehensive solutions for modern digital challenges",
+    "fullstack": {
+      "title": "Full-Stack Development",
+      "description": "Expertise in Python, Node.js, Golang, PHP, React/Next.js with TypeScript"
+    },
+    "mobile": {
+      "title": "Mobile App Development",
+      "description": "High-performance iOS and Android apps using Flutter & FlutterFlow"
+    },
+    "desktop": {
+      "title": "Desktop Applications",
+      "description": "Robust applications for Windows, macOS, and Linux platforms"
+    },
+    "ai": {
+      "title": "AI & LLM Integration",
+      "description": "ChatGPT integration, custom LLMs, and AI automation features"
+    },
+    "cloud": {
+      "title": "Cloud & DevOps",
+      "description": "AWS infrastructure, Docker, Kubernetes, and CI/CD pipelines"
+    },
+    "consulting": {
+      "title": "Consulting & Optimization",
+      "description": "Technical guidance, performance optimization, and architecture design"
+    }
+  },
+  "whyChoose": {
+    "title": "Why Choose AfriDev",
+    "subtitle": "We're committed to delivering excellence in every project",
+    "detailOriented": {
+      "title": "Detail-Oriented",
+      "description": "We deliver polished, robust, and scalable solutions"
+    },
+    "communication": {
+      "title": "Clear Communication",
+      "description": "Daily updates and sprint reviews keep you informed"
+    },
+    "exceeding": {
+      "title": "Exceeding Expectations",
+      "description": "Our goal is to surpass client objectives and ensure long-term satisfaction"
+    },
+    "partnership": {
+      "title": "Partnership Mindset",
+      "description": "Your vision becomes our mission; we are committed to your success"
+    }
+  },
+  "portfolio": {
+    "title": "Our Portfolio",
+    "subtitle": "Showcasing our best work and success stories",
+    "viewProject": "View Project",
+    "learnMore": "Learn More"
+  },
+  "testimonials": {
+    "title": "What Our Clients Say",
+    "subtitle": "Trusted by startups and tech teams worldwide"
+  },
+  "team": {
+    "title": "Meet Our Team",
+    "subtitle": "Experienced professionals dedicated to your success",
+    "jobSuccess": "Job Success",
+    "topRated": "Top Rated",
+    "risingTalent": "Rising Talent"
+  },
+  "contact": {
+    "title": "Let's Work Together",
+    "subtitle": "Available for a free 30-minute consultation to understand your project",
+    "name": "Your Name",
+    "email": "Your Email",
+    "subject": "Subject",
+    "message": "Tell us about your project",
+    "send": "Send Message",
+    "sending": "Sending...",
+    "success": "Message sent successfully! We'll get back to you soon.",
+    "error": "Failed to send message. Please try again."
+  },
+  "footer": {
+    "tagline": "Building cloud-native and AI-powered applications",
+    "rights": "All rights reserved.",
+    "services": "Services",
+    "company": "Company",
+    "connect": "Connect"
+  }
+}
+

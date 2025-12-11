@@ -1,0 +1,111 @@
+{
+  "nav": {
+    "home": "Mana",
+    "about": "Waa'ee Keenya",
+    "services": "Tajaajiloota",
+    "portfolio": "Hojiilee",
+    "testimonials": "Ragaalee",
+    "team": "Garee",
+    "contact": "Nu Quunnamaa"
+  },
+  "hero": {
+    "tagline": "Qopheessitoonni Full Stack | Ogeeyyii AI, LLM & Automation | Apps Web, Mobile & Desktop",
+    "title": "Egeree Ijaaraa jirra",
+    "titleHighlight": "Cloud-Native fi AI-Powered",
+    "titleEnd": "Applications waliin",
+    "description": "AfriDev irratti, dhaabbileen jalqabaa fi gareewwan teeknooloojii teeknooloojii ammayyaa fayyadamuun aplikeeshiniiwwan guddachuu danda'an, raawwii olaanaa qaban akka ijaaratan gargaarra. Apps weebii fi moobayilaa irraa kaasee hanga walitti makamuu AI fi DevOpsitti, yaada walxaxaa gara furmaata dijitaalaa sirrii ta'etti jijjiirra.",
+    "cta": "Gorsa Bilisaa Argadhu",
+    "ctaSecondary": "Hojii Keenya Ilaali"
+  },
+  "stats": {
+    "projects": "Pirojektoota Raawwataman",
+    "satisfaction": "Itti Quufinsa Maamiltootaa",
+    "countries": "Biyyoota Tajaajilaman",
+    "uptime": "Giddugaleessa Sa'aatii Hojii"
+  },
+  "services": {
+    "title": "Tajaajiloota Keenya",
+    "subtitle": "Furmaata waliigalaa qormaata dijitaalaa ammayyaaf",
+    "fullstack": {
+      "title": "Guddinaa Full-Stack",
+      "description": "Ogummaa Python, Node.js, Golang, PHP, React/Next.js waliin TypeScript"
+    },
+    "mobile": {
+      "title": "Guddinaa App Mobile",
+      "description": "Apps iOS fi Android raawwii olaanaa qaban Flutter & FlutterFlow fayyadamuun"
+    },
+    "desktop": {
+      "title": "Aplikeeshiniiwwan Desktop",
+      "description": "Aplikeeshiniiwwan cimoo Windows, macOS, fi Linux platforms"
+    },
+    "ai": {
+      "title": "Walitti Makamuu AI & LLM",
+      "description": "Walitti makamuu ChatGPT, LLMs dhuunfaa, fi amaloota automation AI"
+    },
+    "cloud": {
+      "title": "Cloud & DevOps",
+      "description": "Bu'uura AWS, Docker, Kubernetes, fi pipelines CI/CD"
+    },
+    "consulting": {
+      "title": "Gorsa & Fooyyessuu",
+      "description": "Qajeelfama teeknikaa, fooyyessuu raawwii, fi dizaayinii arkiteekcharii"
+    }
+  },
+  "whyChoose": {
+    "title": "Maaliif AfriDev Filadhaa",
+    "subtitle": "Pirojektii hunda keessatti gahumsa kennuuf kutannoo qabna",
+    "detailOriented": {
+      "title": "Bal'inaan Xiyyeeffannoo",
+      "description": "Furmaata qulqullaa'e, cimaa fi guddachuu danda'u kennina"
+    },
+    "communication": {
+      "title": "Walqunnamtii Ifa Ta'e",
+      "description": "Fooyya'iinsi guyyaa guyyaa fi gamaaggama sprint odeeffannoo sirridduu argachuu si gargaara"
+    },
+    "exceeding": {
+      "title": "Abdii Caalu",
+      "description": "Galma maamilaa caaluu fi itti quufinsa yeroo dheeraa mirkaneessuu galma keenya"
+    },
+    "partnership": {
+      "title": "Yaada Hirmaannaa",
+      "description": "Mul'anni kee ergama keenya ta'a; milkaa'ina keetiif kutannoo qabna"
+    }
+  },
+  "portfolio": {
+    "title": "Portfolio Keenya",
+    "subtitle": "Hojii fi seenaa milkaa'inaa keenya gaarii agarsiisaa",
+    "viewProject": "Pirojektii Ilaali",
+    "learnMore": "Dabalataan Baraa"
+  },
+  "testimonials": {
+    "title": "Maamiltonni Keenya Maal Jedhu",
+    "subtitle": "Dhaabbileen jalqabaa fi gareewwan teeknooloojii addunyaa irraa amanamu"
+  },
+  "team": {
+    "title": "Garee Keenya Beekaa",
+    "subtitle": "Ogeeyyii muuxannoo qaban milkaa'ina keessaniif of kennaniiru",
+    "jobSuccess": "Milkaa'ina Hojii",
+    "topRated": "Sadarkaa Olaanaa",
+    "risingTalent": "Dandeettii Guddachaa Jiru"
+  },
+  "contact": {
+    "title": "Waliin Haa Hojjannu",
+    "subtitle": "Pirojektii keessan hubachuuf gorsa daqiiqaa 30 bilisaa argachuuf qophaa'uu",
+    "name": "Maqaa Keessan",
+    "email": "Email Keessan",
+    "subject": "Mata-duree",
+    "message": "Waa'ee pirojektii keessanii nutti himaa",
+    "send": "Ergaa Ergii",
+    "sending": "Ergaa jira...",
+    "success": "Ergaan milkaa'inaan ergamee jira! Dafanii isinitti deebina.",
+    "error": "Ergaa erguu hin dandeenye. Maaloo irra deebi'ii yaali."
+  },
+  "footer": {
+    "tagline": "Aplikeeshiniiwwan cloud-native fi AI-powered ijaaruu",
+    "rights": "Mirgi hundi eegameera.",
+    "services": "Tajaajiloota",
+    "company": "Dhaabbata",
+    "connect": "Walqunnamsiisi"
+  }
+}
+

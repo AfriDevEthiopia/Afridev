@@ -1,0 +1,111 @@
+{
+  "nav": {
+    "home": "መነሻ",
+    "about": "ስለ እኛ",
+    "services": "አገልግሎቶች",
+    "portfolio": "ስራዎች",
+    "testimonials": "ምስክርነቶች",
+    "team": "ቡድን",
+    "contact": "ያግኙን"
+  },
+  "hero": {
+    "tagline": "የሙሉ ስታክ ደቬሎፐርስ | AI፣ LLM እና አውቶሜሽን ባለሙያዎች | ዌብ፣ ሞባይል እና ዴስክቶፕ አፕሊኬሽኖች",
+    "title": "የወደፊቱን በመገንባት ላይ በ",
+    "titleHighlight": "ክላውድ-ኔቲቭ እና AI-ተኮር",
+    "titleEnd": "አፕሊኬሽኖች",
+    "description": "AfriDev እናንተን የመነሻ ኩባንያዎች እና የቴክኖሎጂ ቡድኖች ዘመናዊ ቴክኖሎጂዎችን በመጠቀም ሊመጣጠን የሚችል፣ ከፍተኛ አፈፃፀም ያላቸውን አፕሊኬሽኖች እንዲገነቡ እናግዛለን። ከዌብ እና ሞባይል አፕሊኬሽኖች እስከ AI ውህደት እና DevOps፣ ውስብስብ ሀሳቦችን ወደ ቀልጣፋ ዲጂታል መፍትሄዎች እንለውጣለን።",
+    "cta": "ነፃ ምክክር ያግኙ",
+    "ctaSecondary": "ስራችንን ይመልከቱ"
+  },
+  "stats": {
+    "projects": "የተላኩ ፕሮጀክቶች",
+    "satisfaction": "የደንበኛ እርካታ",
+    "countries": "የተሰጡ አገሮች",
+    "uptime": "አማካይ የሥራ ጊዜ"
+  },
+  "services": {
+    "title": "አገልግሎቶቻችን",
+    "subtitle": "ለዘመናዊ ዲጂታል ፈተናዎች አጠቃላይ መፍትሄዎች",
+    "fullstack": {
+      "title": "የሙሉ ስታክ ልማት",
+      "description": "በPython፣ Node.js፣ Golang፣ PHP፣ React/Next.js ከTypeScript ጋር ባለሙያነት"
+    },
+    "mobile": {
+      "title": "የሞባይል አፕሊኬሽን ልማት",
+      "description": "በFlutter እና FlutterFlow ከፍተኛ አፈጻጸም ያላቸው iOS እና Android አፕሊኬሽኖች"
+    },
+    "desktop": {
+      "title": "የዴስክቶፕ አፕሊኬሽኖች",
+      "description": "ለWindows፣ macOS እና Linux መድረኮች ጠንካራ አፕሊኬሽኖች"
+    },
+    "ai": {
+      "title": "AI እና LLM ውህደት",
+      "description": "የChatGPT ውህደት፣ ብጁ LLMs እና AI አውቶሜሽን ባህሪያት"
+    },
+    "cloud": {
+      "title": "ክላውድ እና DevOps",
+      "description": "የAWS መሠረተ ልማት፣ Docker፣ Kubernetes እና CI/CD pipelines"
+    },
+    "consulting": {
+      "title": "ምክክር እና ማሻሻያ",
+      "description": "ቴክኒካዊ መመሪያ፣ የአፈጻጸም ማሻሻያ እና የስርዓተ-ግንባታ ንድፍ"
+    }
+  },
+  "whyChoose": {
+    "title": "ለምን AfriDev ይምረጡ",
+    "subtitle": "በእያንዳንዱ ፕሮጀክት ውስጥ ብቃትን ለማድረስ ቁርጠኛ ነን",
+    "detailOriented": {
+      "title": "ዝርዝር-ተኮር",
+      "description": "የተጣራ፣ ጠንካራ እና ሊመጣጠን የሚችል መፍትሄዎችን እናቀርባለን"
+    },
+    "communication": {
+      "title": "ግልጽ ግንኙነት",
+      "description": "ዕለታዊ ዝመናዎች እና የስፕሪንት ግምገማዎች ተገቢ መረጃ ያገኛሉ"
+    },
+    "exceeding": {
+      "title": "የላቁ ተስፋዎች",
+      "description": "የደንበኛ ግቦችን ማለፍ እና የረጅም ጊዜ እርካታን ማረጋገጥ ዓላማችን ነው"
+    },
+    "partnership": {
+      "title": "የአጋርነት አስተሳሰብ",
+      "description": "እርስዎ እይታ የእኛ ተልዕኮ ይሆናል። ለስኬትዎ ቁርጠኛ ነን"
+    }
+  },
+  "portfolio": {
+    "title": "ስራዎቻችን",
+    "subtitle": "የምርጥ ስራዎቻችንን እና የስኬት ታሪኮችን በማሳየት ላይ",
+    "viewProject": "ፕሮጀክት ይመልከቱ",
+    "learnMore": "የበለጠ ይወቁ"
+  },
+  "testimonials": {
+    "title": "ደንበኞቻችን ምን ይላሉ",
+    "subtitle": "በዓለም ዙሪያ በመነሻ ኩባንያዎች እና የቴክኖሎጂ ቡድኖች የታመኑ"
+  },
+  "team": {
+    "title": "ቡድናችንን ይወቁ",
+    "subtitle": "ለስኬትዎ የተቆረጡ ልምድ ያላቸው ባለሙያዎች",
+    "jobSuccess": "የሥራ ስኬት",
+    "topRated": "ከፍተኛ ደረጃ",
+    "risingTalent": "እያደገ ያለ ተሰጥኦ"
+  },
+  "contact": {
+    "title": "አብረን እንስራ",
+    "subtitle": "ፕሮጀክትዎን ለመረዳት ለ30 ደቂቃ ነፃ ምክክር ዝግጁ ነን",
+    "name": "ስምዎ",
+    "email": "ኢሜልዎ",
+    "subject": "ርዕሰ ጉዳይ",
+    "message": "ስለ ፕሮጀክትዎ ይንገሩን",
+    "send": "መልዕክት ላክ",
+    "sending": "በመላክ ላይ...",
+    "success": "መልዕክት በተሳካ ሁኔታ ተልኳል! በቅርቡ እናገኝዎታለን።",
+    "error": "መልዕክት መላክ አልተቻለም። እባክዎ እንደገና ይሞክሩ።"
+  },
+  "footer": {
+    "tagline": "ክላውድ-ኔቲቭ እና AI-ተኮር አፕሊኬሽኖችን መገንባት",
+    "rights": "ሁሉም መብቶች የተጠበቁ ናቸው።",
+    "services": "አገልግሎቶች",
+    "company": "ኩባንያ",
+    "connect": "ያገናኙ"
+  }
+}
+
