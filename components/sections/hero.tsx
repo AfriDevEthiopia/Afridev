@@ -75,7 +75,7 @@ export function Hero() {
               {t("description")}
             </motion.p>
 
-            {/* CTA Buttons - Navy Blue Corporate Identity */}
+            {/* CTA Buttons */}
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               animate={isLoaded ? { opacity: 1, y: 0 } : {}}
@@ -126,7 +126,7 @@ export function Hero() {
                   transition={{ duration: 0.5, delay: 0.9 + index * 0.1, ease: "easeOut" }}
                   whileHover={{ 
                     scale: 1.05, 
-                    borderColor: "rgba(0, 26, 102, 0.4)",
+                    borderColor: "rgba(99, 102, 241, 0.5)",
                   }}
                   className="text-center p-3 sm:p-4 rounded-lg sm:rounded-xl bg-secondary/30 border border-border transition-colors"
                 >
@@ -149,12 +149,12 @@ export function Hero() {
             className="order-1 lg:order-2 w-full"
           >
             <div className="relative w-full">
-              {/* Glow effect behind video - Navy Blue */}
+              {/* Glow effect behind video */}
               <motion.div 
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={isLoaded ? { opacity: 1, scale: 1 } : {}}
                 transition={{ duration: 1, delay: 0.6 }}
-                className="absolute -inset-1 sm:-inset-2 md:-inset-4 bg-gradient-to-r from-[#001a66]/20 to-[#3b82f6]/20 rounded-xl sm:rounded-2xl md:rounded-3xl blur-lg sm:blur-xl md:blur-2xl" 
+                className="absolute -inset-1 sm:-inset-2 md:-inset-4 bg-linear-to-r from-primary/20 to-accent/20 rounded-xl sm:rounded-2xl md:rounded-3xl blur-lg sm:blur-xl md:blur-2xl" 
               />
               
               {/* Video Container */}
@@ -178,7 +178,7 @@ export function Hero() {
                 <div className="flex items-center justify-between mt-1.5 sm:mt-2 md:mt-3 px-0.5 sm:px-1 md:px-2">
                   <div className="flex items-center gap-1.5 sm:gap-2">
                     <motion.div 
-                      className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 rounded sm:rounded-md md:rounded-lg bg-gradient-to-br from-[#001a66] to-[#3b82f6] flex items-center justify-center shrink-0"
+                      className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 rounded sm:rounded-md md:rounded-lg bg-linear-to-br from-primary to-accent flex items-center justify-center shrink-0"
                       whileHover={{ scale: 1.1, rotate: 5 }}
                       transition={{ type: "spring", stiffness: 400, damping: 17 }}
                     >
