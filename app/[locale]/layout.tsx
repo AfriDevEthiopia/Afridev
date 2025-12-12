@@ -3,7 +3,6 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
-import { NoTranslate } from "@/components/NoTranslate";
 import { ThemeProvider } from "@/components/theme-provider";
 import "../globals.css";
 
@@ -52,7 +51,6 @@ export default async function LocaleLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <NoTranslate />
           {/* Cinematic Glass Background Elements - Full Glass Effect */}
           <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
             {/* Large floating glass orbs - High visibility */}
