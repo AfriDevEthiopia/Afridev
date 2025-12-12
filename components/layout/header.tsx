@@ -255,8 +255,8 @@ export function Header() {
                     <ThemeToggle />
                   </div>
 
-                  <div className="sm:hidden">
-                    <p className="text-sm text-foreground/70 mb-3 px-4">Language</p>
+                  <div className="flex items-center justify-between px-4 sm:hidden">
+                    <p className="text-sm text-foreground/70">Language</p>
                     <LanguageSwitcher />
                   </div>
                   
