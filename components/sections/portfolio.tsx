@@ -11,12 +11,13 @@ export function Portfolio() {
   const headerRef = useRef<HTMLDivElement>(null);
   const isHeaderInView = useInView(headerRef, { once: true, amount: 0.5 });
 
+  // Navy Blue corporate color scheme - professional and cohesive
   const typeColors: Record<string, string> = {
-    "Mobile Development": "from-purple-500 to-pink-500",
-    "AI Apps & Integration": "from-orange-500 to-red-500",
-    "Desktop Application Development": "from-green-500 to-emerald-500",
-    "Scripts & Utilities": "from-blue-500 to-cyan-500",
-    "Web Development": "from-indigo-500 to-purple-500",
+    "Mobile Development": "from-[#001a66] to-[#0047ab]",
+    "AI Apps & Integration": "from-[#0033a0] to-[#3b82f6]",
+    "Desktop Application Development": "from-[#001a66] to-[#2563eb]",
+    "Scripts & Utilities": "from-[#0047ab] to-[#60a5fa]",
+    "Web Development": "from-[#001a66] to-[#0047ab]",
   };
 
   return (

@@ -210,7 +210,7 @@ export function Header() {
                         hidden: { opacity: 0, x: -20 },
                         visible: { opacity: 1, x: 0 }
                       }}
-                      whileHover={{ x: 10, backgroundColor: "rgba(99, 102, 241, 0.1)" }}
+                      whileHover={{ x: 10, backgroundColor: "rgba(0, 26, 102, 0.08)" }}
                       whileTap={{ scale: 0.98 }}
                       className="px-4 py-4 text-lg font-medium text-foreground hover:text-primary rounded-xl transition-colors"
                       onClick={() => setIsMobileMenuOpen(false)}

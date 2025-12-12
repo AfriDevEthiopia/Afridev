@@ -14,13 +14,14 @@ import {
 } from "lucide-react";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/animations";
 
+// Navy Blue corporate color scheme - professional and cohesive
 const SERVICES: { id: string; Icon: LucideIcon; color: string }[] = [
-  { id: "fullstack", Icon: Rocket, color: "from-blue-500 to-cyan-500" },
-  { id: "mobile", Icon: Smartphone, color: "from-purple-500 to-pink-500" },
-  { id: "desktop", Icon: Monitor, color: "from-green-500 to-emerald-500" },
-  { id: "ai", Icon: Bot, color: "from-orange-500 to-red-500" },
-  { id: "cloud", Icon: Cloud, color: "from-indigo-500 to-purple-500" },
-  { id: "consulting", Icon: Target, color: "from-pink-500 to-rose-500" },
+  { id: "fullstack", Icon: Rocket, color: "from-[#001a66] to-[#0047ab]" },
+  { id: "mobile", Icon: Smartphone, color: "from-[#0033a0] to-[#3b82f6]" },
+  { id: "desktop", Icon: Monitor, color: "from-[#001a66] to-[#2563eb]" },
+  { id: "ai", Icon: Bot, color: "from-[#0047ab] to-[#60a5fa]" },
+  { id: "cloud", Icon: Cloud, color: "from-[#001a66] to-[#0047ab]" },
+  { id: "consulting", Icon: Target, color: "from-[#0033a0] to-[#3b82f6]" },
 ];
 
 export function Services() {

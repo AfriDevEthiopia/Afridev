@@ -31,11 +31,11 @@ export function Contact() {
   const inputVariants = {
     idle: { 
       scale: 1,
-      boxShadow: "0 0 0 0 rgba(99, 102, 241, 0)"
+      boxShadow: "0 0 0 0 rgba(0, 26, 102, 0)"
     },
     focused: { 
       scale: 1.01,
-      boxShadow: "0 0 0 4px rgba(99, 102, 241, 0.1), 0 0 30px rgba(99, 102, 241, 0.1)"
+      boxShadow: "0 0 0 4px rgba(0, 26, 102, 0.1), 0 0 30px rgba(59, 130, 246, 0.08)"
     }
   };
 

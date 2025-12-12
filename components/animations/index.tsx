@@ -449,8 +449,11 @@ export function AnimatedNavLink({ children, href, className = "", onClick }: Ani
 export function CursorGlow() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isVisible, setIsVisible] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
+    setIsMounted(true);
+    
     const handleMouseMove = (e: MouseEvent) => {
       setMousePosition({ x: e.clientX, y: e.clientY });
       setIsVisible(true);
@@ -469,8 +472,8 @@ export function CursorGlow() {
     };
   }, []);
 
-  // Hide on mobile
-  if (typeof window !== "undefined" && window.innerWidth < 768) {
+  // Don't render until mounted to prevent hydration mismatch
+  if (!isMounted) {
     return null;
   }
 
@@ -492,7 +495,7 @@ export function CursorGlow() {
       <div 
         className="w-[300px] h-[300px] rounded-full opacity-20"
         style={{
-          background: "radial-gradient(circle, rgba(99, 102, 241, 0.4) 0%, rgba(139, 92, 246, 0.2) 40%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(0, 26, 102, 0.35) 0%, rgba(59, 130, 246, 0.18) 40%, transparent 70%)",
         }}
       />
     </motion.div>

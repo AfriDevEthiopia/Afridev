@@ -75,7 +75,7 @@ export function Hero() {
               {t("description")}
             </motion.p>
 
-            {/* CTA Buttons */}
+            {/* CTA Buttons - Navy Blue Corporate Identity */}
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               animate={isLoaded ? { opacity: 1, y: 0 } : {}}
@@ -107,7 +107,7 @@ export function Hero() {
                 </svg>
               </motion.button>
               <motion.button
-                className="btn-secondary w-full sm:w-auto"
+                className="bg-white text-[#001a66] border-2 border-[#001a66] dark:bg-white dark:text-[#001a66] dark:border-white/20 font-semibold px-5 py-2 sm:px-6 sm:py-2.5 rounded-lg sm:rounded-xl transition-all shadow-md hover:shadow-lg hover:bg-gray-50 dark:hover:bg-gray-100 w-full sm:w-auto text-xs sm:text-sm"
                 onClick={() => document.getElementById("portfolio")?.scrollIntoView({ behavior: "smooth" })}
                 whileHover={{ scale: 1.03, y: -2 }}
                 whileTap={{ scale: 0.98 }}
@@ -126,7 +126,7 @@ export function Hero() {
                   transition={{ duration: 0.5, delay: 0.9 + index * 0.1, ease: "easeOut" }}
                   whileHover={{ 
                     scale: 1.05, 
-                    borderColor: "rgba(99, 102, 241, 0.5)",
+                    borderColor: "rgba(0, 26, 102, 0.4)",
                   }}
                   className="text-center p-3 sm:p-4 rounded-lg sm:rounded-xl bg-secondary/30 border border-border transition-colors"
                 >
@@ -149,12 +149,12 @@ export function Hero() {
             className="order-1 lg:order-2 w-full"
           >
             <div className="relative w-full">
-              {/* Glow effect behind video */}
+              {/* Glow effect behind video - Navy Blue */}
               <motion.div 
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={isLoaded ? { opacity: 1, scale: 1 } : {}}
                 transition={{ duration: 1, delay: 0.6 }}
-                className="absolute -inset-1 sm:-inset-2 md:-inset-4 bg-linear-to-r from-primary/20 to-accent/20 rounded-xl sm:rounded-2xl md:rounded-3xl blur-lg sm:blur-xl md:blur-2xl" 
+                className="absolute -inset-1 sm:-inset-2 md:-inset-4 bg-gradient-to-r from-[#001a66]/20 to-[#3b82f6]/20 rounded-xl sm:rounded-2xl md:rounded-3xl blur-lg sm:blur-xl md:blur-2xl" 
               />
               
               {/* Video Container */}
@@ -178,7 +178,7 @@ export function Hero() {
                 <div className="flex items-center justify-between mt-1.5 sm:mt-2 md:mt-3 px-0.5 sm:px-1 md:px-2">
                   <div className="flex items-center gap-1.5 sm:gap-2">
                     <motion.div 
-                      className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 rounded sm:rounded-md md:rounded-lg bg-linear-to-br from-primary to-accent flex items-center justify-center shrink-0"
+                      className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 rounded sm:rounded-md md:rounded-lg bg-gradient-to-br from-[#001a66] to-[#3b82f6] flex items-center justify-center shrink-0"
                       whileHover={{ scale: 1.1, rotate: 5 }}
                       transition={{ type: "spring", stiffness: 400, damping: 17 }}
                     >
