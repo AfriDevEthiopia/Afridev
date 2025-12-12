@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
 import { LanguageSwitcher } from "@/components/ui/language-switcher";
@@ -14,16 +14,40 @@ export function Header() {
   const t = useTranslations("nav");
   const { resolvedTheme } = useTheme();
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isHidden, setIsHidden] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const lastScrollY = useRef(0);
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", handleScroll);
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      
+      // Show glass effect when scrolled past 20px
+      setIsScrolled(currentScrollY > 20);
+      
+      // Hide header when scrolling down (start hiding at just 50px)
+      if (currentScrollY > lastScrollY.current && currentScrollY > 50) {
+        // Scrolling down & past threshold - hide immediately
+        setIsHidden(true);
+      } else if (currentScrollY < lastScrollY.current) {
+        // Only show when scrolling up
+        setIsHidden(false);
+      }
+      
+      // Always show at the very top
+      if (currentScrollY < 20) {
+        setIsHidden(false);
+      }
+      
+      lastScrollY.current = currentScrollY;
+    };
+    
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -50,11 +74,11 @@ export function Header() {
 
   return (
     <motion.header
-      initial={{ y: -100, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled || isMobileMenuOpen ? "glass" : "bg-transparent"
+      initial={{ y: 0 }}
+      animate={{ y: isHidden && !isMobileMenuOpen ? "-100%" : 0 }}
+      transition={{ duration: 0.25, ease: [0.4, 0, 0.2, 1] }}
+      className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${
+        isScrolled || isMobileMenuOpen ? "glass-header" : "bg-transparent"
       }`}
     >
       <nav className="container mx-auto">
@@ -69,14 +93,14 @@ export function Header() {
               >
                 {/* Show placeholder during SSR/hydration, then show themed logo */}
                 {!mounted ? (
-                  <div className="w-8 h-8 sm:w-10 sm:h-10 bg-transparent" />
+                  <div className="h-8 sm:h-10 w-auto bg-transparent" />
                 ) : (
                   <Image
                     src={resolvedTheme === "dark" ? "/images/logo-white.png" : "/images/logo-black.png"}
                     alt="AfriDev Logo"
-                    width={40}
+                    width={120}
                     height={40}
-                    className="w-8 h-8 sm:w-10 sm:h-10"
+                    className="h-8 sm:h-10 w-auto object-contain"
                   />
                 )}
                 <span className="text-lg sm:text-xl font-bold text-foreground">

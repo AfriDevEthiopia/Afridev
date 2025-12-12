@@ -56,14 +56,14 @@ export function Footer() {
                   transition={{ type: "spring", stiffness: 400, damping: 17 }}
                 >
                   {!mounted ? (
-                    <div className="w-8 h-8 sm:w-10 sm:h-10 bg-transparent" />
+                    <div className="h-8 sm:h-10 w-auto bg-transparent" />
                   ) : (
                     <Image
                       src={resolvedTheme === "dark" ? "/images/logo-white.png" : "/images/logo-black.png"}
                       alt="AfriDev Logo"
-                      width={40}
+                      width={120}
                       height={40}
-                      className="w-8 h-8 sm:w-10 sm:h-10"
+                      className="h-8 sm:h-10 w-auto object-contain"
                     />
                   )}
                   <span className="text-lg sm:text-xl font-bold">

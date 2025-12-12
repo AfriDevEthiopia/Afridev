@@ -2,19 +2,13 @@
 
 import { useTranslations } from "next-intl";
 import { motion } from "motion/react";
-import { useEffect, useState, useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 
 const UPWORK_AGENCY_URL = "https://www.upwork.com/agencies/1937186981697230253/";
 
 export function Hero() {
   const t = useTranslations("hero");
   const tStats = useTranslations("stats");
-  const [isLoaded, setIsLoaded] = useState(false);
-
-  useEffect(() => {
-    const timer = setTimeout(() => setIsLoaded(true), 100);
-    return () => clearTimeout(timer);
-  }, []);
 
   const stats = [
     { value: "12+", label: tStats("projects") },
@@ -44,21 +38,21 @@ export function Hero() {
         <div className="hidden md:block absolute inset-0 bg-[linear-gradient(rgba(99,102,241,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(99,102,241,0.03)_1px,transparent_1px)] bg-size-[32px_32px] lg:bg-size-[64px_64px]" />
       </div>
 
-      <div className="relative z-10 container mx-auto pt-20 sm:pt-24 lg:pt-28 pb-12 sm:pb-16">
+      <div className="relative z-10 container mx-auto pt-28 sm:pt-32 lg:pt-36 pb-12 sm:pb-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 xl:gap-16 items-center">
           {/* Left Content */}
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={isLoaded ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
             className="order-2 lg:order-1 w-full"
           >
             {/* Main Title - Simple fade in */}
             <motion.h1 
               className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-[1.15] mb-4 sm:mb-6"
-              initial={{ opacity: 0, y: 20 }}
-              animate={isLoaded ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
             >
               {t("title")}{" "}
               <span className="gradient-text">{t("titleHighlight")}</span>{" "}
@@ -67,9 +61,9 @@ export function Hero() {
 
             {/* Description */}
             <motion.p 
-              initial={{ opacity: 0, y: 20 }}
-              animate={isLoaded ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.5, ease: "easeOut" }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
               className="text-sm sm:text-base lg:text-lg text-muted-foreground mb-6 sm:mb-8 leading-relaxed max-w-xl"
             >
               {t("description")}
@@ -77,9 +71,9 @@ export function Hero() {
 
             {/* CTA Buttons */}
             <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={isLoaded ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.7, ease: "easeOut" }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.3, ease: "easeOut" }}
               className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-8 sm:mb-12"
             >
               <motion.a
@@ -121,17 +115,17 @@ export function Hero() {
               {stats.map((stat, index) => (
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, y: 20, scale: 0.95 }}
-                  animate={isLoaded ? { opacity: 1, y: 0, scale: 1 } : {}}
-                  transition={{ duration: 0.5, delay: 0.9 + index * 0.1, ease: "easeOut" }}
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.4, delay: 0.4 + index * 0.1, ease: "easeOut" }}
                   whileHover={{ 
                     scale: 1.05, 
-                    borderColor: "rgba(99, 102, 241, 0.5)",
+                    borderColor: "rgba(0, 26, 102, 0.4)",
                   }}
                   className="text-center p-3 sm:p-4 rounded-lg sm:rounded-xl bg-secondary/30 border border-border transition-colors"
                 >
                   <div className="text-xl sm:text-2xl lg:text-3xl font-bold gradient-text">
-                    <CountUp value={stat.value} delay={1.1 + index * 0.1} isLoaded={isLoaded} />
+                    <CountUp value={stat.value} delay={0.5 + index * 0.1} />
                   </div>
                   <div className="text-[10px] sm:text-xs text-muted-foreground mt-0.5 sm:mt-1 line-clamp-1">
                     {stat.label}
@@ -143,17 +137,17 @@ export function Hero() {
 
           {/* Right - YouTube Video */}
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={isLoaded ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
             className="order-1 lg:order-2 w-full"
           >
             <div className="relative w-full">
               {/* Glow effect behind video */}
               <motion.div 
                 initial={{ opacity: 0, scale: 0.9 }}
-                animate={isLoaded ? { opacity: 1, scale: 1 } : {}}
-                transition={{ duration: 1, delay: 0.6 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.8, delay: 0.3 }}
                 className="absolute -inset-1 sm:-inset-2 md:-inset-4 bg-linear-to-r from-primary/20 to-accent/20 rounded-xl sm:rounded-2xl md:rounded-3xl blur-lg sm:blur-xl md:blur-2xl" 
               />
               
@@ -224,12 +218,12 @@ export function Hero() {
 }
 
 // Simple count up animation
-function CountUp({ value, delay, isLoaded }: { value: string; delay: number; isLoaded: boolean }) {
+function CountUp({ value, delay }: { value: string; delay: number }) {
   const [displayValue, setDisplayValue] = useState("0");
   const hasAnimated = useRef(false);
   
   useEffect(() => {
-    if (!isLoaded || hasAnimated.current) return;
+    if (hasAnimated.current) return;
     
     let interval: NodeJS.Timeout | null = null;
     
@@ -265,7 +259,7 @@ function CountUp({ value, delay, isLoaded }: { value: string; delay: number; isL
       clearTimeout(timeout);
       if (interval) clearInterval(interval);
     };
-  }, [isLoaded, value, delay]);
+  }, [value, delay]);
   
   return <>{displayValue}</>;
 }

@@ -266,6 +266,15 @@ body::after {
     0 0 0 1px var(--border);
 }
 
+/* Glass Header - Clean glass effect without shimmer animation */
+.glass-header {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid var(--glass-border);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
 /* Glass Mirror - Maximum reflective cinematic effect */
 .glass-mirror {
   background: var(--glass-bg);
