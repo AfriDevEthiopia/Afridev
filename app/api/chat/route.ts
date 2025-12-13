@@ -1,6 +1,10 @@
 import { GoogleGenAI } from "@google/genai";
 import { NextRequest, NextResponse } from "next/server";
 
+// Initialize client once at module level
+const apiKey = process.env.GEMINI_API_KEY;
+const ai = apiKey ? new GoogleGenAI({ apiKey }) : null;
+
 // Afridev system prompt with comprehensive company information
 const AFRIDEV_SYSTEM_PROMPT = `You are the official AI assistant for AfriDev, a professional software development agency. Your name is "AfriDev Assistant". You should be helpful, professional, and knowledgeable about AfriDev's services and capabilities.
 
@@ -88,10 +92,54 @@ AfriDev has a team of experienced professionals including:
 
 Remember: You represent AfriDev, so maintain a professional and helpful tone at all times.`;
 
+// Constants for validation
+const MAX_MESSAGE_LENGTH = 2000;
+const MAX_HISTORY_LENGTH = 20;
+const MAX_HISTORY_CONTEXT = 10; // Limit history sent to AI
+
+// Simple in-memory rate limiter (use Redis for production)
+const rateLimitMap = new Map<string, { count: number; timestamp: number }>();
+const RATE_LIMIT = 10; // requests per window
+const RATE_WINDOW = 60000; // 1 minute
+
+function checkRateLimit(ip: string): boolean {
+  const now = Date.now();
+  const record = rateLimitMap.get(ip);
+
+  if (!record || now - record.timestamp > RATE_WINDOW) {
+    rateLimitMap.set(ip, { count: 1, timestamp: now });
+    return true;
+  }
+
+  if (record.count >= RATE_LIMIT) {
+    return false;
+  }
+
+  record.count++;
+  return true;
+}
+
+// Get client IP from request
+function getClientIP(request: NextRequest): string {
+  const forwarded = request.headers.get("x-forwarded-for");
+  const ip = forwarded ? forwarded.split(",")[0].trim() : "unknown";
+  return ip;
+}
+
 export async function POST(request: NextRequest) {
   try {
+    // Rate limiting check
+    const clientIP = getClientIP(request);
+    if (!checkRateLimit(clientIP)) {
+      return NextResponse.json(
+        { error: "Rate limit exceeded. Please try again later." },
+        { status: 429 }
+      );
+    }
+
     const { message, history } = await request.json();
 
+    // Validate message
     if (!message || typeof message !== "string") {
       return NextResponse.json(
         { error: "Message is required" },
@@ -99,20 +147,32 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const apiKey = process.env.GEMINI_API_KEY;
+    // Validate message length
+    if (message.length > MAX_MESSAGE_LENGTH) {
+      return NextResponse.json(
+        { error: "Message too long. Please keep it under 2000 characters." },
+        { status: 400 }
+      );
+    }
 
-    if (!apiKey) {
+    // Validate history length
+    if (history && Array.isArray(history) && history.length > MAX_HISTORY_LENGTH) {
+      return NextResponse.json(
+        { error: "Conversation history too long." },
+        { status: 400 }
+      );
+    }
+
+    if (!ai) {
       return NextResponse.json(
         { error: "Gemini API key not configured" },
         { status: 500 }
       );
     }
 
-    const ai = new GoogleGenAI({ apiKey });
-
     // Build conversation history for context
     const contents: Array<{ role: "user" | "model"; parts: Array<{ text: string }> }> = [];
-    
+
     // Add system prompt as first message
     contents.push({
       role: "user",
@@ -123,9 +183,10 @@ export async function POST(request: NextRequest) {
       parts: [{ text: "I understand. I am the AfriDev Assistant, ready to help with any questions about AfriDev's services, team, and capabilities. How can I assist you today?" }],
     });
 
-    // Add conversation history
+    // Add conversation history (limit to last N messages for efficiency)
     if (history && Array.isArray(history)) {
-      for (const msg of history) {
+      const recentHistory = history.slice(-MAX_HISTORY_CONTEXT);
+      for (const msg of recentHistory) {
         contents.push({
           role: msg.role === "user" ? "user" : "model",
           parts: [{ text: msg.content }],
@@ -154,10 +215,26 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ response: text });
   } catch (error) {
     console.error("Chat API error:", error);
+
+    // Handle specific error types
+    if (error instanceof Error) {
+      if (error.message.includes("rate limit") || error.message.includes("429")) {
+        return NextResponse.json(
+          { error: "AI service rate limit exceeded. Please try again later." },
+          { status: 429 }
+        );
+      }
+      if (error.message.includes("quota") || error.message.includes("billing")) {
+        return NextResponse.json(
+          { error: "Service temporarily unavailable. Please try again later." },
+          { status: 503 }
+        );
+      }
+    }
+
     return NextResponse.json(
       { error: "Failed to process chat request" },
       { status: 500 }
     );
   }
 }
-
