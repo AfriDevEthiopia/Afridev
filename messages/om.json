@@ -112,6 +112,16 @@
     "services": "Tajaajiloota",
     "company": "Dhaabbata",
     "connect": "Walqunnamsiisi"
+  },
+  "chat": {
+    "title": "Gargaaraa AfriDev",
+    "online": "Online • Gargaaruuf qophaa'e",
+    "typing": "Barreessaa jira...",
+    "welcomeTitle": "Akkam! Ani gargaaraa AfriDev keessani",
+    "welcomeMessage": "Waa'ee tajaajiloota keenya, garee keenya fi akkamitti pirojektii keessan irratti isin gargaaruu akka dandeenyu gaaffii deebisuu nan danda'a.",
+    "inputPlaceholder": "Waa'ee AfriDev waan kamiyyuu na gaafadhaa...",
+    "clearHistory": "Seenaa chat haqii",
+    "errorMessage": "Wanti tokko dogoggoreera. Maaloo irra deebi'ii yaali."
   }
 }
 

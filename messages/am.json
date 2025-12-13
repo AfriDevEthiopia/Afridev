@@ -112,6 +112,16 @@
     "services": "አገልግሎቶች",
     "company": "ኩባንያ",
     "connect": "ያገናኙ"
+  },
+  "chat": {
+    "title": "AfriDev ረዳት",
+    "online": "መስመር ላይ • ለመርዳት ዝግጁ",
+    "typing": "በመጻፍ ላይ...",
+    "welcomeTitle": "ሰላም! እኔ የAfriDev ረዳትዎ ነኝ",
+    "welcomeMessage": "ስለ አገልግሎቶቻችን፣ ቡድናችን እና በፕሮጀክትዎ እንዴት ልንረዳዎ እንደምንችል ጥያቄዎችን መመለስ እችላለሁ።",
+    "inputPlaceholder": "ስለ AfriDev ማንኛውንም ነገር ይጠይቁኝ...",
+    "clearHistory": "የውይይት ታሪክን አጽዳ",
+    "errorMessage": "የሆነ ስህተት ተከስቷል። እባክዎ እንደገና ይሞክሩ።"
   }
 }
 

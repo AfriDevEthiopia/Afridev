@@ -112,6 +112,16 @@
     "services": "Services",
     "company": "Company",
     "connect": "Connect"
+  },
+  "chat": {
+    "title": "AfriDev Assistant",
+    "online": "Online • Ready to help",
+    "typing": "Typing...",
+    "welcomeTitle": "Hi! I'm your AfriDev Assistant",
+    "welcomeMessage": "I can answer questions about our services, team, and how we can help with your project.",
+    "inputPlaceholder": "Ask me anything about AfriDev...",
+    "clearHistory": "Clear chat history",
+    "errorMessage": "Something went wrong. Please try again."
   }
 }
 

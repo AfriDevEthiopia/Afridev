@@ -8,6 +8,7 @@ import { Portfolio } from "@/components/sections/portfolio";
 import { Team } from "@/components/sections/team";
 import { Contact } from "@/components/sections/contact";
 import { CursorGlow, PageTransition } from "@/components/animations";
+import { ChatAssistant } from "@/components/chat";
 
 export default function HomePage() {
   return (
@@ -24,6 +25,9 @@ export default function HomePage() {
         <Contact />
       </main>
       <Footer />
+      
+      {/* AI Chat Assistant */}
+      <ChatAssistant />
     </PageTransition>
   );
 }

@@ -9,6 +9,7 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@google/genai": "^1.33.0",
     "clsx": "^2.1.1",
     "lucide-react": "^0.559.0",
     "motion": "^12.23.26",
