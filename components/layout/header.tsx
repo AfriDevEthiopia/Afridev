@@ -93,14 +93,14 @@ export function Header() {
               >
                 {/* Show placeholder during SSR/hydration, then show themed logo */}
                 {!mounted ? (
-                  <div className="h-8 sm:h-10 w-auto bg-transparent" />
+                  <div className="h-8 w-8 sm:h-10 sm:w-10 bg-transparent" />
                 ) : (
                   <Image
                     src={resolvedTheme === "dark" ? "/images/logos/logo-white.png" : "/images/logos/logo-black.png"}
                     alt="AfriDev Logo"
-                    width={120}
+                    width={40}
                     height={40}
-                    className="h-8 sm:h-10 w-auto object-contain"
+                    className="h-8 w-8 sm:h-10 sm:w-10 object-contain"
                   />
                 )}
                 <span className="text-lg sm:text-xl font-bold text-foreground">

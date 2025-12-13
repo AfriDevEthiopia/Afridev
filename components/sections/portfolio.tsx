@@ -4,21 +4,13 @@ import { useTranslations } from "next-intl";
 import { motion, useInView } from "motion/react";
 import { useRef } from "react";
 import { PROJECTS } from "@/lib/constants";
-import { StaggerContainer, StaggerItem, AnimatedButton } from "@/components/animations";
+import { StaggerContainer, StaggerItem } from "@/components/animations";
+import Image from "next/image";
 
 export function Portfolio() {
   const t = useTranslations("portfolio");
   const headerRef = useRef<HTMLDivElement>(null);
   const isHeaderInView = useInView(headerRef, { once: true, amount: 0.5 });
-
-  // Navy Blue corporate color scheme - professional and cohesive
-  const typeColors: Record<string, string> = {
-    "Mobile Development": "from-[#001a66] to-[#0047ab]",
-    "AI Apps & Integration": "from-[#0033a0] to-[#3b82f6]",
-    "Desktop Application Development": "from-[#001a66] to-[#2563eb]",
-    "Scripts & Utilities": "from-[#0047ab] to-[#60a5fa]",
-    "Web Development": "from-[#001a66] to-[#0047ab]",
-  };
 
   return (
     <section id="portfolio" className="py-16 sm:py-20 lg:py-28 relative">
@@ -61,8 +53,11 @@ export function Portfolio() {
         >
           {PROJECTS.map((project) => (
             <StaggerItem key={project.id} variant="fadeUp">
-              <motion.div
-                className="group glass rounded-xl sm:rounded-2xl lg:rounded-3xl overflow-hidden h-full"
+              <motion.a
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group glass rounded-xl sm:rounded-2xl lg:rounded-3xl overflow-hidden h-full block"
                 whileHover={{ 
                   y: -8, 
                   scale: 1.01,
@@ -70,24 +65,50 @@ export function Portfolio() {
                 }}
                 whileTap={{ scale: 0.99 }}
               >
-                {/* Project Header with Gradient */}
-                <motion.div 
-                  className={`h-20 sm:h-24 lg:h-32 bg-linear-to-br ${typeColors[project.type] || "from-primary to-accent"} relative overflow-hidden`}
-                  whileHover={{ scale: 1.02 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <div className="absolute inset-0 bg-black/20" />
+                {/* Project Image Header */}
+                <div className="relative h-40 sm:h-48 lg:h-56 overflow-hidden bg-muted">
+                  {project.image ? (
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                  ) : (
+                    /* Fallback placeholder with project initial */
+                    <div className="absolute inset-0 bg-gradient-to-br from-[#001a66] to-[#0047ab] flex items-center justify-center">
+                      <span className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white/30">
+                        {project.title.charAt(0)}
+                      </span>
+                    </div>
+                  )}
+                  
+                  {/* Navy Blue overlay on hover */}
+                  <div className="absolute inset-0 bg-[#001a66]/0 group-hover:bg-[#001a66]/60 transition-all duration-300" />
+                  
+                  {/* Project type badge */}
                   <motion.div 
-                    className="absolute bottom-2 sm:bottom-3 lg:bottom-4 left-3 sm:left-4 lg:left-6"
+                    className="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 z-10"
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.2 }}
                   >
-                    <span className="px-2 sm:px-3 py-0.5 sm:py-1 bg-black/30 backdrop-blur-sm rounded-full text-[10px] sm:text-xs text-white font-medium">
+                    <span className="px-2.5 sm:px-3 py-1 sm:py-1.5 bg-white/90 dark:bg-[#001a66]/90 backdrop-blur-sm rounded-full text-[10px] sm:text-xs text-[#001a66] dark:text-white font-medium shadow-lg">
                       {project.type}
                     </span>
                   </motion.div>
-                </motion.div>
+
+                  {/* View project indicator on hover */}
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
+                    <span className="px-4 py-2 bg-white text-[#001a66] rounded-lg font-semibold text-sm shadow-lg flex items-center gap-2">
+                      Visit Live Site
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                      </svg>
+                    </span>
+                  </div>
+                </div>
 
                 {/* Content */}
                 <div className="p-4 sm:p-5 lg:p-8">
@@ -110,7 +131,7 @@ export function Portfolio() {
                           transition={{ delay: 0.1 * idx }}
                         >
                           <motion.svg 
-                            className="w-4 h-4 sm:w-5 sm:h-5 text-green-500 shrink-0 mt-0.5" 
+                            className="w-4 h-4 sm:w-5 sm:h-5 text-[#001a66] dark:text-[#3b82f6] shrink-0 mt-0.5" 
                             fill="none" 
                             stroke="currentColor" 
                             viewBox="0 0 24 24"
@@ -127,25 +148,19 @@ export function Portfolio() {
                   )}
 
                   {/* CTA */}
-                  <motion.button 
-                    className="flex items-center gap-2 text-primary font-medium text-xs sm:text-sm group/btn"
-                    whileHover={{ x: 5 }}
-                    transition={{ type: "spring", stiffness: 400, damping: 17 }}
-                  >
+                  <div className="flex items-center gap-2 text-primary font-medium text-xs sm:text-sm group-hover:gap-3 transition-all">
                     {t("viewProject")}
-                    <motion.svg 
-                      className="w-3 h-3 sm:w-4 sm:h-4" 
+                    <svg 
+                      className="w-3 h-3 sm:w-4 sm:h-4 transition-transform group-hover:translate-x-1" 
                       fill="none" 
                       stroke="currentColor" 
                       viewBox="0 0 24 24"
-                      initial={{ x: 0 }}
-                      whileHover={{ x: 5 }}
                     >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </motion.svg>
-                  </motion.button>
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </div>
                 </div>
-              </motion.div>
+              </motion.a>
             </StaggerItem>
           ))}
         </StaggerContainer>

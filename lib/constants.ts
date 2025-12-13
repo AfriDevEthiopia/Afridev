@@ -12,6 +12,8 @@ export const PROJECTS: Project[] = [
       "User reviews and ratings to guide dining decisions",
       "Advanced search and filtering for cuisines",
     ],
+    image: "/images/projects/rateeat.jpg",
+    link: "https://rateeat.app/en",
   },
   {
     id: "skillbridge",
@@ -24,27 +26,36 @@ export const PROJECTS: Project[] = [
       "Organized exam resources",
       "Interactive learning tools",
     ],
+    image: "/images/projects/skillbridge.jpg",
+    link: "https://skillbridge.academy/en",
   },
   {
     id: "smartvid",
     title: "SmartVid AI",
-    type: "Desktop Application Development",
-    description: "Automate video creation and posting with AI-powered tools.",
-    features: [],
+    type: "Web Application",
+    description:
+      "Enterprise-grade AI video creation platform. From concept to finished video in minutes with AI script generation, professional voiceover in 40+ languages, and advanced compositing.",
+    features: [
+      "AI-powered script generation with industry-specific terminology",
+      "Studio-quality voice synthesis in 40+ languages",
+      "Multi-layer video editing with professional transitions",
+    ],
+    image: "/images/projects/smartaivideo.png",
+    link: "https://smartaivideo.ai/",
   },
   {
     id: "leadconnector",
-    title: "AI Lead Connector",
-    type: "Scripts & Utilities",
-    description: "AI-powered lead connector for real estate investors.",
-    features: [],
-  },
-  {
-    id: "healthmonitor",
-    title: "Patient Health Monitoring System",
-    type: "Web Development",
-    description: "Health monitoring system for patients.",
-    features: [],
+    title: "Investor Callback",
+    type: "AI Apps & Integration",
+    description:
+      "AI-powered lead qualification platform for real estate professionals. Deploy AI Lead Qualifiers that work 24/7 to convert prospects into qualified clients.",
+    features: [
+      "98% contact rate with 24/7 AI availability",
+      "3x more conversions with personalized follow-up calls",
+      "Professional voice quality that builds credibility",
+    ],
+    image: "/images/projects/investorcallback.png",
+    link: "https://investorcallback.com/",
   },
 ];
 
