@@ -1,9 +1,7 @@
-import { GoogleGenAI } from "@google/genai";
 import { NextRequest, NextResponse } from "next/server";
 
-// Initialize client once at module level
-const apiKey = process.env.GEMINI_API_KEY;
-const ai = apiKey ? new GoogleGenAI({ apiKey }) : null;
+// Initialize OpenAI API key at module level
+const apiKey = process.env.OPENAI_API_KEY;
 
 // Afridev system prompt with comprehensive company information
 const AFRIDEV_SYSTEM_PROMPT = `You are the official AI assistant for AfriDev, a professional software development agency. Your name is "AfriDev Assistant". You should be helpful, professional, and knowledgeable about AfriDev's services and capabilities.
@@ -126,6 +124,11 @@ function getClientIP(request: NextRequest): string {
   return ip;
 }
 
+interface ChatMessage {
+  role: "user" | "assistant";
+  content: string;
+}
+
 export async function POST(request: NextRequest) {
   try {
     // Rate limiting check
@@ -163,74 +166,74 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    if (!ai) {
+    if (!apiKey) {
       return NextResponse.json(
-        { error: "Gemini API key not configured" },
+        { error: "OpenAI API key not configured" },
         { status: 500 }
       );
     }
 
-    // Build conversation history for context
-    const contents: Array<{ role: "user" | "model"; parts: Array<{ text: string }> }> = [];
-
-    // Add system prompt as first message
-    contents.push({
-      role: "user",
-      parts: [{ text: AFRIDEV_SYSTEM_PROMPT }],
-    });
-    contents.push({
-      role: "model",
-      parts: [{ text: "I understand. I am the AfriDev Assistant, ready to help with any questions about AfriDev's services, team, and capabilities. How can I assist you today?" }],
-    });
+    // Build messages array for OpenAI
+    const messages: Array<{ role: "system" | "user" | "assistant"; content: string }> = [
+      { role: "system", content: AFRIDEV_SYSTEM_PROMPT }
+    ];
 
     // Add conversation history (limit to last N messages for efficiency)
     if (history && Array.isArray(history)) {
-      const recentHistory = history.slice(-MAX_HISTORY_CONTEXT);
+      const recentHistory = history.slice(-MAX_HISTORY_CONTEXT) as ChatMessage[];
       for (const msg of recentHistory) {
-        contents.push({
-          role: msg.role === "user" ? "user" : "model",
-          parts: [{ text: msg.content }],
+        messages.push({
+          role: msg.role === "user" ? "user" : "assistant",
+          content: msg.content,
         });
       }
     }
 
     // Add current message
-    contents.push({
-      role: "user",
-      parts: [{ text: message }],
-    });
+    messages.push({ role: "user", content: message });
 
-    const response = await ai.models.generateContent({
-      model: "gemini-2.0-flash",
-      contents,
-      config: {
-        maxOutputTokens: 1024,
-        temperature: 0.7,
-        topP: 0.9,
+    // Call OpenAI API
+    const response = await fetch("https://api.openai.com/v1/chat/completions", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${apiKey}`,
       },
+      body: JSON.stringify({
+        model: "gpt-4o-mini",
+        messages,
+        max_tokens: 1024,
+        temperature: 0.7,
+        top_p: 0.9,
+      }),
     });
 
-    const text = response.text || "I apologize, but I couldn't generate a response. Please try again.";
-
-    return NextResponse.json({ response: text });
-  } catch (error) {
-    console.error("Chat API error:", error);
-
-    // Handle specific error types
-    if (error instanceof Error) {
-      if (error.message.includes("rate limit") || error.message.includes("429")) {
+    if (!response.ok) {
+      const errorData = await response.json().catch(() => ({}));
+      console.error("OpenAI API error:", errorData);
+      
+      if (response.status === 429) {
         return NextResponse.json(
           { error: "AI service rate limit exceeded. Please try again later." },
           { status: 429 }
         );
       }
-      if (error.message.includes("quota") || error.message.includes("billing")) {
+      if (response.status === 401) {
         return NextResponse.json(
-          { error: "Service temporarily unavailable. Please try again later." },
-          { status: 503 }
+          { error: "Invalid API key configuration." },
+          { status: 500 }
         );
       }
+      
+      throw new Error(`OpenAI API error: ${response.status}`);
     }
+
+    const data = await response.json();
+    const text = data.choices?.[0]?.message?.content || "I apologize, but I couldn't generate a response. Please try again.";
+
+    return NextResponse.json({ response: text });
+  } catch (error) {
+    console.error("Chat API error:", error);
 
     return NextResponse.json(
       { error: "Failed to process chat request" },
