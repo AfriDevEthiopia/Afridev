@@ -110,7 +110,7 @@ export function Contact() {
                   name="name"
                   required
                   className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg sm:rounded-xl bg-secondary/50 border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all text-sm sm:text-base"
-                  placeholder="Tamirat Kebede"
+                  placeholder="AfriDev"
                   variants={inputVariants}
                   animate={focusedField === "name" ? "focused" : "idle"}
                   onFocus={() => setFocusedField("name")}
@@ -139,7 +139,7 @@ export function Contact() {
                   name="email"
                   required
                   className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg sm:rounded-xl bg-secondary/50 border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all text-sm sm:text-base"
-                  placeholder="tamiratkebede120@gmail.com"
+                  placeholder="contact@afridev.com"
                   variants={inputVariants}
                   animate={focusedField === "email" ? "focused" : "idle"}
                   onFocus={() => setFocusedField("email")}
