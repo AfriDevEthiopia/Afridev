@@ -78,6 +78,28 @@
   box-sizing: border-box;
 }
 
+/* Custom text selection - AfriDev Brand */
+::selection {
+  background: #0ea5e9;
+  color: #ffffff;
+}
+
+::-moz-selection {
+  background: #0ea5e9;
+  color: #ffffff;
+}
+
+/* Dark mode selection */
+.dark ::selection {
+  background: #f59e0b;
+  color: #0a1628;
+}
+
+.dark ::-moz-selection {
+  background: #f59e0b;
+  color: #0a1628;
+}
+
 /* Ensure all interactive elements have pointer cursor */
 a,
 button,
