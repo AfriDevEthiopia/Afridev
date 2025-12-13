@@ -113,6 +113,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
     status: "100% Job Success",
     badge: "Top Rated",
     jobSuccess: "100%",
+    image: "/images/teams/tamirat.jpg",
   },
   {
     id: "tolosa",
@@ -121,6 +122,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
     status: "100% Job Success",
     badge: "Rising Talent",
     jobSuccess: "100%",
+    image: "/images/teams/tolosa.jpg",
   },
   {
     id: "abdi",
@@ -129,6 +131,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
     status: "100% Job Success",
     badge: "Top Rated",
     jobSuccess: "100%",
+    image: "/images/teams/abdi.jpg",
   },
 ];
 

@@ -5,6 +5,7 @@ import { useEffect, useRef, useState, useCallback } from "react";
 import { motion, useInView, AnimatePresence } from "motion/react";
 import { TEAM_MEMBERS, TESTIMONIALS } from "@/lib/constants";
 import { AnimatedButton } from "@/components/animations";
+import Image from "next/image";
 
 const UPWORK_AGENCY_URL = "https://www.upwork.com/agencies/1937186981697230253/";
 
@@ -314,17 +315,29 @@ function TeamCard({ member, t }: { member: typeof TEAM_MEMBERS[0]; t: ReturnType
       }}
     >
       <div>
-        {/* Avatar - Navy Blue Corporate */}
+        {/* Avatar - Real Photo */}
         <motion.div 
-          className="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 mx-auto mb-4 sm:mb-5 lg:mb-6 rounded-full bg-gradient-to-br from-[#001a66] to-[#3b82f6] p-0.5 sm:p-1"
+          className="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 mx-auto mb-4 sm:mb-5 lg:mb-6 rounded-full bg-gradient-to-br from-[#001a66] to-[#3b82f6] p-0.5 sm:p-1 overflow-hidden"
           whileHover={{ scale: 1.1, rotate: 5 }}
           transition={{ type: "spring", stiffness: 300, damping: 20 }}
         >
-          <div className="w-full h-full rounded-full bg-card flex items-center justify-center">
-            <span className="text-xl sm:text-2xl lg:text-3xl font-bold gradient-text">
-              {member.name.charAt(0)}
-            </span>
-          </div>
+          {member.image ? (
+            <div className="relative w-full h-full rounded-full overflow-hidden">
+              <Image
+                src={member.image}
+                alt={member.name}
+                fill
+                sizes="(max-width: 640px) 64px, (max-width: 1024px) 80px, 96px"
+                className="object-cover"
+              />
+            </div>
+          ) : (
+            <div className="w-full h-full rounded-full bg-card flex items-center justify-center">
+              <span className="text-xl sm:text-2xl lg:text-3xl font-bold gradient-text">
+                {member.name.charAt(0)}
+              </span>
+            </div>
+          )}
         </motion.div>
 
         {/* Name */}
