@@ -18,13 +18,13 @@ export function Team() {
   const isTeamHeaderInView = useInView(teamHeaderRef, { once: true, amount: 0.5 });
 
   return (
-    <section id="team" className="py-16 sm:py-20 lg:py-28 relative overflow-hidden">
+    <section className="py-16 sm:py-20 lg:py-28 relative overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-linear-to-b from-transparent via-primary/5 to-transparent" />
       
       <div className="relative container mx-auto">
         {/* ===== CLIENT REVIEWS SECTION ===== */}
-        <div id="testimonials" className="mb-16 sm:mb-20 lg:mb-28">
+        <div id="testimonials" className="mb-16 sm:mb-20 lg:mb-28 scroll-mt-24">
           {/* Reviews Header */}
           <div ref={reviewsHeaderRef} className="text-center max-w-3xl mx-auto mb-10 sm:mb-12 lg:mb-16">
             <motion.span 
@@ -62,7 +62,7 @@ export function Team() {
         </div>
 
         {/* ===== TEAM SECTION ===== */}
-        <div className="mb-12 sm:mb-16">
+        <div id="team" className="mb-12 sm:mb-16 scroll-mt-24">
           {/* Team Header */}
           <div ref={teamHeaderRef} className="text-center max-w-3xl mx-auto mb-10 sm:mb-12 lg:mb-16">
             <motion.span 

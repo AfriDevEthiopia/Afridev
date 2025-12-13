@@ -66,14 +66,14 @@ export function Portfolio() {
                 whileTap={{ scale: 0.99 }}
               >
                 {/* Project Image Header */}
-                <div className="relative h-40 sm:h-48 lg:h-56 overflow-hidden bg-muted">
+                <div className="relative h-40 sm:h-48 lg:h-56 overflow-hidden bg-muted cursor-pointer">
                   {project.image ? (
                     <Image
                       src={project.image}
                       alt={project.title}
                       fill
                       sizes="(max-width: 768px) 100vw, 50vw"
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      className="object-cover transition-transform duration-500 group-hover:scale-110"
                     />
                   ) : (
                     /* Fallback placeholder with project initial */
@@ -84,8 +84,8 @@ export function Portfolio() {
                     </div>
                   )}
                   
-                  {/* Navy Blue overlay on hover */}
-                  <div className="absolute inset-0 bg-[#001a66]/0 group-hover:bg-[#001a66]/60 transition-all duration-300" />
+                  {/* Subtle Navy Blue overlay on hover */}
+                  <div className="absolute inset-0 bg-[#001a66]/0 group-hover:bg-[#001a66]/20 transition-all duration-300" />
                   
                   {/* Project type badge */}
                   <motion.div 
@@ -98,16 +98,6 @@ export function Portfolio() {
                       {project.type}
                     </span>
                   </motion.div>
-
-                  {/* View project indicator on hover */}
-                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
-                    <span className="px-4 py-2 bg-white text-[#001a66] rounded-lg font-semibold text-sm shadow-lg flex items-center gap-2">
-                      Visit Live Site
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                      </svg>
-                    </span>
-                  </div>
                 </div>
 
                 {/* Content */}
