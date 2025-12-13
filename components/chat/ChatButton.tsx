@@ -1,8 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from "motion/react";
-import { MessageCircle, X, Sparkles } from "lucide-react";
-import { useState, useEffect } from "react";
+import { MessageCircle, X } from "lucide-react";
 
 interface ChatButtonProps {
   isOpen: boolean;
@@ -11,61 +10,8 @@ interface ChatButtonProps {
 }
 
 export function ChatButton({ isOpen, onClick, hasUnread = false }: ChatButtonProps) {
-  const [showTooltip, setShowTooltip] = useState(false);
-
-  // Show tooltip after a delay when not open
-  useEffect(() => {
-    if (!isOpen) {
-      const timer = setTimeout(() => setShowTooltip(true), 3000);
-      return () => clearTimeout(timer);
-    } else {
-      setShowTooltip(false);
-    }
-  }, [isOpen]);
-
   return (
     <div className="fixed bottom-6 right-6 z-40">
-      {/* Floating tooltip/prompt */}
-      <AnimatePresence>
-        {showTooltip && !isOpen && (
-          <motion.div
-            initial={{ opacity: 0, x: 20, scale: 0.8 }}
-            animate={{ opacity: 1, x: 0, scale: 1 }}
-            exit={{ opacity: 0, x: 10, scale: 0.9 }}
-            transition={{ type: "spring", stiffness: 300, damping: 20 }}
-            className="absolute bottom-full right-0 mb-3 mr-2"
-          >
-            <div className="relative">
-              {/* Tooltip content */}
-              <motion.div
-                className="glass px-4 py-2.5 rounded-xl shadow-xl border border-primary/20 whitespace-nowrap"
-                animate={{
-                  y: [0, -3, 0],
-                }}
-                transition={{
-                  duration: 2,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-              >
-                <div className="flex items-center gap-2">
-                  <motion.div
-                    animate={{ rotate: [0, 15, -15, 0] }}
-                    transition={{ duration: 1.5, repeat: Infinity, repeatDelay: 1 }}
-                  >
-                    <Sparkles className="w-4 h-4 text-primary" />
-                  </motion.div>
-                  <span className="text-sm font-medium text-foreground">
-                    Need help? Ask our AI!
-                  </span>
-                </div>
-              </motion.div>
-              {/* Arrow pointing to button */}
-              <div className="absolute -bottom-2 right-6 w-4 h-4 rotate-45 glass border-r border-b border-primary/20" />
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
 
       {/* Outer pulsing rings - only when closed */}
       <AnimatePresence>
