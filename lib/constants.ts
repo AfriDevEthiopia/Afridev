@@ -122,7 +122,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
     status: "100% Job Success",
     badge: "Rising Talent",
     jobSuccess: "100%",
-    image: "/images/teams/tolosa.jpg",
+    image: "/images/teams/tolosa.png",
   },
   {
     id: "abdi",
