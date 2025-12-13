@@ -59,7 +59,7 @@ export function Footer() {
                     <div className="h-8 sm:h-10 w-auto bg-transparent" />
                   ) : (
                     <Image
-                      src={resolvedTheme === "dark" ? "/images/logo-white.png" : "/images/logo-black.png"}
+                      src={resolvedTheme === "dark" ? "/images/logos/logo-white.png" : "/images/logos/logo-black.png"}
                       alt="AfriDev Logo"
                       width={120}
                       height={40}
