@@ -20,6 +20,10 @@ export const metadata: Metadata = {
     "Cloud Computing",
     "DevOps",
   ],
+  icons: {
+    icon: "/icon.svg",
+    apple: "/icon.svg",
+  },
   other: {
     "google": "notranslate",
   },
