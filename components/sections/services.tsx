@@ -14,14 +14,14 @@ import {
 } from "lucide-react";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/animations";
 
-// Navy Blue corporate color scheme - professional and cohesive
-const SERVICES: { id: string; Icon: LucideIcon; color: string }[] = [
-  { id: "fullstack", Icon: Rocket, color: "from-[#001a66] to-[#0047ab]" },
-  { id: "mobile", Icon: Smartphone, color: "from-[#0033a0] to-[#3b82f6]" },
-  { id: "desktop", Icon: Monitor, color: "from-[#001a66] to-[#2563eb]" },
-  { id: "ai", Icon: Bot, color: "from-[#0047ab] to-[#60a5fa]" },
-  { id: "cloud", Icon: Cloud, color: "from-[#001a66] to-[#0047ab]" },
-  { id: "consulting", Icon: Target, color: "from-[#0033a0] to-[#3b82f6]" },
+// Navy Blue corporate color scheme - unified enterprise look
+const SERVICES: { id: string; Icon: LucideIcon }[] = [
+  { id: "fullstack", Icon: Rocket },
+  { id: "mobile", Icon: Smartphone },
+  { id: "desktop", Icon: Monitor },
+  { id: "ai", Icon: Bot },
+  { id: "cloud", Icon: Cloud },
+  { id: "consulting", Icon: Target },
 ];
 
 export function Services() {
@@ -79,9 +79,9 @@ export function Services() {
                 }}
                 whileTap={{ scale: 0.98 }}
               >
-                {/* Icon with gradient background */}
+                {/* Icon with unified Navy Blue background - Enterprise look */}
                 <motion.div 
-                  className={`w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-xl sm:rounded-2xl bg-linear-to-br ${service.color} flex items-center justify-center mb-4 sm:mb-5 lg:mb-6`}
+                  className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-xl sm:rounded-2xl bg-[#001a66]/90 dark:bg-[#001a66] flex items-center justify-center mb-4 sm:mb-5 lg:mb-6 border border-[#001a66]/20 dark:border-white/10"
                   whileHover={{ scale: 1.1, rotate: 5 }}
                   transition={{ type: "spring", stiffness: 400, damping: 17 }}
                 >
