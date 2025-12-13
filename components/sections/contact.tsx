@@ -110,7 +110,7 @@ export function Contact() {
                   name="name"
                   required
                   className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg sm:rounded-xl bg-secondary/50 border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all text-sm sm:text-base"
-                  placeholder="John Doe"
+                  placeholder="Tamirat Kebede"
                   variants={inputVariants}
                   animate={focusedField === "name" ? "focused" : "idle"}
                   onFocus={() => setFocusedField("name")}
@@ -139,7 +139,7 @@ export function Contact() {
                   name="email"
                   required
                   className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg sm:rounded-xl bg-secondary/50 border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all text-sm sm:text-base"
-                  placeholder="john@example.com"
+                  placeholder="tamiratkebede120@gmail.com"
                   variants={inputVariants}
                   animate={focusedField === "email" ? "focused" : "idle"}
                   onFocus={() => setFocusedField("email")}
