@@ -422,9 +422,8 @@ function ReviewCard({ testimonial }: { testimonial: typeof TESTIMONIALS[0] }) {
 
       {/* Footer */}
       <div className="pt-3 sm:pt-4 mt-auto border-t border-border">
-        <div className="flex items-center justify-between text-[10px] sm:text-xs text-muted-foreground">
-          <span className="truncate max-w-[60%]">{testimonial.period.split(" - ")[0]}</span>
-          <span className="font-medium text-green-500 truncate max-w-[40%]">{testimonial.budget.split(" ")[0]}</span>
+        <div className="text-[10px] sm:text-xs text-muted-foreground">
+          <span>{testimonial.period}</span>
         </div>
       </div>
     </motion.div>

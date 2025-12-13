@@ -20,7 +20,6 @@ export interface Testimonial {
   project: string;
   rating: number;
   period: string;
-  budget: string;
   quote: string;
   client?: string;
 }

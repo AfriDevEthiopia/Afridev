@@ -54,7 +54,6 @@ export const TESTIMONIALS: Testimonial[] = [
     project: "Database and Frontend Development with Postgres SQL and Streamlit",
     rating: 5,
     period: "Nov 9, 2025 - Nov 26, 2025",
-    budget: "$850.00 ($15.00/hr • 57 hours)",
     quote:
       "I had a fantastic experience with Tamirat. He was highly professional, incredibly easy to work with, and delivered top-notch results. The quality of his work was excellent. Highly recommended!",
   },
@@ -63,7 +62,6 @@ export const TESTIMONIALS: Testimonial[] = [
     project: "AI, LLM & Automations for our platform",
     rating: 5,
     period: "Oct 17, 2025 - Nov 6, 2025",
-    budget: "$313.33 ($10.00/hr • 31 hours)",
     quote:
       "Fantastic Guy with a great team of people very efficient and thorough in his work and a proper gentleman",
   },
@@ -72,7 +70,6 @@ export const TESTIMONIALS: Testimonial[] = [
     project: "Python Coder Needed for Script Adjustments and Modifications",
     rating: 5,
     period: "Aug 15, 2025 - Oct 15, 2025",
-    budget: "$773.34 ($10.00/hr • 77 hours)",
     quote:
       "Fantastic guy to work with absolute pleasure, patience and very professional",
   },
@@ -81,7 +78,6 @@ export const TESTIMONIALS: Testimonial[] = [
     project: "Backend vibe coder needed",
     rating: 5,
     period: "Jul 26, 2025 - Sep 6, 2025",
-    budget: "$570.00 (Fixed price)",
     quote:
       "Your clear communication, professionalism, and collaborative approach made the project smooth and enjoyable. I truly appreciate the trust and support, and I would be more than happy to work with you again.",
   },
@@ -90,7 +86,6 @@ export const TESTIMONIALS: Testimonial[] = [
     project: "Full-Stack Engineer with AI chatbot Integration Experience",
     rating: 5,
     period: "Jul 15, 2025 - Jul 16, 2025",
-    budget: "$8.75 (Fixed price)",
     quote:
       "Tamirat is exceptionally talented and consistently exceeded our expectations. His expertise in AI chatbot integration was clearly demonstrated throughout the project. He delivered high-quality work on time and communicated effectively.",
   },
@@ -99,7 +94,6 @@ export const TESTIMONIALS: Testimonial[] = [
     project: "EuroStack - MVP",
     rating: 5,
     period: "Jun 21, 2025 - Jun 21, 2025",
-    budget: "$40.00 ($20.00/hr • 2 hours)",
     quote:
       "I had a great experience working with Tamirat! From the very beginning, communication was smooth and professional. The quality of the design work exceeded expectations – clean, modern, and fully aligned with our vision.",
   },
