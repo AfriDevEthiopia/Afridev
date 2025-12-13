@@ -28,31 +28,33 @@
     "subtitle": "Comprehensive solutions for modern digital challenges",
     "fullstack": {
       "title": "Full-Stack Web Development",
-      "description": "Build high-performance web apps and integrate AI features like ChatGPT or custom LLMs. We help startups and tech teams build cloud-native, scalable applications using Python (Django/FastAPI), Node.js, React/Next.js, and more.",
-      "showcase": "Patient Health Monitoring System"
+      "description": "Build high-performance web apps with modern technologies. We help startups and tech teams create cloud-native, scalable applications.",
+      "benefits": ["Scalable cloud-native architecture", "AI/LLM integration ready", "Modern React & Python stack"]
     },
     "mobile": {
       "title": "Mobile App Development",
-      "description": "Create mobile applications that help users discover and engage. We build comprehensive apps with detailed profiles, user reviews and ratings, advanced search and filtering capabilities using Flutter & FlutterFlow.",
-      "showcase": "RateEat"
+      "description": "Create beautiful, high-performance mobile applications for iOS and Android using Flutter & FlutterFlow.",
+      "benefits": ["Cross-platform (iOS & Android)", "Native performance", "Offline-first capabilities"]
     },
     "desktop": {
       "title": "Desktop Application Development",
-      "description": "Design and build robust, high-performance desktop applications that run seamlessly across platforms (Windows, macOS, Linux). From standalone utilities to real-time communication tools and full-scale business applications.",
-      "showcase": "SmartVid AI: Automate Video Creation & Posting"
+      "description": "Build robust desktop applications that run seamlessly across Windows, macOS, and Linux platforms.",
+      "benefits": ["Cross-platform compatibility", "Native OS integration", "High-performance processing"]
     },
     "ai": {
       "title": "AI Apps & Integration",
-      "description": "Prepare for success with AI-powered solutions. We build personalized study materials, organized resources, and interactive learning tools. Integrate ChatGPT, custom LLMs, and AI automation into your products.",
-      "showcase": "Skill Bridge"
+      "description": "Integrate ChatGPT, custom LLMs, and AI automation into your products for intelligent user experiences.",
+      "benefits": ["ChatGPT & LLM integration", "Custom AI model training", "Workflow automation"]
     },
     "cloud": {
       "title": "Cloud & DevOps",
-      "description": "AWS infrastructure, Docker, Kubernetes, and CI/CD pipelines for scalable cloud-native applications"
+      "description": "AWS infrastructure, Docker, Kubernetes, and CI/CD pipelines for scalable cloud-native applications.",
+      "benefits": ["AWS & cloud infrastructure", "Docker & Kubernetes", "CI/CD automation"]
     },
     "consulting": {
       "title": "Consulting & Optimization",
-      "description": "Technical guidance, performance optimization, and architecture design for modern applications"
+      "description": "Technical guidance, performance optimization, and architecture design for modern applications.",
+      "benefits": ["Architecture review", "Performance optimization", "Technical roadmapping"]
     }
   },
   "whyChoose": {

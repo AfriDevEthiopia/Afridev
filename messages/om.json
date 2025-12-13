@@ -27,28 +27,34 @@
     "title": "Tajaajiloota Keenya",
     "subtitle": "Furmaata waliigalaa qormaata dijitaalaa ammayyaaf",
     "fullstack": {
-      "title": "Guddinaa Full-Stack",
-      "description": "Ogummaa Python, Node.js, Golang, PHP, React/Next.js waliin TypeScript"
+      "title": "Guddinaa Web Full-Stack",
+      "description": "Teeknooloojii ammayyaa fayyadamuun apps weebii raawwii olaanaa qaban ijaari.",
+      "benefits": ["Arkiteekcharii cloud-native guddachuu danda'u", "Walitti makamuu AI/LLM qophaa'e", "Stack React fi Python ammayyaa"]
     },
     "mobile": {
       "title": "Guddinaa App Mobile",
-      "description": "Apps iOS fi Android raawwii olaanaa qaban Flutter & FlutterFlow fayyadamuun"
+      "description": "Flutter fi FlutterFlow fayyadamuun apps moobayilaa bareedaa, raawwii olaanaa qaban iOS fi Android irratti uumi.",
+      "benefits": ["Cross-platform (iOS fi Android)", "Raawwii native", "Dandeettii offline-first"]
     },
     "desktop": {
-      "title": "Aplikeeshiniiwwan Desktop",
-      "description": "Aplikeeshiniiwwan cimoo Windows, macOS, fi Linux platforms"
+      "title": "Guddinaa Aplikeeshinii Desktop",
+      "description": "Aplikeeshiniiwwan desktop cimoo Windows, macOS, fi Linux platforms irratti salphaatti hojjetan ijaari.",
+      "benefits": ["Walsimuu cross-platform", "Walitti makamuu OS native", "Pirosesii raawwii olaanaa"]
     },
     "ai": {
-      "title": "Walitti Makamuu AI & LLM",
-      "description": "Walitti makamuu ChatGPT, LLMs dhuunfaa, fi amaloota automation AI"
+      "title": "Apps AI fi Walitti Makamuu",
+      "description": "ChatGPT, LLMs dhuunfaa, fi automation AI oomishaawwan keessanitti makaa muuxannoo fayyadamaa hubataa ta'eef.",
+      "benefits": ["Walitti makamuu ChatGPT fi LLM", "Leenjii moodeela AI dhuunfaa", "Automation hojii"]
     },
     "cloud": {
-      "title": "Cloud & DevOps",
-      "description": "Bu'uura AWS, Docker, Kubernetes, fi pipelines CI/CD"
+      "title": "Cloud fi DevOps",
+      "description": "Bu'uura AWS, Docker, Kubernetes, fi pipelines CI/CD aplikeeshiniiwwan cloud-native guddachuu danda'aniif.",
+      "benefits": ["Bu'uura AWS fi cloud", "Docker fi Kubernetes", "Automation CI/CD"]
     },
     "consulting": {
-      "title": "Gorsa & Fooyyessuu",
-      "description": "Qajeelfama teeknikaa, fooyyessuu raawwii, fi dizaayinii arkiteekcharii"
+      "title": "Gorsa fi Fooyyessuu",
+      "description": "Qajeelfama teeknikaa, fooyyessuu raawwii, fi dizaayinii arkiteekcharii aplikeeshiniiwwan ammayyaaf.",
+      "benefits": ["Gamaaggama arkiteekcharii", "Fooyyessuu raawwii", "Karooraa teeknikaa"]
     }
   },
   "whyChoose": {

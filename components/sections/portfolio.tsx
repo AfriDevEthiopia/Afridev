@@ -120,35 +120,22 @@ export function Portfolio() {
                           whileInView={{ opacity: 1, x: 0 }}
                           transition={{ delay: 0.1 * idx }}
                         >
-                          <motion.svg 
-                            className="w-4 h-4 sm:w-5 sm:h-5 text-[#001a66] dark:text-[#3b82f6] shrink-0 mt-0.5" 
-                            fill="none" 
-                            stroke="currentColor" 
-                            viewBox="0 0 24 24"
+                          <motion.span 
+                            className="w-5 h-5 rounded-full bg-[#001a66] dark:bg-[#3b82f6] flex items-center justify-center shrink-0 mt-0.5"
                             initial={{ scale: 0 }}
                             whileInView={{ scale: 1 }}
                             transition={{ delay: 0.2 + 0.1 * idx, type: "spring", stiffness: 500 }}
                           >
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                          </motion.svg>
+                            <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                            </svg>
+                          </motion.span>
                           <span className="line-clamp-2">{feature}</span>
                         </motion.li>
                       ))}
                     </ul>
                   )}
 
-                  {/* CTA */}
-                  <div className="flex items-center gap-2 text-primary font-medium text-xs sm:text-sm group-hover:gap-3 transition-all">
-                    {t("viewProject")}
-                    <svg 
-                      className="w-3 h-3 sm:w-4 sm:h-4 transition-transform group-hover:translate-x-1" 
-                      fill="none" 
-                      stroke="currentColor" 
-                      viewBox="0 0 24 24"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                    </svg>
-                  </div>
                 </div>
               </motion.a>
             </StaggerItem>

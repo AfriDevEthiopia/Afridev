@@ -18,13 +18,13 @@ export function Team() {
   const isTeamHeaderInView = useInView(teamHeaderRef, { once: true, amount: 0.5 });
 
   return (
-    <section className="py-16 sm:py-20 lg:py-28 relative overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0 bg-linear-to-b from-transparent via-primary/5 to-transparent" />
-      
-      <div className="relative container mx-auto">
-        {/* ===== CLIENT REVIEWS SECTION ===== */}
-        <div id="testimonials" className="mb-16 sm:mb-20 lg:mb-28 scroll-mt-24">
+    <>
+      {/* ===== CLIENT REVIEWS SECTION ===== */}
+      <section id="testimonials" className="py-16 sm:py-20 lg:py-28 relative overflow-hidden scroll-mt-24">
+        {/* Background */}
+        <div className="absolute inset-0 bg-linear-to-b from-transparent via-primary/5 to-transparent" />
+        
+        <div className="relative container mx-auto">
           {/* Reviews Header */}
           <div ref={reviewsHeaderRef} className="text-center max-w-3xl mx-auto mb-10 sm:mb-12 lg:mb-16">
             <motion.span 
@@ -60,9 +60,14 @@ export function Team() {
             autoSlideInterval={4000}
           />
         </div>
+      </section>
 
-        {/* ===== TEAM SECTION ===== */}
-        <div id="team" className="mb-12 sm:mb-16 scroll-mt-24">
+      {/* ===== TEAM SECTION ===== */}
+      <section id="team" className="py-16 sm:py-20 lg:py-28 relative overflow-hidden scroll-mt-24">
+        {/* Background */}
+        <div className="absolute inset-0 bg-linear-to-b from-transparent via-primary/5 to-transparent" />
+        
+        <div className="relative container mx-auto">
           {/* Team Header */}
           <div ref={teamHeaderRef} className="text-center max-w-3xl mx-auto mb-10 sm:mb-12 lg:mb-16">
             <motion.span 
@@ -97,33 +102,33 @@ export function Team() {
             renderItem={(member) => <TeamCard member={member} t={t} />}
             autoSlideInterval={5000}
           />
-        </div>
 
-        {/* View on Upwork CTA */}
-        <motion.div 
-          className="text-center"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
-        >
-          <AnimatedButton
-            href={UPWORK_AGENCY_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#14a800] hover:bg-[#14a800]/90 text-white font-semibold transition-colors shadow-lg shadow-[#14a800]/30"
+          {/* View on Upwork CTA */}
+          <motion.div 
+            className="text-center mt-12 sm:mt-16"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
           >
-            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M18.561 13.158c-1.102 0-2.135-.467-3.074-1.227l.228-1.076.008-.042c.207-1.143.849-3.06 2.839-3.06 1.492 0 2.703 1.212 2.703 2.703-.001 1.489-1.212 2.702-2.704 2.702zm0-8.14c-2.539 0-4.51 1.649-5.31 4.366-1.22-1.834-2.148-4.036-2.687-5.892H7.828v7.112c-.002 1.406-1.141 2.546-2.547 2.548-1.405-.002-2.543-1.143-2.545-2.548V3.492H0v7.112c0 2.914 2.37 5.303 5.281 5.303 2.913 0 5.283-2.389 5.283-5.303v-1.19c.529 1.107 1.182 2.229 1.974 3.221l-1.673 7.873h2.797l1.213-5.71c1.063.679 2.285 1.109 3.686 1.109 3 0 5.439-2.452 5.439-5.45 0-3-2.439-5.439-5.439-5.439z" />
-            </svg>
-            View Our Agency on Upwork
-          </AnimatedButton>
-          <p className="text-xs sm:text-sm text-muted-foreground mt-3">
-            100% Job Success Rate • Top Rated Agency
-          </p>
-        </motion.div>
-      </div>
-    </section>
+            <AnimatedButton
+              href={UPWORK_AGENCY_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#14a800] hover:bg-[#14a800]/90 text-white font-semibold transition-colors shadow-lg shadow-[#14a800]/30"
+            >
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M18.561 13.158c-1.102 0-2.135-.467-3.074-1.227l.228-1.076.008-.042c.207-1.143.849-3.06 2.839-3.06 1.492 0 2.703 1.212 2.703 2.703-.001 1.489-1.212 2.702-2.704 2.702zm0-8.14c-2.539 0-4.51 1.649-5.31 4.366-1.22-1.834-2.148-4.036-2.687-5.892H7.828v7.112c-.002 1.406-1.141 2.546-2.547 2.548-1.405-.002-2.543-1.143-2.545-2.548V3.492H0v7.112c0 2.914 2.37 5.303 5.281 5.303 2.913 0 5.283-2.389 5.283-5.303v-1.19c.529 1.107 1.182 2.229 1.974 3.221l-1.673 7.873h2.797l1.213-5.71c1.063.679 2.285 1.109 3.686 1.109 3 0 5.439-2.452 5.439-5.45 0-3-2.439-5.439-5.439-5.439z" />
+              </svg>
+              View Our Agency on Upwork
+            </AnimatedButton>
+            <p className="text-xs sm:text-sm text-muted-foreground mt-3">
+              100% Job Success Rate • Top Rated Agency
+            </p>
+          </motion.div>
+        </div>
+      </section>
+    </>
   );
 }
 
@@ -317,7 +322,7 @@ function TeamCard({ member, t }: { member: typeof TEAM_MEMBERS[0]; t: ReturnType
       <div>
         {/* Avatar - Real Photo */}
         <motion.div 
-          className="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 mx-auto mb-4 sm:mb-5 lg:mb-6 rounded-full bg-gradient-to-br from-[#001a66] to-[#3b82f6] p-0.5 sm:p-1 overflow-hidden"
+          className="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 mx-auto mb-4 sm:mb-5 lg:mb-6 rounded-full bg-linear-to-br from-gradient-start to-[#3b82f6] p-0.5 sm:p-1 overflow-hidden"
           whileHover={{ scale: 1.1, rotate: 5 }}
           transition={{ type: "spring", stiffness: 300, damping: 20 }}
         >

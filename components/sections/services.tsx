@@ -10,9 +10,10 @@ import {
   Bot, 
   Cloud, 
   Target,
+  Check,
   type LucideIcon 
 } from "lucide-react";
-import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/animations";
+import { StaggerContainer, StaggerItem } from "@/components/animations";
 
 // Navy Blue corporate color scheme - unified enterprise look
 const SERVICES: { id: string; Icon: LucideIcon }[] = [
@@ -68,67 +69,55 @@ export function Services() {
           staggerDelay={0.08}
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-5 lg:gap-6"
         >
-          {SERVICES.map((service) => (
-            <StaggerItem key={service.id} variant="fadeUp">
-              <motion.div
-                className="group glass rounded-xl sm:rounded-2xl p-5 sm:p-6 lg:p-8 h-full"
-                whileHover={{ 
-                  y: -8, 
-                  scale: 1.02,
-                  transition: { type: "spring", stiffness: 300, damping: 20 }
-                }}
-                whileTap={{ scale: 0.98 }}
-              >
-                {/* Icon with unified Navy Blue background - Enterprise look */}
-                <motion.div 
-                  className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-xl sm:rounded-2xl bg-[#001a66]/90 dark:bg-[#001a66] flex items-center justify-center mb-4 sm:mb-5 lg:mb-6 border border-[#001a66]/20 dark:border-white/10"
-                  whileHover={{ scale: 1.1, rotate: 5 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 17 }}
+          {SERVICES.map((service) => {
+            const benefits = t.raw(`${service.id}.benefits`) as string[];
+            
+            return (
+              <StaggerItem key={service.id} variant="fadeUp">
+                <motion.div
+                  className="group glass rounded-xl sm:rounded-2xl p-5 sm:p-6 lg:p-8 h-full flex flex-col"
+                  whileHover={{ 
+                    y: -5, 
+                    transition: { type: "spring", stiffness: 300, damping: 20 }
+                  }}
                 >
-                  <service.Icon className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 text-white" />
-                </motion.div>
-
-                {/* Title */}
-                <h3 className="text-base sm:text-lg lg:text-xl font-bold mb-2 sm:mb-3 group-hover:text-primary transition-colors">
-                  {t(`${service.id}.title`)}
-                </h3>
-
-                {/* Description */}
-                <p className="text-xs sm:text-sm lg:text-base text-muted-foreground leading-relaxed">
-                  {t(`${service.id}.description`)}
-                </p>
-
-                {/* Showcase - if available */}
-                {t.has(`${service.id}.showcase`) && (
-                  <div className="mt-3 sm:mt-4 pt-3 sm:pt-4 border-t border-border/50">
-                    <span className="text-[10px] sm:text-xs text-muted-foreground">Showcase: </span>
-                    <span className="text-xs sm:text-sm font-medium text-primary">{t(`${service.id}.showcase`)}</span>
-                  </div>
-                )}
-
-                {/* Hover Arrow - Hidden on mobile */}
-                <motion.div 
-                  className="mt-4 sm:mt-5 lg:mt-6 hidden sm:flex items-center gap-2 text-primary"
-                  initial={{ opacity: 0, x: -10 }}
-                  whileHover={{ x: 5 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <span className="text-xs sm:text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity">Learn more</span>
-                  <motion.svg 
-                    className="w-3 h-3 sm:w-4 sm:h-4 opacity-0 group-hover:opacity-100 transition-opacity" 
-                    fill="none" 
-                    stroke="currentColor" 
-                    viewBox="0 0 24 24"
-                    initial={{ x: 0 }}
-                    whileHover={{ x: 5 }}
+                  {/* Icon with unified Navy Blue background - Enterprise look */}
+                  <motion.div 
+                    className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-[#001a66]/90 dark:bg-[#001a66] flex items-center justify-center mb-4 sm:mb-5 border border-[#001a66]/20 dark:border-white/10"
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 17 }}
                   >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </motion.svg>
+                    <service.Icon className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
+                  </motion.div>
+
+                  {/* Title */}
+                  <h3 className="text-base sm:text-lg lg:text-xl font-bold mb-2 sm:mb-3 group-hover:text-primary transition-colors">
+                    {t(`${service.id}.title`)}
+                  </h3>
+
+                  {/* Description */}
+                  <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed mb-4 sm:mb-5">
+                    {t(`${service.id}.description`)}
+                  </p>
+
+                  {/* Benefits List */}
+                  <ul className="mt-auto space-y-2.5 sm:space-y-3">
+                    {benefits.map((benefit, idx) => (
+                      <li 
+                        key={idx} 
+                        className="flex items-start gap-2.5 sm:gap-3 text-xs sm:text-sm text-foreground/90"
+                      >
+                        <span className="w-5 h-5 rounded-full bg-[#001a66] dark:bg-[#3b82f6] flex items-center justify-center shrink-0 mt-0.5">
+                          <Check className="w-3 h-3 text-white" strokeWidth={3} />
+                        </span>
+                        <span>{benefit}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </motion.div>
-              </motion.div>
-            </StaggerItem>
-          ))}
+              </StaggerItem>
+            );
+          })}
         </StaggerContainer>
       </div>
     </section>

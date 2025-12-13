@@ -27,28 +27,34 @@
     "title": "አገልግሎቶቻችን",
     "subtitle": "ለዘመናዊ ዲጂታል ፈተናዎች አጠቃላይ መፍትሄዎች",
     "fullstack": {
-      "title": "የሙሉ ስታክ ልማት",
-      "description": "በPython፣ Node.js፣ Golang፣ PHP፣ React/Next.js ከTypeScript ጋር ባለሙያነት"
+      "title": "የሙሉ ስታክ ዌብ ልማት",
+      "description": "በዘመናዊ ቴክኖሎጂዎች ከፍተኛ አፈጻጸም ያላቸውን ዌብ አፕሊኬሽኖች ይገንቡ።",
+      "benefits": ["ሊመጣጠን የሚችል ክላውድ-ኔቲቭ አርክቴክቸር", "AI/LLM ውህደት ዝግጁ", "ዘመናዊ React እና Python ስታክ"]
     },
     "mobile": {
       "title": "የሞባይል አፕሊኬሽን ልማት",
-      "description": "በFlutter እና FlutterFlow ከፍተኛ አፈጻጸም ያላቸው iOS እና Android አፕሊኬሽኖች"
+      "description": "Flutter እና FlutterFlow በመጠቀም ለiOS እና Android ውብ፣ ከፍተኛ አፈጻጸም ያላቸውን ሞባይል አፕሊኬሽኖች ይፍጠሩ።",
+      "benefits": ["ክሮስ-ፕላትፎርም (iOS እና Android)", "ኔቲቭ አፈጻጸም", "ኦፍላይን-ፈርስት ችሎታዎች"]
     },
     "desktop": {
-      "title": "የዴስክቶፕ አፕሊኬሽኖች",
-      "description": "ለWindows፣ macOS እና Linux መድረኮች ጠንካራ አፕሊኬሽኖች"
+      "title": "የዴስክቶፕ አፕሊኬሽን ልማት",
+      "description": "በWindows፣ macOS እና Linux መድረኮች ላይ በቀላሉ የሚሰሩ ጠንካራ ዴስክቶፕ አፕሊኬሽኖችን ይገንቡ።",
+      "benefits": ["ክሮስ-ፕላትፎርም ተኳኋኝነት", "ኔቲቭ OS ውህደት", "ከፍተኛ አፈጻጸም ፕሮሰሲንግ"]
     },
     "ai": {
-      "title": "AI እና LLM ውህደት",
-      "description": "የChatGPT ውህደት፣ ብጁ LLMs እና AI አውቶሜሽን ባህሪያት"
+      "title": "AI አፕሊኬሽኖች እና ውህደት",
+      "description": "ChatGPT፣ ብጁ LLMs እና AI አውቶሜሽንን ወደ ምርቶችዎ ያካትቱ ለብልህ የተጠቃሚ ተሞክሮዎች።",
+      "benefits": ["ChatGPT እና LLM ውህደት", "ብጁ AI ሞዴል ስልጠና", "የስራ ሂደት አውቶሜሽን"]
     },
     "cloud": {
       "title": "ክላውድ እና DevOps",
-      "description": "የAWS መሠረተ ልማት፣ Docker፣ Kubernetes እና CI/CD pipelines"
+      "description": "AWS መሠረተ ልማት፣ Docker፣ Kubernetes እና CI/CD pipelines ለሚመጣጠኑ ክላውድ-ኔቲቭ አፕሊኬሽኖች።",
+      "benefits": ["AWS እና ክላውድ መሠረተ ልማት", "Docker እና Kubernetes", "CI/CD አውቶሜሽን"]
     },
     "consulting": {
       "title": "ምክክር እና ማሻሻያ",
-      "description": "ቴክኒካዊ መመሪያ፣ የአፈጻጸም ማሻሻያ እና የስርዓተ-ግንባታ ንድፍ"
+      "description": "ቴክኒካዊ መመሪያ፣ የአፈጻጸም ማሻሻያ እና ለዘመናዊ አፕሊኬሽኖች የስርዓተ-ግንባታ ንድፍ።",
+      "benefits": ["የአርክቴክቸር ግምገማ", "የአፈጻጸም ማሻሻያ", "ቴክኒካዊ ሮድማፒንግ"]
     }
   },
   "whyChoose": {
