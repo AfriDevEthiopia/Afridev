@@ -1,0 +1,30 @@
+---
+alwaysApply: true
+---
+
+# Development Guidelines
+
+## Context7 MCP Usage (REQUIRED)
+
+**Always use Context7 MCP tools for documentation lookup:**
+
+1. Before implementing any feature or using any library/framework, ALWAYS call `mcp_context7_resolve-library-id` to get the correct library ID
+2. Then use `mcp_context7_get-library-docs` to fetch the latest documentation
+3. This ensures you're building with:
+   - Up-to-date API references and code examples
+   - Latest package versions and best practices
+   - Current syntax and patterns (not outdated training data)
+
+## Package Management
+
+- Always use the **latest stable versions** of packages
+- Check Context7 docs for current recommended versions
+- Avoid deprecated APIs and legacy patterns
+- Use modern syntax and features
+
+## Build Process
+
+1. **Research first**: Query Context7 for relevant library docs before writing code
+2. **Verify versions**: Ensure package versions are current
+3. **Follow latest patterns**: Use modern approaches from official documentation
+4. **Stay updated**: Don't rely on potentially outdated knowledge - always verify with Context7
