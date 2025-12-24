@@ -11,6 +11,8 @@ export function Contact() {
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
   const [focusedField, setFocusedField] = useState<string | null>(null);
   
+  const CALENDLY_LINK = process.env.NEXT_PUBLIC_CALENDLY_LINK || "https://calendly.com/afridevet/30min";
+  
   const headerRef = useRef<HTMLDivElement>(null);
   const formRef = useRef<HTMLFormElement>(null);
   const isHeaderInView = useInView(headerRef, { once: true, amount: 0.5 });
@@ -21,11 +23,40 @@ export function Contact() {
     setIsSubmitting(true);
     setStatus("idle");
 
-    await new Promise((resolve) => setTimeout(resolve, 2000));
-    setStatus("success");
-    setIsSubmitting(false);
-    (e.target as HTMLFormElement).reset();
-    setTimeout(() => setStatus("idle"), 5000);
+    const formData = new FormData(e.target as HTMLFormElement);
+    const name = formData.get("name") as string;
+    const email = formData.get("email") as string;
+    const subject = formData.get("subject") as string;
+    const message = formData.get("message") as string;
+
+    try {
+      // Build Calendly URL with pre-filled data
+      const calendlyUrl = new URL(CALENDLY_LINK);
+      calendlyUrl.searchParams.set('name', name);
+      calendlyUrl.searchParams.set('email', email);
+      
+      // Pass subject and message to your custom Calendly questions
+      // a1 = Question 1: "What is the subject of your inquiry?"
+      // a2 = Question 2: "Tell us about your project"
+      calendlyUrl.searchParams.set('a1', subject);
+      calendlyUrl.searchParams.set('a2', message);
+      
+      // Small delay for better UX
+      await new Promise((resolve) => setTimeout(resolve, 500));
+      
+      // Open Calendly in a new tab
+      window.open(calendlyUrl.toString(), '_blank');
+      
+      setStatus("success");
+      (e.target as HTMLFormElement).reset();
+      
+    } catch (error) {
+      console.error("Error opening Calendly:", error);
+      setStatus("error");
+    } finally {
+      setIsSubmitting(false);
+      setTimeout(() => setStatus("idle"), 5000);
+    }
   };
 
   const inputVariants = {

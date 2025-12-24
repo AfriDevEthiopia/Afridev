@@ -101,10 +101,10 @@
     "email": "Email Keessan",
     "subject": "Mata-duree",
     "message": "Waa'ee pirojektii keessanii nutti himaa",
-    "send": "Ergaa Ergii",
-    "sending": "Ergaa jira...",
-    "success": "Ergaan milkaa'inaan ergamee jira! Dafanii isinitti deebina.",
-    "error": "Ergaa erguu hin dandeenye. Maaloo irra deebi'ii yaali."
+    "send": "Walgahii Saganteessi",
+    "sending": "Calendly banuu irratti...",
+    "success": "Calendly baname! Mee buufata kee tab haaraa keessatti xumuri.",
+    "error": "Calendly banuun hin milkoofne. Mee irra deebi'ii yaali ykn fuula Calendly keenya kallattiin daawwadha."
   },
   "footer": {
     "tagline": "Aplikeeshiniiwwan cloud-native fi AI-powered ijaaruu",

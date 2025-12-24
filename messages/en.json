@@ -101,10 +101,10 @@
     "email": "Your Email",
     "subject": "Subject",
     "message": "Tell us about your project",
-    "send": "Send Message",
-    "sending": "Sending...",
-    "success": "Message sent successfully! We'll get back to you soon.",
-    "error": "Failed to send message. Please try again."
+    "send": "Schedule Meeting",
+    "sending": "Opening Calendly...",
+    "success": "Calendly opened! Please complete your booking in the new tab.",
+    "error": "Failed to open Calendly. Please try again or visit our Calendly page directly."
   },
   "footer": {
     "tagline": "Building cloud-native and AI-powered applications",

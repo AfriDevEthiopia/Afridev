@@ -97,7 +97,9 @@ export function useChat() {
       });
 
       if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
+        const errorData = await response.json().catch(() => ({}));
+        const errorMessage = errorData.error || `HTTP error! status: ${response.status}`;
+        throw new Error(errorMessage);
       }
 
       const data: ChatResponse = await response.json();
@@ -121,14 +123,28 @@ export function useChat() {
         return;
       }
 
-      const errorMessage = err instanceof Error ? err.message : "Failed to send message";
+      // Handle network errors more specifically
+      let errorMessage = "Failed to send message";
+      if (err instanceof Error) {
+        errorMessage = err.message;
+        
+        // Check for network-related errors
+        if (err.message.includes("Failed to fetch") || err.message.includes("network") || err.message.includes("internet")) {
+          errorMessage = "Network error: Please check your internet connection and try again.";
+        } else if (err.message.includes("timeout")) {
+          errorMessage = "Request timed out. Please check your internet connection and try again.";
+        }
+      }
+      
       setError(errorMessage);
 
-      // Add error message to chat
+      // Add error message to chat with more helpful message
       const errorChatMessage: ChatMessage = {
         id: generateId(),
         role: "assistant",
-        content: "I apologize, but I'm having trouble responding right now. Please try again later or contact AfriDev directly.",
+        content: errorMessage.includes("network") || errorMessage.includes("internet") || errorMessage.includes("timeout")
+          ? errorMessage
+          : "I apologize, but I'm having trouble responding right now. Please try again later or contact AfriDev directly.",
         timestamp: new Date(),
       };
 
