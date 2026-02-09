@@ -24,16 +24,6 @@ export interface Testimonial {
   client?: string;
 }
 
-export interface TeamMember {
-  id: string;
-  name: string;
-  title: string;
-  status: string;
-  badge: "Top Rated" | "Rising Talent";
-  jobSuccess: string;
-  image?: string;
-}
-
 export interface ContactFormData {
   name: string;
   email: string;

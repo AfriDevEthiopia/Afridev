@@ -5,7 +5,7 @@ import { Footer } from "@/components/layout/footer";
 import { Hero } from "@/components/sections/hero";
 import { Services } from "@/components/sections/services";
 import { Portfolio } from "@/components/sections/portfolio";
-import { Team } from "@/components/sections/team";
+import { Reviews } from "@/components/sections/team";
 import { Contact } from "@/components/sections/contact";
 import { CursorGlow, PageTransition } from "@/components/animations";
 import { ChatAssistant } from "@/components/chat";
@@ -21,7 +21,7 @@ export default function HomePage() {
         <Hero />
         <Services />
         <Portfolio />
-        <Team />
+        <Reviews />
         <Contact />
       </main>
       <Footer />

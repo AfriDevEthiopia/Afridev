@@ -158,7 +158,6 @@ export function Footer() {
             <ul className="space-y-2 sm:space-y-3">
               {[
                 { href: "#portfolio", label: tNav("portfolio") },
-                { href: "#team", label: tNav("team") },
                 { href: "#testimonials", label: tNav("testimonials") },
                 { href: "#contact", label: tNav("contact") },
               ].map((item, index) => (

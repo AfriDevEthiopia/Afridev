@@ -5,7 +5,6 @@
     "services": "አገልግሎቶች",
     "portfolio": "ስራዎች",
     "testimonials": "ምስክርነቶች",
-    "team": "ቡድን",
     "contact": "ያግኙን"
   },
   "hero": {
@@ -86,13 +85,6 @@
   "testimonials": {
     "title": "ደንበኞቻችን ምን ይላሉ",
     "subtitle": "በዓለም ዙሪያ በመነሻ ኩባንያዎች እና የቴክኖሎጂ ቡድኖች የታመኑ"
-  },
-  "team": {
-    "title": "ቡድናችንን ይወቁ",
-    "subtitle": "ለስኬትዎ የተቆረጡ ልምድ ያላቸው ባለሙያዎች",
-    "jobSuccess": "የሥራ ስኬት",
-    "topRated": "ከፍተኛ ደረጃ",
-    "risingTalent": "እያደገ ያለ ተሰጥኦ"
   },
   "contact": {
     "title": "አብረን እንስራ",

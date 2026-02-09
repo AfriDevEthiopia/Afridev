@@ -5,7 +5,6 @@
     "services": "Tajaajiloota",
     "portfolio": "Hojiilee",
     "testimonials": "Ragaalee",
-    "team": "Garee",
     "contact": "Nu Quunnamaa"
   },
   "hero": {
@@ -86,13 +85,6 @@
   "testimonials": {
     "title": "Maamiltonni Keenya Maal Jedhu",
     "subtitle": "Dhaabbileen jalqabaa fi gareewwan teeknooloojii addunyaa irraa amanamu"
-  },
-  "team": {
-    "title": "Garee Keenya Beekaa",
-    "subtitle": "Ogeeyyii muuxannoo qaban milkaa'ina keessaniif of kennaniiru",
-    "jobSuccess": "Milkaa'ina Hojii",
-    "topRated": "Sadarkaa Olaanaa",
-    "risingTalent": "Dandeettii Guddachaa Jiru"
   },
   "contact": {
     "title": "Waliin Haa Hojjannu",

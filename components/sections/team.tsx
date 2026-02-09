@@ -3,132 +3,55 @@
 import { useTranslations } from "next-intl";
 import { useEffect, useRef, useState, useCallback } from "react";
 import { motion, useInView, AnimatePresence } from "motion/react";
-import { TEAM_MEMBERS, TESTIMONIALS } from "@/lib/constants";
-import { AnimatedButton } from "@/components/animations";
-import Image from "next/image";
+import { TESTIMONIALS } from "@/lib/constants";
 
-const UPWORK_AGENCY_URL = "https://www.upwork.com/agencies/1937186981697230253/";
-
-export function Team() {
-  const t = useTranslations("team");
+export function Reviews() {
   const tTestimonials = useTranslations("testimonials");
   const reviewsHeaderRef = useRef<HTMLDivElement>(null);
-  const teamHeaderRef = useRef<HTMLDivElement>(null);
   const isReviewsHeaderInView = useInView(reviewsHeaderRef, { once: true, amount: 0.5 });
-  const isTeamHeaderInView = useInView(teamHeaderRef, { once: true, amount: 0.5 });
 
   return (
-    <>
-      {/* ===== CLIENT REVIEWS SECTION ===== */}
-      <section id="testimonials" className="py-16 sm:py-20 lg:py-28 relative overflow-hidden scroll-mt-24">
-        {/* Background */}
-        <div className="absolute inset-0 bg-linear-to-b from-transparent via-primary/5 to-transparent" />
-        
-        <div className="relative container mx-auto">
-          {/* Reviews Header */}
-          <div ref={reviewsHeaderRef} className="text-center max-w-3xl mx-auto mb-10 sm:mb-12 lg:mb-16">
-            <motion.span 
-              initial={{ opacity: 0, y: 20, scale: 0.9 }}
-              animate={isReviewsHeaderInView ? { opacity: 1, y: 0, scale: 1 } : {}}
-              transition={{ duration: 0.5, ease: "easeOut" }}
-              className="inline-block px-3 sm:px-4 py-1 sm:py-1.5 rounded-full bg-green-500/10 border border-green-500/20 text-xs sm:text-sm text-green-500 mb-3 sm:mb-4"
-            >
-              Client Reviews
-            </motion.span>
-            <motion.h2 
-              initial={{ opacity: 0, y: 20 }}
-              animate={isReviewsHeaderInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
-              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 lg:mb-6"
-            >
-              {tTestimonials("title")}
-            </motion.h2>
-            <motion.p 
-              initial={{ opacity: 0, y: 20 }}
-              animate={isReviewsHeaderInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
-              className="text-sm sm:text-base lg:text-lg text-muted-foreground"
-            >
-              {tTestimonials("subtitle")}
-            </motion.p>
-          </div>
-
-          {/* Reviews Carousel */}
-          <Carousel
-            items={TESTIMONIALS}
-            renderItem={(testimonial) => <ReviewCard testimonial={testimonial} />}
-            autoSlideInterval={4000}
-          />
-        </div>
-      </section>
-
-      {/* ===== TEAM SECTION ===== */}
-      <section id="team" className="py-16 sm:py-20 lg:py-28 relative overflow-hidden scroll-mt-24">
-        {/* Background */}
-        <div className="absolute inset-0 bg-linear-to-b from-transparent via-primary/5 to-transparent" />
-        
-        <div className="relative container mx-auto">
-          {/* Team Header */}
-          <div ref={teamHeaderRef} className="text-center max-w-3xl mx-auto mb-10 sm:mb-12 lg:mb-16">
-            <motion.span 
-              initial={{ opacity: 0, y: 20, scale: 0.9 }}
-              animate={isTeamHeaderInView ? { opacity: 1, y: 0, scale: 1 } : {}}
-              transition={{ duration: 0.5, ease: "easeOut" }}
-              className="inline-block px-3 sm:px-4 py-1 sm:py-1.5 rounded-full bg-primary/10 border border-primary/20 text-xs sm:text-sm text-primary mb-3 sm:mb-4"
-            >
-              Our Team
-            </motion.span>
-            <motion.h2 
-              initial={{ opacity: 0, y: 20 }}
-              animate={isTeamHeaderInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
-              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 lg:mb-6"
-            >
-              {t("title")}
-            </motion.h2>
-            <motion.p 
-              initial={{ opacity: 0, y: 20 }}
-              animate={isTeamHeaderInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
-              className="text-sm sm:text-base lg:text-lg text-muted-foreground"
-            >
-              {t("subtitle")}
-            </motion.p>
-          </div>
-
-          {/* Team Carousel */}
-          <Carousel
-            items={TEAM_MEMBERS}
-            renderItem={(member) => <TeamCard member={member} t={t} />}
-            autoSlideInterval={5000}
-          />
-
-          {/* View on Upwork CTA */}
-          <motion.div 
-            className="text-center mt-12 sm:mt-16"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
+    <section id="testimonials" className="py-16 sm:py-20 lg:py-28 relative overflow-hidden scroll-mt-24">
+      {/* Background */}
+      <div className="absolute inset-0 bg-linear-to-b from-transparent via-primary/5 to-transparent" />
+      
+      <div className="relative container mx-auto">
+        {/* Reviews Header */}
+        <div ref={reviewsHeaderRef} className="text-center max-w-3xl mx-auto mb-10 sm:mb-12 lg:mb-16">
+          <motion.span 
+            initial={{ opacity: 0, y: 20, scale: 0.9 }}
+            animate={isReviewsHeaderInView ? { opacity: 1, y: 0, scale: 1 } : {}}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+            className="inline-block px-3 sm:px-4 py-1 sm:py-1.5 rounded-full bg-green-500/10 border border-green-500/20 text-xs sm:text-sm text-green-500 mb-3 sm:mb-4"
           >
-            <AnimatedButton
-              href={UPWORK_AGENCY_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#14a800] hover:bg-[#14a800]/90 text-white font-semibold transition-colors shadow-lg shadow-[#14a800]/30"
-            >
-              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M18.561 13.158c-1.102 0-2.135-.467-3.074-1.227l.228-1.076.008-.042c.207-1.143.849-3.06 2.839-3.06 1.492 0 2.703 1.212 2.703 2.703-.001 1.489-1.212 2.702-2.704 2.702zm0-8.14c-2.539 0-4.51 1.649-5.31 4.366-1.22-1.834-2.148-4.036-2.687-5.892H7.828v7.112c-.002 1.406-1.141 2.546-2.547 2.548-1.405-.002-2.543-1.143-2.545-2.548V3.492H0v7.112c0 2.914 2.37 5.303 5.281 5.303 2.913 0 5.283-2.389 5.283-5.303v-1.19c.529 1.107 1.182 2.229 1.974 3.221l-1.673 7.873h2.797l1.213-5.71c1.063.679 2.285 1.109 3.686 1.109 3 0 5.439-2.452 5.439-5.45 0-3-2.439-5.439-5.439-5.439z" />
-              </svg>
-              View Our Agency on Upwork
-            </AnimatedButton>
-            <p className="text-xs sm:text-sm text-muted-foreground mt-3">
-              100% Job Success Rate • Top Rated Agency
-            </p>
-          </motion.div>
+            Client Reviews
+          </motion.span>
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            animate={isReviewsHeaderInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 lg:mb-6"
+          >
+            {tTestimonials("title")}
+          </motion.h2>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            animate={isReviewsHeaderInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
+            className="text-sm sm:text-base lg:text-lg text-muted-foreground"
+          >
+            {tTestimonials("subtitle")}
+          </motion.p>
         </div>
-      </section>
-    </>
+
+        {/* Reviews Carousel */}
+        <Carousel
+          items={TESTIMONIALS}
+          renderItem={(testimonial) => <ReviewCard testimonial={testimonial} />}
+          autoSlideInterval={4000}
+        />
+      </div>
+    </section>
   );
 }
 
@@ -303,73 +226,6 @@ function Carousel<T extends { id: string }>({ items, renderItem, autoSlideInterv
             aria-label={`Go to slide ${index + 1}`}
           />
         ))}
-      </div>
-    </motion.div>
-  );
-}
-
-// ===== TEAM MEMBER CARD =====
-function TeamCard({ member, t }: { member: typeof TEAM_MEMBERS[0]; t: ReturnType<typeof useTranslations> }) {
-  return (
-    <motion.div 
-      className="group glass rounded-xl sm:rounded-2xl lg:rounded-3xl p-5 sm:p-6 lg:p-8 text-center h-full min-h-[280px] sm:min-h-[320px] flex flex-col justify-between"
-      whileHover={{ 
-        y: -5, 
-        scale: 1.02,
-        transition: { type: "spring", stiffness: 300, damping: 20 }
-      }}
-    >
-      <div>
-        {/* Avatar - Real Photo */}
-        <motion.div 
-          className="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 mx-auto mb-4 sm:mb-5 lg:mb-6 rounded-full bg-linear-to-br from-gradient-start to-[#3b82f6] p-0.5 sm:p-1 overflow-hidden"
-          whileHover={{ scale: 1.1, rotate: 5 }}
-          transition={{ type: "spring", stiffness: 300, damping: 20 }}
-        >
-          {member.image ? (
-            <div className="relative w-full h-full rounded-full overflow-hidden">
-              <Image
-                src={member.image}
-                alt={member.name}
-                fill
-                sizes="(max-width: 640px) 64px, (max-width: 1024px) 80px, 96px"
-                className="object-cover"
-              />
-            </div>
-          ) : (
-            <div className="w-full h-full rounded-full bg-card flex items-center justify-center">
-              <span className="text-xl sm:text-2xl lg:text-3xl font-bold gradient-text">
-                {member.name.charAt(0)}
-              </span>
-            </div>
-          )}
-        </motion.div>
-
-        {/* Name */}
-        <h3 className="text-base sm:text-lg lg:text-xl font-bold mb-1">{member.name}</h3>
-        
-        {/* Title */}
-        <p className="text-[10px] sm:text-xs text-muted-foreground mb-2 sm:mb-3 leading-relaxed line-clamp-2">
-          {member.title}
-        </p>
-
-        {/* Badge */}
-        <motion.span 
-          className={`inline-block px-2 sm:px-3 py-0.5 sm:py-1 rounded-full text-[10px] sm:text-xs font-medium mb-3 sm:mb-4 ${
-            member.badge === "Top Rated"
-              ? "bg-yellow-500/10 text-yellow-500 border border-yellow-500/20"
-              : "bg-blue-500/10 text-blue-500 border border-blue-500/20"
-          }`}
-          whileHover={{ scale: 1.05 }}
-        >
-          {member.badge === "Top Rated" ? t("topRated") : t("risingTalent")}
-        </motion.span>
-      </div>
-
-      {/* Job Success */}
-      <div className="pt-3 sm:pt-4 border-t border-border">
-        <div className="text-xl sm:text-2xl lg:text-3xl font-bold gradient-text">{member.jobSuccess}</div>
-        <div className="text-[10px] sm:text-xs lg:text-sm text-muted-foreground">{t("jobSuccess")}</div>
       </div>
     </motion.div>
   );

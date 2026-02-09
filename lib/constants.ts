@@ -1,4 +1,4 @@
-import type { Project, Testimonial, TeamMember } from "@/types";
+import type { Project, Testimonial } from "@/types";
 
 export const PROJECTS: Project[] = [
   {
@@ -107,36 +107,6 @@ export const TESTIMONIALS: Testimonial[] = [
     period: "Jun 21, 2025 - Jun 21, 2025",
     quote:
       "I had a great experience working with Tamirat! From the very beginning, communication was smooth and professional. The quality of the design work exceeded expectations – clean, modern, and fully aligned with our vision.",
-  },
-];
-
-export const TEAM_MEMBERS: TeamMember[] = [
-  {
-    id: "tamirat",
-    name: "Tamirat K.",
-    title: "Sr. Full Stack Engineer | Django, Next.js & AI Automation | n8n Expert",
-    status: "100% Job Success",
-    badge: "Top Rated",
-    jobSuccess: "100%",
-    image: "/images/teams/tamirat.jpg",
-  },
-  {
-    id: "tolosa",
-    name: "Tolosa M.",
-    title: "Full Stack | AI & Automation (n8n) | React.js | Next.js | Node.js",
-    status: "100% Job Success",
-    badge: "Rising Talent",
-    jobSuccess: "100%",
-    image: "/images/teams/tolosa.png",
-  },
-  {
-    id: "abdi",
-    name: "Abdi E.",
-    title: "Senior Full-Stack Developer | Node.js | TypeScript | Python | Automation",
-    status: "100% Job Success",
-    badge: "Top Rated",
-    jobSuccess: "100%",
-    image: "/images/teams/abdi.jpg",
   },
 ];
 

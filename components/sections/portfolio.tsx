@@ -1,8 +1,8 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { motion, useInView } from "motion/react";
-import { useRef } from "react";
+import { motion, useInView, AnimatePresence } from "motion/react";
+import { useRef, useState, useEffect, useCallback } from "react";
 import { PROJECTS } from "@/lib/constants";
 import { StaggerContainer, StaggerItem } from "@/components/animations";
 import Image from "next/image";
@@ -11,6 +11,31 @@ export function Portfolio() {
   const t = useTranslations("portfolio");
   const headerRef = useRef<HTMLDivElement>(null);
   const isHeaderInView = useInView(headerRef, { once: true, amount: 0.5 });
+  const [lightboxImage, setLightboxImage] = useState<{ src: string; alt: string } | null>(null);
+
+  const openLightbox = (e: React.MouseEvent, src: string, alt: string) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setLightboxImage({ src, alt });
+  };
+
+  const closeLightbox = useCallback(() => {
+    setLightboxImage(null);
+  }, []);
+
+  // Close on Escape key
+  useEffect(() => {
+    if (!lightboxImage) return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") closeLightbox();
+    };
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [lightboxImage, closeLightbox]);
 
   return (
     <section id="portfolio" className="py-16 sm:py-20 lg:py-28 relative">
@@ -86,6 +111,20 @@ export function Portfolio() {
                   
                   {/* Subtle Navy Blue overlay on hover */}
                   <div className="absolute inset-0 bg-[#001a66]/0 group-hover:bg-[#001a66]/20 transition-all duration-300" />
+
+                  {/* Zoom button - appears on hover */}
+                  {project.image && (
+                    <motion.button
+                      onClick={(e) => openLightbox(e, project.image!, project.title)}
+                      className="absolute top-3 right-3 sm:top-4 sm:right-4 z-10 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/90 dark:bg-black/70 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-white dark:hover:bg-black hover:scale-110 shadow-lg cursor-zoom-in"
+                      aria-label={`View ${project.title} image full size`}
+                      whileTap={{ scale: 0.9 }}
+                    >
+                      <svg className="w-4 h-4 sm:w-5 sm:h-5 text-[#001a66] dark:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6" />
+                      </svg>
+                    </motion.button>
+                  )}
                   
                   {/* Project type badge */}
                   <motion.div 
@@ -142,6 +181,74 @@ export function Portfolio() {
           ))}
         </StaggerContainer>
       </div>
+
+      {/* ===== LIGHTBOX MODAL ===== */}
+      <AnimatePresence>
+        {lightboxImage && (
+          <motion.div
+            className="fixed inset-0 z-100 flex items-center justify-center"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+          >
+            {/* Backdrop */}
+            <motion.div
+              className="absolute inset-0 bg-black/80 backdrop-blur-md"
+              onClick={closeLightbox}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+            />
+
+            {/* Close button */}
+            <motion.button
+              onClick={closeLightbox}
+              className="absolute top-4 right-4 sm:top-6 sm:right-6 z-10 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white hover:bg-white/20 transition-colors"
+              aria-label="Close lightbox"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.8 }}
+              transition={{ delay: 0.1 }}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+            >
+              <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </motion.button>
+
+            {/* Image container */}
+            <motion.div
+              className="relative z-10 w-[90vw] h-[80vh] sm:w-[85vw] sm:h-[85vh] max-w-6xl"
+              initial={{ opacity: 0, scale: 0.85, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.85, y: 20 }}
+              transition={{ type: "spring", stiffness: 300, damping: 25 }}
+            >
+              <Image
+                src={lightboxImage.src}
+                alt={lightboxImage.alt}
+                fill
+                sizes="90vw"
+                className="object-contain drop-shadow-2xl"
+                priority
+              />
+            </motion.div>
+
+            {/* Image title */}
+            <motion.p
+              className="absolute bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 z-10 text-white/80 text-sm sm:text-base font-medium bg-black/40 backdrop-blur-sm px-4 py-2 rounded-full"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 10 }}
+              transition={{ delay: 0.15 }}
+            >
+              {lightboxImage.alt}
+            </motion.p>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }

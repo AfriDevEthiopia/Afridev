@@ -5,7 +5,6 @@
     "services": "Services",
     "portfolio": "Portfolio",
     "testimonials": "Testimonials",
-    "team": "Team",
     "contact": "Contact"
   },
   "hero": {
@@ -86,13 +85,6 @@
   "testimonials": {
     "title": "What Our Clients Say",
     "subtitle": "Trusted by startups and tech teams worldwide"
-  },
-  "team": {
-    "title": "Meet Our Team",
-    "subtitle": "Experienced professionals dedicated to your success",
-    "jobSuccess": "Job Success",
-    "topRated": "Top Rated",
-    "risingTalent": "Rising Talent"
   },
   "contact": {
     "title": "Let's Work Together",
