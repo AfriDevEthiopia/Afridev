@@ -44,8 +44,39 @@ const FlagET = () => (
   </svg>
 );
 
+const FlagCN = () => (
+  <svg className="w-5 h-5 rounded-sm overflow-hidden" viewBox="0 0 60 30">
+    <rect width="60" height="30" fill="#DE2910"/>
+    <g transform="translate(7,7.5)" fill="#FFDE00">
+      <polygon points="0,-6 1.8,-1.8 6.6,-1.8 2.4,1.2 3.6,6 0,3 -3.6,6 -2.4,1.2 -6.6,-1.8 -1.8,-1.8"/>
+    </g>
+    <g fill="#FFDE00" transform="translate(17,3)">
+      <polygon points="0,-2 0.6,-0.6 2.2,-0.6 0.8,0.4 1.2,2 0,1 -1.2,2 -0.8,0.4 -2.2,-0.6 -0.6,-0.6"/>
+    </g>
+    <g fill="#FFDE00" transform="translate(20,7)">
+      <polygon points="0,-2 0.6,-0.6 2.2,-0.6 0.8,0.4 1.2,2 0,1 -1.2,2 -0.8,0.4 -2.2,-0.6 -0.6,-0.6"/>
+    </g>
+    <g fill="#FFDE00" transform="translate(20,12)">
+      <polygon points="0,-2 0.6,-0.6 2.2,-0.6 0.8,0.4 1.2,2 0,1 -1.2,2 -0.8,0.4 -2.2,-0.6 -0.6,-0.6"/>
+    </g>
+    <g fill="#FFDE00" transform="translate(17,16)">
+      <polygon points="0,-2 0.6,-0.6 2.2,-0.6 0.8,0.4 1.2,2 0,1 -1.2,2 -0.8,0.4 -2.2,-0.6 -0.6,-0.6"/>
+    </g>
+  </svg>
+);
+
+const FlagES = () => (
+  <svg className="w-5 h-5 rounded-sm overflow-hidden" viewBox="0 0 60 30">
+    <rect width="60" height="7.5" fill="#AA151B"/>
+    <rect y="7.5" width="60" height="15" fill="#F1BF00"/>
+    <rect y="22.5" width="60" height="7.5" fill="#AA151B"/>
+  </svg>
+);
+
 const LANGUAGES = [
   { code: "en", label: "English", Flag: FlagEN, nativeName: "English" },
+  { code: "zh", label: "Chinese", Flag: FlagCN, nativeName: "中文" },
+  { code: "es", label: "Spanish", Flag: FlagES, nativeName: "Español" },
   { code: "am", label: "Amharic", Flag: FlagET, nativeName: "አማርኛ" },
   { code: "om", label: "Afaan Oromo", Flag: FlagET, nativeName: "Afaan Oromoo" },
 ];

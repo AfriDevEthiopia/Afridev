@@ -1,0 +1,118 @@
+{
+  "nav": {
+    "home": "首页",
+    "about": "关于我们",
+    "services": "服务",
+    "portfolio": "作品集",
+    "testimonials": "客户评价",
+    "contact": "联系我们"
+  },
+  "hero": {
+    "tagline": "全栈开发 | AI、LLM与自动化专家 | 网页、移动和桌面应用",
+    "title": "用",
+    "titleHighlight": "云原生与AI驱动",
+    "titleEnd": "的应用构建未来",
+    "description": "在AfriDev，我们帮助初创企业和技术团队使用现代技术构建可扩展、高性能的应用程序。从网页和移动应用到AI集成和DevOps，我们将复杂的想法转化为无缝的数字解决方案。",
+    "cta": "获取免费咨询",
+    "ctaSecondary": "查看我们的作品"
+  },
+  "stats": {
+    "projects": "已交付项目",
+    "satisfaction": "客户满意度",
+    "countries": "服务国家",
+    "uptime": "平均正常运行时间"
+  },
+  "services": {
+    "title": "我们的服务",
+    "subtitle": "为现代数字挑战提供全面解决方案",
+    "fullstack": {
+      "title": "全栈网页开发",
+      "description": "使用现代技术构建高性能网页应用。我们帮助初创企业和技术团队创建云原生、可扩展的应用程序。",
+      "benefits": ["可扩展的云原生架构", "AI/LLM集成就绪", "现代React和Python技术栈"]
+    },
+    "mobile": {
+      "title": "移动应用开发",
+      "description": "使用Flutter和FlutterFlow为iOS和Android创建美观、高性能的移动应用。",
+      "benefits": ["跨平台（iOS和Android）", "原生性能", "离线优先功能"]
+    },
+    "desktop": {
+      "title": "桌面应用开发",
+      "description": "构建在Windows、macOS和Linux平台上无缝运行的强大桌面应用程序。",
+      "benefits": ["跨平台兼容性", "原生操作系统集成", "高性能处理"]
+    },
+    "ai": {
+      "title": "AI应用与集成",
+      "description": "将ChatGPT、自定义LLM和AI自动化集成到您的产品中，提供智能用户体验。",
+      "benefits": ["ChatGPT和LLM集成", "自定义AI模型训练", "工作流自动化"]
+    },
+    "cloud": {
+      "title": "云服务与DevOps",
+      "description": "AWS基础设施、Docker、Kubernetes和CI/CD管道，用于可扩展的云原生应用。",
+      "benefits": ["AWS和云基础设施", "Docker和Kubernetes", "CI/CD自动化"]
+    },
+    "consulting": {
+      "title": "咨询与优化",
+      "description": "为现代应用提供技术指导、性能优化和架构设计。",
+      "benefits": ["架构审查", "性能优化", "技术路线规划"]
+    }
+  },
+  "whyChoose": {
+    "title": "为什么选择AfriDev",
+    "subtitle": "我们致力于在每个项目中追求卓越",
+    "detailOriented": {
+      "title": "注重细节",
+      "description": "我们提供精致、稳健和可扩展的解决方案"
+    },
+    "communication": {
+      "title": "清晰沟通",
+      "description": "每日更新和迭代评审让您随时了解进展"
+    },
+    "exceeding": {
+      "title": "超越期望",
+      "description": "我们的目标是超越客户目标，确保长期满意度"
+    },
+    "partnership": {
+      "title": "合作伙伴心态",
+      "description": "您的愿景就是我们的使命，我们致力于您的成功"
+    }
+  },
+  "portfolio": {
+    "title": "我们的作品集",
+    "subtitle": "展示我们最佳作品和成功案例",
+    "viewProject": "查看项目",
+    "learnMore": "了解更多"
+  },
+  "testimonials": {
+    "title": "客户评价",
+    "subtitle": "受到全球初创企业和技术团队的信赖"
+  },
+  "contact": {
+    "title": "让我们一起合作",
+    "subtitle": "提供免费30分钟咨询，了解您的项目",
+    "name": "您的姓名",
+    "email": "您的邮箱",
+    "subject": "主题",
+    "message": "告诉我们您的项目",
+    "send": "预约会议",
+    "sending": "正在打开Calendly...",
+    "success": "Calendly已打开！请在新标签页中完成预约。",
+    "error": "无法打开Calendly。请重试或直接访问我们的Calendly页面。"
+  },
+  "footer": {
+    "tagline": "构建云原生和AI驱动的应用程序",
+    "rights": "保留所有权利。",
+    "services": "服务",
+    "company": "公司",
+    "connect": "联系"
+  },
+  "chat": {
+    "title": "AfriDev助手",
+    "online": "在线 • 随时为您服务",
+    "typing": "正在输入...",
+    "welcomeTitle": "你好！我是AfriDev助手",
+    "welcomeMessage": "我可以回答关于我们服务、团队以及我们如何帮助您项目的问题。",
+    "inputPlaceholder": "问我任何关于AfriDev的问题...",
+    "clearHistory": "清除聊天记录",
+    "errorMessage": "出了点问题，请重试。"
+  }
+}

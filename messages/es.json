@@ -1,0 +1,118 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "about": "Nosotros",
+    "services": "Servicios",
+    "portfolio": "Portafolio",
+    "testimonials": "Testimonios",
+    "contact": "Contacto"
+  },
+  "hero": {
+    "tagline": "Desarrolladores Full Stack | Expertos en IA, LLM y Automatización | Apps Web, Móviles y de Escritorio",
+    "title": "Construyendo el Futuro con",
+    "titleHighlight": "Aplicaciones Cloud-Native e Impulsadas por IA",
+    "titleEnd": "",
+    "description": "En AfriDev, ayudamos a startups y equipos tecnológicos a construir aplicaciones escalables y de alto rendimiento con tecnologías modernas. Desde apps web y móviles hasta integración de IA y DevOps, convertimos ideas complejas en soluciones digitales perfectas.",
+    "cta": "Consulta Gratuita",
+    "ctaSecondary": "Ver Nuestro Trabajo"
+  },
+  "stats": {
+    "projects": "Proyectos Entregados",
+    "satisfaction": "Satisfacción del Cliente",
+    "countries": "Países Atendidos",
+    "uptime": "Tiempo de Actividad Promedio"
+  },
+  "services": {
+    "title": "Nuestros Servicios",
+    "subtitle": "Soluciones integrales para los desafíos digitales modernos",
+    "fullstack": {
+      "title": "Desarrollo Web Full-Stack",
+      "description": "Construimos aplicaciones web de alto rendimiento con tecnologías modernas. Ayudamos a startups y equipos técnicos a crear aplicaciones cloud-native y escalables.",
+      "benefits": ["Arquitectura cloud-native escalable", "Listo para integración AI/LLM", "Stack moderno de React y Python"]
+    },
+    "mobile": {
+      "title": "Desarrollo de Apps Móviles",
+      "description": "Creamos aplicaciones móviles hermosas y de alto rendimiento para iOS y Android usando Flutter y FlutterFlow.",
+      "benefits": ["Multiplataforma (iOS y Android)", "Rendimiento nativo", "Capacidades offline-first"]
+    },
+    "desktop": {
+      "title": "Desarrollo de Aplicaciones de Escritorio",
+      "description": "Construimos aplicaciones de escritorio robustas que funcionan perfectamente en Windows, macOS y Linux.",
+      "benefits": ["Compatibilidad multiplataforma", "Integración nativa con el SO", "Procesamiento de alto rendimiento"]
+    },
+    "ai": {
+      "title": "Apps de IA e Integración",
+      "description": "Integramos ChatGPT, LLMs personalizados y automatización con IA en sus productos para experiencias de usuario inteligentes.",
+      "benefits": ["Integración con ChatGPT y LLM", "Entrenamiento de modelos de IA personalizados", "Automatización de flujos de trabajo"]
+    },
+    "cloud": {
+      "title": "Cloud y DevOps",
+      "description": "Infraestructura AWS, Docker, Kubernetes y pipelines CI/CD para aplicaciones cloud-native escalables.",
+      "benefits": ["Infraestructura AWS y cloud", "Docker y Kubernetes", "Automatización CI/CD"]
+    },
+    "consulting": {
+      "title": "Consultoría y Optimización",
+      "description": "Orientación técnica, optimización de rendimiento y diseño de arquitectura para aplicaciones modernas.",
+      "benefits": ["Revisión de arquitectura", "Optimización de rendimiento", "Hoja de ruta técnica"]
+    }
+  },
+  "whyChoose": {
+    "title": "Por Qué Elegir AfriDev",
+    "subtitle": "Estamos comprometidos con la excelencia en cada proyecto",
+    "detailOriented": {
+      "title": "Orientados al Detalle",
+      "description": "Entregamos soluciones pulidas, robustas y escalables"
+    },
+    "communication": {
+      "title": "Comunicación Clara",
+      "description": "Actualizaciones diarias y revisiones de sprint lo mantienen informado"
+    },
+    "exceeding": {
+      "title": "Superando Expectativas",
+      "description": "Nuestro objetivo es superar los objetivos del cliente y asegurar satisfacción a largo plazo"
+    },
+    "partnership": {
+      "title": "Mentalidad de Asociación",
+      "description": "Su visión se convierte en nuestra misión; estamos comprometidos con su éxito"
+    }
+  },
+  "portfolio": {
+    "title": "Nuestro Portafolio",
+    "subtitle": "Mostrando nuestros mejores trabajos e historias de éxito",
+    "viewProject": "Ver Proyecto",
+    "learnMore": "Saber Más"
+  },
+  "testimonials": {
+    "title": "Lo Que Dicen Nuestros Clientes",
+    "subtitle": "Confiado por startups y equipos tecnológicos en todo el mundo"
+  },
+  "contact": {
+    "title": "Trabajemos Juntos",
+    "subtitle": "Disponible para una consulta gratuita de 30 minutos para entender su proyecto",
+    "name": "Su Nombre",
+    "email": "Su Correo Electrónico",
+    "subject": "Asunto",
+    "message": "Cuéntenos sobre su proyecto",
+    "send": "Agendar Reunión",
+    "sending": "Abriendo Calendly...",
+    "success": "¡Calendly abierto! Complete su reserva en la nueva pestaña.",
+    "error": "No se pudo abrir Calendly. Intente de nuevo o visite nuestra página de Calendly directamente."
+  },
+  "footer": {
+    "tagline": "Construyendo aplicaciones cloud-native e impulsadas por IA",
+    "rights": "Todos los derechos reservados.",
+    "services": "Servicios",
+    "company": "Empresa",
+    "connect": "Conectar"
+  },
+  "chat": {
+    "title": "Asistente AfriDev",
+    "online": "En línea • Listo para ayudar",
+    "typing": "Escribiendo...",
+    "welcomeTitle": "¡Hola! Soy tu Asistente AfriDev",
+    "welcomeMessage": "Puedo responder preguntas sobre nuestros servicios, equipo y cómo podemos ayudar con su proyecto.",
+    "inputPlaceholder": "Pregúntame cualquier cosa sobre AfriDev...",
+    "clearHistory": "Borrar historial del chat",
+    "errorMessage": "Algo salió mal. Por favor, intente de nuevo."
+  }
+}
