@@ -71,7 +71,7 @@ export function ChatWindow({
           <div className="absolute inset-0 glass-mirror pointer-events-none" />
 
           {/* Header */}
-          <div className="relative z-10 flex items-center justify-between px-4 py-3 border-b border-border bg-gradient-to-r from-[#001a66]/10 to-[#3b82f6]/10">
+          <div className="relative z-10 flex items-center justify-between px-4 py-3 border-b border-border bg-linear-to-r from-gradient-start/10 to-[#3b82f6]/10">
             <div className="flex items-center gap-3">
               {/* Animated logo */}
               <motion.div
@@ -182,7 +182,7 @@ export function ChatWindow({
                     animate={{ opacity: 1 }}
                     className="flex items-center gap-3"
                   >
-                    <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#001a66] to-[#3b82f6] flex items-center justify-center">
+                    <div className="w-8 h-8 rounded-full bg-linear-to-r from-gradient-start to-[#3b82f6] flex items-center justify-center">
                       <Headset className="w-4 h-4 text-white" />
                     </div>
                     <div className="glass-card px-4 py-3 rounded-2xl rounded-bl-sm">
