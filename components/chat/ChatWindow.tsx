@@ -2,7 +2,7 @@
 
 import { useRef, useEffect, useLayoutEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Trash2, Minimize2, Sparkles } from "lucide-react";
+import { Trash2, Minimize2, Headset } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { ChatMessage } from "@/types/chat";
 import { DEFAULT_QUICK_ACTIONS } from "@/types/chat";
@@ -88,7 +88,7 @@ export function ChatWindow({
                 }}
                 transition={{ duration: 2, repeat: Infinity }}
               >
-                <Sparkles className="w-5 h-5 text-white" />
+                <Headset className="w-5 h-5 text-white" />
               </motion.div>
               <div>
                 <h3 className="font-semibold text-foreground text-sm">
@@ -148,7 +148,7 @@ export function ChatWindow({
                   }}
                   transition={{ duration: 3, repeat: Infinity }}
                 >
-                  <Sparkles className="w-8 h-8 text-white" />
+                  <Headset className="w-8 h-8 text-white" />
                 </motion.div>
                 <h4 className="font-semibold text-foreground mb-1">
                   {t("welcomeTitle")}
@@ -183,7 +183,7 @@ export function ChatWindow({
                     className="flex items-center gap-3"
                   >
                     <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#001a66] to-[#3b82f6] flex items-center justify-center">
-                      <Sparkles className="w-4 h-4 text-white" />
+                      <Headset className="w-4 h-4 text-white" />
                     </div>
                     <div className="glass-card px-4 py-3 rounded-2xl rounded-bl-sm">
                       <div className="flex gap-1">
