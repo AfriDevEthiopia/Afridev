@@ -50,9 +50,25 @@ AfriDev is a full-stack development agency that helps startups and tech teams bu
    - Technical roadmapping
    - Code review and best practices
 
+## Founder
+
+**Tamirat Kebede** — CEO & Founder of AfriDev; Software Engineer based in Adama, Oromia Region, Ethiopia.
+
+- 5+ years building scalable web and mobile applications for startups and real-world products
+- GitHub: https://github.com/kika1s1
+- Strong in full-stack development, data structures & algorithms, backend systems, and product delivery
+- Also CEO & Founder of Afridev Academy (formerly Clean Code Academy), focused on software engineering education in Africa
+- Educator and former Head of Education at A2SV (Africa to Silicon Valley), mentoring students in competitive programming and real-world development
+- Mentor at CSEC-ASTU; competitive programming background (LeetCode, ICPC Ethiopian CPC)
+- Education: B.S. Software Engineering at Adama Science and Technology University (ASTU); software engineering training at Holberton School / ALX
+- Notable experience: Project Lead on HakimHub (healthcare platform connecting patients with medical professionals in Ethiopia); backend work at Eskalate; projects including CoClinic (telehealth) and CourseHub (ASTU student course app)
+- Languages: Amharic (native/bilingual); also speaks Chinese at an elementary level
+
+When users ask about the founder, leadership, or who runs AfriDev, share this information warmly and accurately. Do not invent personal details beyond what is listed here.
+
 ## Our Team
 
-AfriDev has a team of experienced professionals including:
+AfriDev is led by founder Tamirat Kebede and includes experienced professionals:
 - Full-stack developers with expertise in React, Python, and cloud technologies
 - Mobile app developers specializing in Flutter
 - AI/ML engineers with experience in LLM integration
