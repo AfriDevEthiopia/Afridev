@@ -230,19 +230,20 @@ export async function POST(request: NextRequest) {
         signal: controller.signal,
       });
       clearTimeout(timeoutId);
-    } catch (fetchError: any) {
+    } catch (fetchError: unknown) {
       clearTimeout(timeoutId);
+      const err = fetchError as Error & { code?: string };
       // Handle network errors specifically
-      console.error("Network error calling OpenAI API:", fetchError);
+      console.error("Network error calling OpenAI API:", err);
       
-      if (fetchError.name === "AbortError" || fetchError.name === "TimeoutError") {
+      if (err.name === "AbortError" || err.name === "TimeoutError") {
         return NextResponse.json(
           { error: "Request timed out. Please check your internet connection and try again." },
           { status: 504 }
         );
       }
       
-      if (fetchError.message?.includes("fetch failed") || fetchError.code === "ENOTFOUND" || fetchError.code === "ECONNREFUSED") {
+      if (err.message?.includes("fetch failed") || err.code === "ENOTFOUND" || err.code === "ECONNREFUSED") {
         return NextResponse.json(
           { error: "Network error: Unable to connect to AI service. Please check your internet connection." },
           { status: 503 }
@@ -276,18 +277,19 @@ export async function POST(request: NextRequest) {
     const text = data.choices?.[0]?.message?.content || "I apologize, but I couldn't generate a response. Please try again.";
 
     return NextResponse.json({ response: text });
-  } catch (error: any) {
-    console.error("Chat API error:", error);
+  } catch (error: unknown) {
+    const err = error as Error & { code?: string };
+    console.error("Chat API error:", err);
 
     // Provide more specific error messages
-    if (error.message?.includes("timeout") || error.name === "TimeoutError") {
+    if (err.message?.includes("timeout") || err.name === "TimeoutError") {
       return NextResponse.json(
         { error: "Request timed out. Please check your internet connection and try again." },
         { status: 504 }
       );
     }
     
-    if (error.message?.includes("network") || error.message?.includes("fetch failed") || error.code === "ENOTFOUND" || error.code === "ECONNREFUSED") {
+    if (err.message?.includes("network") || err.message?.includes("fetch failed") || err.code === "ENOTFOUND" || err.code === "ECONNREFUSED") {
       return NextResponse.json(
         { error: "Network error: Unable to connect to AI service. Please check your internet connection." },
         { status: 503 }
@@ -295,7 +297,7 @@ export async function POST(request: NextRequest) {
     }
 
     return NextResponse.json(
-      { error: error.message || "Failed to process chat request. Please try again." },
+      { error: err.message || "Failed to process chat request. Please try again." },
       { status: 500 }
     );
   }

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useSyncExternalStore } from "react";
 import { Link } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
 import { LanguageSwitcher } from "@/components/ui/language-switcher";
@@ -10,18 +10,16 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "motion/react";
 import { AnimatedButton, AnimatedNavLink, Magnetic } from "@/components/animations";
 
+const emptySubscribe = () => () => {};
+
 export function Header() {
   const t = useTranslations("nav");
   const { resolvedTheme } = useTheme();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isHidden, setIsHidden] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [mounted, setMounted] = useState(false);
+  const mounted = useSyncExternalStore(emptySubscribe, () => true, () => false);
   const lastScrollY = useRef(0);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   useEffect(() => {
     const handleScroll = () => {

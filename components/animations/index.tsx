@@ -1,7 +1,9 @@
 "use client";
 
 import { motion, useInView, useScroll, useTransform, Variants } from "motion/react";
-import { ReactNode, useRef, useEffect, useState } from "react";
+import { ReactNode, useRef, useEffect, useState, useSyncExternalStore } from "react";
+
+const emptySubscribe = () => () => {};
 
 // ===== ANIMATION VARIANTS =====
 export const fadeInUp: Variants = {
@@ -449,11 +451,9 @@ export function AnimatedNavLink({ children, href, className = "", onClick }: Ani
 export function CursorGlow() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isVisible, setIsVisible] = useState(false);
-  const [isMounted, setIsMounted] = useState(false);
+  const isMounted = useSyncExternalStore(emptySubscribe, () => true, () => false);
 
   useEffect(() => {
-    setIsMounted(true);
-    
     const handleMouseMove = (e: MouseEvent) => {
       setMousePosition({ x: e.clientX, y: e.clientY });
       setIsVisible(true);

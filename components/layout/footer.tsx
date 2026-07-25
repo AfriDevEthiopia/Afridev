@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useRef, useSyncExternalStore } from "react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
 import { useTheme } from "next-themes";
@@ -8,18 +8,16 @@ import Image from "next/image";
 import { motion, useInView } from "motion/react";
 import { AnimatedButton, StaggerContainer, StaggerItem, Magnetic } from "@/components/animations";
 
+const emptySubscribe = () => () => {};
+
 export function Footer() {
   const t = useTranslations("footer");
   const tNav = useTranslations("nav");
   const { resolvedTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
+  const mounted = useSyncExternalStore(emptySubscribe, () => true, () => false);
   const currentYear = new Date().getFullYear();
   const footerRef = useRef<HTMLElement>(null);
   const isInView = useInView(footerRef, { once: true, amount: 0.2 });
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   const UPWORK_AGENCY_URL = "https://www.upwork.com/agencies/1937186981697230253/";
 
