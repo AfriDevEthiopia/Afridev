@@ -6,10 +6,34 @@ import { routing } from "@/i18n/routing";
 import { ThemeProvider } from "@/components/theme-provider";
 import "../globals.css";
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "AfriDev",
+  "alternateName": ["AfriDev IO", "AfriDev Ethiopia"],
+  "url": "https://www.afridev.io",
+};
+
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.afridev.io"),
   title: "AfriDev - Full Stack Developers | AI, LLM & Automation Experts",
   description:
     "At AfriDev, we help startups and tech teams build cloud-native, scalable, and AI-powered applications using modern technologies.",
+  applicationName: "AfriDev",
+  openGraph: {
+    siteName: "AfriDev",
+    title: "AfriDev - Full Stack Developers | AI, LLM & Automation Experts",
+    description:
+      "At AfriDev, we help startups and tech teams build cloud-native, scalable, and AI-powered applications using modern technologies.",
+    url: "https://www.afridev.io",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "AfriDev - Full Stack Developers | AI, LLM & Automation Experts",
+    description:
+      "At AfriDev, we help startups and tech teams build cloud-native, scalable, and AI-powered applications using modern technologies.",
+  },
   keywords: [
     "Full Stack Development",
     "AI Integration",
@@ -48,6 +72,12 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale} suppressHydrationWarning className="notranslate">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body className="antialiased">
         <ThemeProvider
           attribute="class"
