@@ -1,0 +1,20 @@
+# AfriDev - AI & Full Stack Software Development Agency
+
+> AfriDev is a software engineering agency based in Addis Ababa, Ethiopia, specializing in cloud-native applications, AI/LLM integration, full-stack web and mobile development, and enterprise automation.
+
+## Core Capabilities
+- **AI & LLM Integration**: Custom RAG pipelines, fine-tuned LLM agents, intelligent chatbots, and AI workflow automation.
+- **Full-Stack Web & Mobile Apps**: Modern Next.js, React, React Native, Node.js, and TypeScript applications built for speed and scale.
+- **Cloud & DevOps**: Kubernetes, Docker, AWS, GCP, CI/CD pipelines, and cloud-native architecture.
+- **Enterprise Solutions**: High-performance backend microservices, API engineering, and digital transformation.
+
+## Company Details
+- **Website**: https://www.afridev.io
+- **Location**: Addis Ababa, Ethiopia (Serving clients globally)
+- **GitHub**: https://github.com/AfriDevEthiopia
+- **LinkedIn**: https://www.linkedin.com/company/afridevet
+- **Upwork Agency**: https://www.upwork.com/agencies/1937186981697230253/
+
+## Contact & Inquiries
+- **Email**: contact@afridev.io
+- **Consultation**: Available via https://www.afridev.io/#contact
