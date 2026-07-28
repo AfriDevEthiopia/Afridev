@@ -1,20 +1,16 @@
 "use client";
 
-import { useTranslations } from "next-intl";
 import { motion } from "motion/react";
 import { useRef, useState, useEffect } from "react";
 
 const UPWORK_AGENCY_URL = "https://www.upwork.com/agencies/1937186981697230253/";
 
 export function Hero() {
-  const t = useTranslations("hero");
-  const tStats = useTranslations("stats");
-
   const stats = [
-    { value: "12+", label: tStats("projects") },
-    { value: "100%", label: tStats("satisfaction") },
-    { value: "5+", label: tStats("countries") },
-    { value: "99.9%", label: tStats("uptime") },
+    { value: "12+", label: "Projects Delivered" },
+    { value: "100%", label: "Client Satisfaction" },
+    { value: "5+", label: "Countries Served" },
+    { value: "99.9%", label: "Average Uptime" },
   ];
 
   return (
@@ -35,9 +31,9 @@ export function Hero() {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
             >
-              {t("title")}{" "}
-              <span className="text-accent">{t("titleHighlight")}</span>{" "}
-              {t("titleEnd")}
+              Building the Future with{" "}
+              <span className="text-accent">Cloud-Native & AI-Powered</span>{" "}
+              Applications
             </motion.h1>
 
             {/* Description */}
@@ -47,7 +43,7 @@ export function Hero() {
               transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
               className="text-sm sm:text-base lg:text-lg text-muted-foreground mb-6 sm:mb-8 leading-relaxed max-w-xl"
             >
-              {t("description")}
+              At AfriDev, we help startups and tech teams build scalable, high-performance applications using modern technologies. From web and mobile apps to AI integration and DevOps, we turn complex ideas into seamless digital solutions.
             </motion.p>
 
             {/* CTA Buttons */}
@@ -61,7 +57,7 @@ export function Hero() {
                 className="btn-primary flex items-center justify-center gap-2 group w-full sm:w-auto"
                 onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
               >
-                {t("cta")}
+                Get Free Consultation
                 <svg className="w-4 h-4 sm:w-5 sm:h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
@@ -70,7 +66,7 @@ export function Hero() {
                 className="btn-secondary w-full sm:w-auto"
                 onClick={() => document.getElementById("portfolio")?.scrollIntoView({ behavior: "smooth" })}
               >
-                {t("ctaSecondary")}
+                View Our Work
               </button>
               <a
                 href={UPWORK_AGENCY_URL}

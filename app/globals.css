@@ -44,7 +44,7 @@
   --color-clay-900: oklch(0.3 0.078 34);
 
   /* ===== SEMANTIC TOKENS =====
-     Indirected through :root / .dark so a single value swap retheme both modes. */
+     Indirected through :root CSS custom properties. */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-surface: var(--surface);
@@ -77,48 +77,6 @@
 }
 
 :root {
-  --background: oklch(0.985 0.003 80);
-  --foreground: oklch(0.195 0.006 64);
-
-  /* Opaque, stepped surfaces. Cards must read without help from a glow. */
-  --surface: oklch(1 0 0);
-  --surface-raised: oklch(1 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.195 0.006 64);
-
-  --muted: oklch(0.967 0.004 80);
-  --muted-foreground: oklch(0.465 0.008 70);
-  --subtle-foreground: oklch(0.545 0.008 72);
-  --secondary: oklch(0.967 0.004 80);
-
-  --border: oklch(0.925 0.005 78);
-  --border-strong: oklch(0.866 0.006 76);
-
-  --primary: oklch(0.43 0.17 268);
-  --primary-hover: oklch(0.355 0.15 268);
-  --primary-foreground: oklch(1 0 0);
-
-  --accent: oklch(0.55 0.14 40);
-  --accent-hover: oklch(0.455 0.12 38);
-  --accent-foreground: oklch(1 0 0);
-
-  /* Status colours sit far enough from clay to stay legible next to it. */
-  --danger: oklch(0.52 0.19 22);
-  --success: oklch(0.52 0.13 150);
-
-  --ring: oklch(0.43 0.17 268 / 0.35);
-  --selection: oklch(0.43 0.17 268 / 0.18);
-
-  --shadow-weak: oklch(0.145 0.005 62 / 0.05);
-  --shadow-base: oklch(0.145 0.005 62 / 0.08);
-
-  /* Single ambient wash, replacing eight stacked radial gradients. */
-  --ambient: oklch(0.43 0.17 268 / 0.05);
-
-  --surface-translucent: oklch(1 0 0 / 0.8);
-}
-
-.dark {
   --background: oklch(0.145 0.005 62);
   --foreground: oklch(0.985 0.003 80);
 
@@ -135,7 +93,6 @@
   --border: oklch(0.265 0.007 66);
   --border-strong: oklch(0.375 0.008 68);
 
-  /* Same hue 268 as light mode, lifted in lightness only. */
   --primary: oklch(0.62 0.15 268);
   --primary-hover: oklch(0.755 0.095 268);
   --primary-foreground: oklch(0.165 0.075 268);

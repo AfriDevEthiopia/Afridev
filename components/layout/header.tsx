@@ -1,19 +1,22 @@
 "use client";
 
 import { useState, useEffect, useRef, useSyncExternalStore } from "react";
-import { Link } from "@/i18n/routing";
-import { useTranslations } from "next-intl";
-import { ThemeToggle } from "@/components/theme-toggle";
-import { useTheme } from "next-themes";
+import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "motion/react";
 import { AnimatedButton, AnimatedNavLink, Magnetic } from "@/components/animations";
 
 const emptySubscribe = () => () => {};
 
+const NAV_ITEMS: { href: string; label: string }[] = [
+  { href: "#home", label: "Home" },
+  { href: "#services", label: "Services" },
+  { href: "#portfolio", label: "Portfolio" },
+  { href: "#testimonials", label: "Testimonials" },
+  { href: "#contact", label: "Contact" },
+];
+
 export function Header() {
-  const t = useTranslations("nav");
-  const { resolvedTheme } = useTheme();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isHidden, setIsHidden] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -23,32 +26,26 @@ export function Header() {
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      
-      // Show glass effect when scrolled past 20px
+
       setIsScrolled(currentScrollY > 20);
-      
-      // Hide header when scrolling down (start hiding at just 50px)
+
       if (currentScrollY > lastScrollY.current && currentScrollY > 50) {
-        // Scrolling down & past threshold - hide immediately
         setIsHidden(true);
       } else if (currentScrollY < lastScrollY.current) {
-        // Only show when scrolling up
         setIsHidden(false);
       }
-      
-      // Always show at the very top
+
       if (currentScrollY < 20) {
         setIsHidden(false);
       }
-      
+
       lastScrollY.current = currentScrollY;
     };
-    
+
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Prevent body scroll when mobile menu is open
   useEffect(() => {
     if (isMobileMenuOpen) {
       document.body.style.overflow = "hidden";
@@ -59,14 +56,6 @@ export function Header() {
       document.body.style.overflow = "";
     };
   }, [isMobileMenuOpen]);
-
-  const navItems = [
-    { href: "#home", label: t("home") },
-    { href: "#services", label: t("services") },
-    { href: "#portfolio", label: t("portfolio") },
-    { href: "#testimonials", label: t("testimonials") },
-    { href: "#contact", label: t("contact") },
-  ];
 
   return (
     <motion.header
@@ -82,17 +71,16 @@ export function Header() {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 group z-50">
             <Magnetic strength={0.2}>
-              <motion.div 
+              <motion.div
                 className="flex items-center gap-2"
                 whileHover={{ scale: 1.05 }}
                 transition={{ type: "spring", stiffness: 400, damping: 17 }}
               >
-                {/* Show placeholder during SSR/hydration, then show themed logo */}
                 {!mounted ? (
                   <div className="h-8 w-8 sm:h-10 sm:w-10 bg-transparent" />
                 ) : (
                   <Image
-                    src={resolvedTheme === "dark" ? "/images/logos/logo-white.png" : "/images/logos/logo-black.png"}
+                    src="/images/logos/logo-white.png"
                     alt="AfriDev Logo"
                     width={40}
                     height={40}
@@ -108,7 +96,7 @@ export function Header() {
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-1">
-            {navItems.map((item, index) => (
+            {NAV_ITEMS.map((item, index) => (
               <motion.div
                 key={item.href}
                 initial={{ opacity: 0, y: -20 }}
@@ -127,14 +115,6 @@ export function Header() {
 
           {/* Right Section */}
           <div className="flex items-center gap-2 sm:gap-4">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.4, delay: 0.5 }}
-            >
-              <ThemeToggle />
-            </motion.div>
-
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -190,7 +170,7 @@ export function Header() {
           </div>
         </div>
 
-        {/* Mobile Menu - Full Screen with Animation */}
+        {/* Mobile Menu */}
         <AnimatePresence>
           {isMobileMenuOpen && (
             <motion.div
@@ -201,7 +181,7 @@ export function Header() {
               className="lg:hidden fixed inset-0 top-14 sm:top-16 bg-background/98 backdrop-blur-xl z-40"
             >
               <div className="container h-full flex flex-col py-8">
-                <motion.div 
+                <motion.div
                   className="flex flex-col gap-2"
                   initial="hidden"
                   animate="visible"
@@ -209,17 +189,17 @@ export function Header() {
                     hidden: { opacity: 0 },
                     visible: {
                       opacity: 1,
-                      transition: { staggerChildren: 0.05, delayChildren: 0.1 }
-                    }
+                      transition: { staggerChildren: 0.05, delayChildren: 0.1 },
+                    },
                   }}
                 >
-                  {navItems.map((item) => (
+                  {NAV_ITEMS.map((item) => (
                     <motion.a
                       key={item.href}
                       href={item.href}
                       variants={{
                         hidden: { opacity: 0, x: -20 },
-                        visible: { opacity: 1, x: 0 }
+                        visible: { opacity: 1, x: 0 },
                       }}
                       whileHover={{ x: 10 }}
                       whileTap={{ scale: 0.98 }}
@@ -230,18 +210,13 @@ export function Header() {
                     </motion.a>
                   ))}
                 </motion.div>
-                
-                <motion.div 
+
+                <motion.div
                   className="mt-8 pt-8 border-t border-border space-y-6"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.4, duration: 0.4 }}
                 >
-                  <div className="flex items-center justify-between px-4 sm:hidden">
-                    <p className="text-sm text-foreground/70">Appearance</p>
-                    <ThemeToggle />
-                  </div>
-
                   <AnimatedButton
                     href="#contact"
                     className="btn-primary w-full text-center py-4 text-lg block"

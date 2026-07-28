@@ -3,7 +3,6 @@
 import { useRef, useEffect, useLayoutEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Trash2, Minimize2, Headset } from "lucide-react";
-import { useTranslations } from "next-intl";
 import { ChatMessage } from "@/types/chat";
 import { DEFAULT_QUICK_ACTIONS } from "@/types/chat";
 import { ChatMessageComponent } from "./ChatMessage";
@@ -29,7 +28,6 @@ export function ChatWindow({
   onClose,
   onClearHistory,
 }: ChatWindowProps) {
-  const t = useTranslations("chat");
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const messagesContainerRef = useRef<HTMLDivElement>(null);
   const prevMessagesLengthRef = useRef(messages.length);
@@ -75,10 +73,10 @@ export function ChatWindow({
               </div>
               <div>
                 <h3 className="font-semibold text-foreground text-sm">
-                  {t("title")}
+                  AfriDev Assistant
                 </h3>
                 <p className="text-[10px] text-muted-foreground">
-                  {isLoading ? t("typing") : t("online")}
+                  {isLoading ? "Typing..." : "Online • Ready to help"}
                 </p>
               </div>
             </div>
@@ -91,7 +89,7 @@ export function ChatWindow({
                   className="p-2 rounded-lg hover:bg-secondary/80 text-muted-foreground hover:text-foreground transition-colors"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  title={t("clearHistory")}
+                  title="Clear chat history"
                 >
                   <Trash2 className="w-4 h-4" />
                 </motion.button>
@@ -124,10 +122,10 @@ export function ChatWindow({
                   <Headset className="w-8 h-8 text-primary-foreground" />
                 </div>
                 <h4 className="font-semibold text-foreground mb-1">
-                  {t("welcomeTitle")}
+                  Hi! I&apos;m your AfriDev Assistant
                 </h4>
                 <p className="text-xs text-muted-foreground mb-4 max-w-[250px]">
-                  {t("welcomeMessage")}
+                  I can answer questions about our services, team, and how we can help with your project.
                 </p>
 
                 {/* Quick actions */}
@@ -205,7 +203,7 @@ export function ChatWindow({
             <ChatInput
               onSend={onSendMessage}
               isLoading={isLoading}
-              placeholder={t("inputPlaceholder")}
+              placeholder="Ask me anything about AfriDev..."
             />
           </div>
         </motion.div>

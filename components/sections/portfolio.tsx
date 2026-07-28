@@ -1,6 +1,5 @@
 "use client";
 
-import { useTranslations } from "next-intl";
 import { motion, useInView, AnimatePresence } from "motion/react";
 import { useRef, useState, useEffect, useCallback } from "react";
 import { PROJECTS } from "@/lib/constants";
@@ -8,7 +7,6 @@ import { StaggerContainer, StaggerItem } from "@/components/animations";
 import Image from "next/image";
 
 export function Portfolio() {
-  const t = useTranslations("portfolio");
   const headerRef = useRef<HTMLDivElement>(null);
   const isHeaderInView = useInView(headerRef, { once: true, amount: 0.5 });
   const [lightboxImage, setLightboxImage] = useState<{ src: string; alt: string } | null>(null);
@@ -58,7 +56,7 @@ export function Portfolio() {
             transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
             className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 lg:mb-6"
           >
-            {t("title")}
+            Our Portfolio
           </motion.h2>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -66,7 +64,7 @@ export function Portfolio() {
             transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
             className="text-sm sm:text-base lg:text-lg text-muted-foreground"
           >
-            {t("subtitle")}
+            Showcasing our best work and success stories
           </motion.p>
         </div>
 

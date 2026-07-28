@@ -1,10 +1,5 @@
 import type { Metadata } from "next";
-import { NextIntlClientProvider } from "next-intl";
-import { getMessages } from "next-intl/server";
-import { notFound } from "next/navigation";
-import { routing } from "@/i18n/routing";
-import { ThemeProvider } from "@/components/theme-provider";
-import "../globals.css";
+import "./globals.css";
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -14,7 +9,7 @@ const jsonLd = {
       "@id": "https://www.afridev.io/#website",
       "url": "https://www.afridev.io",
       "name": "AfriDev",
-      "alternateName": ["AfriDev IO", "AfriDev Tech Agency", "AfriDev Ethiopia"]
+      "alternateName": ["AfriDev IO", "AfriDev Tech Agency", "AfriDev Ethiopia"],
     },
     {
       "@type": "Organization",
@@ -26,12 +21,12 @@ const jsonLd = {
       "address": {
         "@type": "PostalAddress",
         "addressCountry": "ET",
-        "addressLocality": "Addis Ababa"
+        "addressLocality": "Addis Ababa",
       },
       "sameAs": [
         "https://github.com/AfriDevEthiopia",
         "https://www.linkedin.com/company/afridevet",
-        "https://www.upwork.com/agencies/1937186981697230253/"
+        "https://www.upwork.com/agencies/1937186981697230253/",
       ],
       "knowAbout": [
         "Software Engineering",
@@ -40,10 +35,10 @@ const jsonLd = {
         "LLM Integration",
         "Cloud Computing",
         "Mobile App Development",
-        "DevOps"
-      ]
-    }
-  ]
+        "DevOps",
+      ],
+    },
+  ],
 };
 
 export const metadata: Metadata = {
@@ -95,55 +90,25 @@ export const metadata: Metadata = {
     icon: "/icon.svg",
     apple: "/icon.svg",
   },
-  other: {
-    "google": "notranslate",
-  },
 };
 
-export default async function LocaleLayout({
+export default function RootLayout({
   children,
-  params,
 }: {
   children: React.ReactNode;
-  params: Promise<{ locale: string }>;
 }) {
-  const { locale } = await params;
-
-  // Ensure that the incoming `locale` is valid
-  if (!routing.locales.includes(locale as (typeof routing.locales)[number])) {
-    notFound();
-  }
-
-  // Providing all messages to the client side is the easiest way to get started
-  const messages = await getMessages();
-
   return (
-    <html lang={locale} suppressHydrationWarning className="notranslate">
+    <html lang="en" style={{ colorScheme: "dark" }}>
       <head>
+        <meta name="color-scheme" content="dark" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
       <body className="antialiased">
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <NextIntlClientProvider messages={messages}>
-            <div className="relative z-10">
-              {children}
-            </div>
-          </NextIntlClientProvider>
-        </ThemeProvider>
+        <div className="relative z-10">{children}</div>
       </body>
     </html>
   );
 }
-
-export function generateStaticParams() {
-  return routing.locales.map((locale) => ({ locale }));
-}
-

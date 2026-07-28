@@ -1,12 +1,10 @@
 "use client";
 
-import { useTranslations } from "next-intl";
 import { useEffect, useRef, useState, useCallback } from "react";
 import { motion, useInView, AnimatePresence } from "motion/react";
 import { TESTIMONIALS } from "@/lib/constants";
 
 export function Reviews() {
-  const tTestimonials = useTranslations("testimonials");
   const reviewsHeaderRef = useRef<HTMLDivElement>(null);
   const isReviewsHeaderInView = useInView(reviewsHeaderRef, { once: true, amount: 0.5 });
 
@@ -31,7 +29,7 @@ export function Reviews() {
             transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
             className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 lg:mb-6"
           >
-            {tTestimonials("title")}
+            What Our Clients Say
           </motion.h2>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -39,7 +37,7 @@ export function Reviews() {
             transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
             className="text-sm sm:text-base lg:text-lg text-muted-foreground"
           >
-            {tTestimonials("subtitle")}
+            Trusted by startups and tech teams worldwide
           </motion.p>
         </div>
 

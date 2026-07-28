@@ -13,9 +13,8 @@ import { ChatAssistant } from "@/components/chat";
 export default function HomePage() {
   return (
     <PageTransition>
-      {/* Cursor Glow Effect - Only on Desktop */}
       <CursorGlow />
-      
+
       <Header />
       <main>
         <Hero />
@@ -25,8 +24,7 @@ export default function HomePage() {
         <Contact />
       </main>
       <Footer />
-      
-      {/* AI Chat Assistant */}
+
       <ChatAssistant />
     </PageTransition>
   );

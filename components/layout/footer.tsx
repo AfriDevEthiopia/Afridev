@@ -1,9 +1,7 @@
 "use client";
 
 import { useRef, useSyncExternalStore } from "react";
-import { useTranslations } from "next-intl";
-import { Link } from "@/i18n/routing";
-import { useTheme } from "next-themes";
+import Link from "next/link";
 import Image from "next/image";
 import { motion, useInView } from "motion/react";
 import { AnimatedButton, StaggerContainer, StaggerItem, Magnetic } from "@/components/animations";
@@ -12,9 +10,6 @@ import { UpworkRankBadge } from "@/components/layout/upwork-rank-badge";
 const emptySubscribe = () => () => {};
 
 export function Footer() {
-  const t = useTranslations("footer");
-  const tNav = useTranslations("nav");
-  const { resolvedTheme } = useTheme();
   const mounted = useSyncExternalStore(emptySubscribe, () => true, () => false);
   const currentYear = new Date().getFullYear();
   const footerRef = useRef<HTMLElement>(null);
@@ -29,18 +24,17 @@ export function Footer() {
   ];
 
   return (
-    <motion.footer 
+    <motion.footer
       ref={footerRef}
       className="relative pt-12 sm:pt-16 lg:pt-20 pb-6 sm:pb-8 border-t border-border"
       initial={{ opacity: 0 }}
       animate={isInView ? { opacity: 1 } : {}}
       transition={{ duration: 0.6 }}
     >
-      {/* Background */}
       <div className="absolute inset-0 bg-linear-to-b from-transparent to-primary/5" />
-      
+
       <div className="relative container mx-auto">
-        <StaggerContainer 
+        <StaggerContainer
           staggerDelay={0.1}
           className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 md:gap-10 lg:gap-12 mb-8 sm:mb-10 md:mb-12 lg:mb-16"
         >
@@ -48,7 +42,7 @@ export function Footer() {
           <StaggerItem className="col-span-2 sm:col-span-2 md:col-span-2">
             <Link href="/" className="flex items-center gap-2 mb-3 sm:mb-4">
               <Magnetic strength={0.2}>
-                <motion.div 
+                <motion.div
                   className="flex items-center gap-2"
                   whileHover={{ scale: 1.05 }}
                   transition={{ type: "spring", stiffness: 400, damping: 17 }}
@@ -57,7 +51,7 @@ export function Footer() {
                     <div className="h-8 sm:h-10 w-auto bg-transparent" />
                   ) : (
                     <Image
-                      src={resolvedTheme === "dark" ? "/images/logos/logo-white.png" : "/images/logos/logo-black.png"}
+                      src="/images/logos/logo-white.png"
                       alt="AfriDev Logo"
                       width={120}
                       height={40}
@@ -70,15 +64,15 @@ export function Footer() {
                 </motion.div>
               </Magnetic>
             </Link>
-            <motion.p 
+            <motion.p
               className="text-xs sm:text-sm text-muted-foreground max-w-md mb-4 sm:mb-6"
               initial={{ opacity: 0, y: 10 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.2 }}
             >
-              {t("tagline")}
+              Building cloud-native and AI-powered applications
             </motion.p>
-            
+
             {/* Hire Us Button */}
             <motion.div
               initial={{ opacity: 0, y: 10 }}
@@ -109,7 +103,7 @@ export function Footer() {
             </motion.div>
 
             {/* Social Links */}
-            <motion.div 
+            <motion.div
               className="flex items-center gap-2 sm:gap-3"
               initial={{ opacity: 0 }}
               animate={isInView ? { opacity: 1 } : {}}
@@ -139,17 +133,17 @@ export function Footer() {
 
           {/* Services */}
           <StaggerItem>
-            <h3 className="font-semibold text-sm sm:text-base mb-3 sm:mb-4">{t("services")}</h3>
+            <h3 className="font-semibold text-sm sm:text-base mb-3 sm:mb-4">Services</h3>
             <ul className="space-y-2 sm:space-y-3">
               {["Full-Stack", "Mobile Apps", "AI Integration", "Cloud & DevOps"].map((item, index) => (
-                <motion.li 
+                <motion.li
                   key={item}
                   initial={{ opacity: 0, x: -10 }}
                   animate={isInView ? { opacity: 1, x: 0 } : {}}
                   transition={{ delay: 0.3 + index * 0.05 }}
                 >
-                  <motion.a 
-                    href="#services" 
+                  <motion.a
+                    href="#services"
                     className="text-xs sm:text-sm text-muted-foreground hover:text-foreground transition-colors inline-block"
                     whileHover={{ x: 5, color: "var(--primary)" }}
                     transition={{ type: "spring", stiffness: 400, damping: 17 }}
@@ -163,21 +157,21 @@ export function Footer() {
 
           {/* Company */}
           <StaggerItem>
-            <h3 className="font-semibold text-sm sm:text-base mb-3 sm:mb-4">{t("company")}</h3>
+            <h3 className="font-semibold text-sm sm:text-base mb-3 sm:mb-4">Company</h3>
             <ul className="space-y-2 sm:space-y-3">
               {[
-                { href: "#portfolio", label: tNav("portfolio") },
-                { href: "#testimonials", label: tNav("testimonials") },
-                { href: "#contact", label: tNav("contact") },
+                { href: "#portfolio", label: "Portfolio" },
+                { href: "#testimonials", label: "Testimonials" },
+                { href: "#contact", label: "Contact" },
               ].map((item, index) => (
-                <motion.li 
+                <motion.li
                   key={item.href}
                   initial={{ opacity: 0, x: -10 }}
                   animate={isInView ? { opacity: 1, x: 0 } : {}}
                   transition={{ delay: 0.3 + index * 0.05 }}
                 >
-                  <motion.a 
-                    href={item.href} 
+                  <motion.a
+                    href={item.href}
                     className="text-xs sm:text-sm text-muted-foreground hover:text-foreground transition-colors inline-block"
                     whileHover={{ x: 5, color: "var(--primary)" }}
                     transition={{ type: "spring", stiffness: 400, damping: 17 }}
@@ -191,16 +185,16 @@ export function Footer() {
         </StaggerContainer>
 
         {/* Bottom Bar */}
-        <motion.div 
+        <motion.div
           className="pt-6 sm:pt-8 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4 text-center sm:text-left"
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.6, duration: 0.5 }}
         >
           <p className="text-[10px] sm:text-xs lg:text-sm text-muted-foreground">
-            © {currentYear} AfriDev. {t("rights")}
+            © {currentYear} AfriDev. All rights reserved.
           </p>
-          <motion.p 
+          <motion.p
             className="text-[10px] sm:text-xs lg:text-sm text-muted-foreground flex items-center gap-1"
             whileHover={{ scale: 1.02 }}
           >

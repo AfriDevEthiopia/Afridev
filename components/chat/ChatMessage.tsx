@@ -72,7 +72,7 @@ function formatMessage(content: string) {
       // Italic text
       line = line.replace(/\*(.*?)\*/g, "<em>$1</em>");
       // Inline code
-      line = line.replace(/`(.*?)`/g, '<code class="bg-black/10 dark:bg-white/10 px-1 py-0.5 rounded text-xs">$1</code>');
+      line = line.replace(/`(.*?)`/g, '<code class="bg-white/10 px-1 py-0.5 rounded text-xs">$1</code>');
       
       return (
         <span key={i}>

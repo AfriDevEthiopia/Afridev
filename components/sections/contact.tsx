@@ -1,12 +1,10 @@
 "use client";
 
-import { useTranslations } from "next-intl";
 import { useState, FormEvent, useRef } from "react";
 import { motion, useInView, AnimatePresence } from "motion/react";
 import { AnimatedButton } from "@/components/animations";
 
 export function Contact() {
-  const t = useTranslations("contact");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
   const [focusedField, setFocusedField] = useState<string | null>(null);
@@ -90,7 +88,7 @@ export function Contact() {
             transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
             className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 lg:mb-6"
           >
-            {t("title")}
+            Let&apos;s Work Together
           </motion.h2>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -98,7 +96,7 @@ export function Contact() {
             transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
             className="text-sm sm:text-base lg:text-lg text-muted-foreground"
           >
-            {t("subtitle")}
+            Available for a free 30-minute consultation to understand your project
           </motion.p>
         </div>
 
@@ -126,7 +124,7 @@ export function Contact() {
                   animate={focusedField === "name" ? "focused" : "idle"}
                   transition={{ duration: 0.2 }}
                 >
-                  {t("name")}
+                  Your Name
                 </motion.label>
                 <motion.input
                   type="text"
@@ -155,7 +153,7 @@ export function Contact() {
                   animate={focusedField === "email" ? "focused" : "idle"}
                   transition={{ duration: 0.2 }}
                 >
-                  {t("email")}
+                  Your Email
                 </motion.label>
                 <motion.input
                   type="email"
@@ -187,7 +185,7 @@ export function Contact() {
                 animate={focusedField === "subject" ? "focused" : "idle"}
                 transition={{ duration: 0.2 }}
               >
-                {t("subject")}
+                Subject
               </motion.label>
               <motion.input
                 type="text"
@@ -218,7 +216,7 @@ export function Contact() {
                 animate={focusedField === "message" ? "focused" : "idle"}
                 transition={{ duration: 0.2 }}
               >
-                {t("message")}
+                Tell us about your project
               </motion.label>
               <motion.textarea
                 id="message"
@@ -266,7 +264,7 @@ export function Contact() {
                         <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
                         <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
                       </motion.svg>
-                      {t("sending")}
+                      Opening Calendly...
                     </motion.span>
                   ) : (
                     <motion.span
@@ -275,7 +273,7 @@ export function Contact() {
                       animate={{ opacity: 1 }}
                       exit={{ opacity: 0 }}
                     >
-                      {t("send")}
+                      Schedule Meeting
                     </motion.span>
                   )}
                 </AnimatePresence>
@@ -301,7 +299,7 @@ export function Contact() {
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
-                    {t("success")}
+                    Calendly opened! Please complete your booking in the new tab.
                   </motion.div>
                 </motion.div>
               )}
@@ -313,7 +311,7 @@ export function Contact() {
                   transition={{ duration: 0.3, ease: "easeOut" }}
                   className="p-3 sm:p-4 rounded-lg sm:rounded-xl bg-danger/10 border border-danger/20 text-danger text-xs sm:text-sm text-center"
                 >
-                  {t("error")}
+                  Failed to open Calendly. Please try again or visit our Calendly page directly.
                 </motion.div>
               )}
             </AnimatePresence>
