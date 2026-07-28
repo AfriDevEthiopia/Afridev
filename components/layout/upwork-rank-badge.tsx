@@ -20,10 +20,9 @@ export function UpworkRankBadge({ className }: { className?: string }) {
     script.async = true;
     script.setAttribute("data-agency", "1937186981697230253");
     script.setAttribute("data-format", "badge");
-    script.setAttribute("data-scope", "world");
     script.setAttribute("data-theme", "custom");
     script.setAttribute("data-bg", "#ffffff");
-    script.setAttribute("data-fg", "#dc1818");
+    script.setAttribute("data-fg", "#000000");
     script.setAttribute("data-radius", "24");
     script.setAttribute("data-fields", "mrr,rating,jobs");
     script.setAttribute("data-upworkrank", "true");
