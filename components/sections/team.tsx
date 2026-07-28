@@ -232,7 +232,7 @@ function Carousel<T extends { id: string }>({ items, renderItem, autoSlideInterv
 function ReviewCard({ testimonial }: { testimonial: typeof TESTIMONIALS[0] }) {
   return (
     <motion.div 
-      className="group glass rounded-xl sm:rounded-2xl lg:rounded-3xl p-5 sm:p-6 lg:p-8 h-full min-h-[280px] sm:min-h-[320px] flex flex-col"
+      className="group glass rounded-xl sm:rounded-2xl lg:rounded-3xl p-5 sm:p-6 lg:p-8 h-full min-h-[280px] sm:min-h-80 flex flex-col"
       whileHover={{ 
         y: -5, 
         scale: 1.02,

@@ -77,42 +77,45 @@
 }
 
 :root {
-  --background: oklch(0.145 0.005 62);
-  --foreground: oklch(0.985 0.003 80);
+  --background: oklch(0.985 0.003 80);
+  --foreground: oklch(0.195 0.006 64);
 
-  --surface: oklch(0.195 0.006 64);
-  --surface-raised: oklch(0.265 0.007 66);
-  --card: oklch(0.195 0.006 64);
-  --card-foreground: oklch(0.985 0.003 80);
+  /* Opaque, stepped surfaces. Cards must read without help from a glow. */
+  --surface: oklch(1 0 0);
+  --surface-raised: oklch(1 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.195 0.006 64);
 
-  --muted: oklch(0.195 0.006 64);
-  --muted-foreground: oklch(0.715 0.007 74);
-  --subtle-foreground: oklch(0.635 0.008 72);
-  --secondary: oklch(0.265 0.007 66);
+  --muted: oklch(0.967 0.004 80);
+  --muted-foreground: oklch(0.465 0.008 70);
+  --subtle-foreground: oklch(0.545 0.008 72);
+  --secondary: oklch(0.967 0.004 80);
 
-  --border: oklch(0.265 0.007 66);
-  --border-strong: oklch(0.375 0.008 68);
+  --border: oklch(0.925 0.005 78);
+  --border-strong: oklch(0.866 0.006 76);
 
-  --primary: oklch(0.62 0.15 268);
-  --primary-hover: oklch(0.755 0.095 268);
-  --primary-foreground: oklch(0.165 0.075 268);
+  --primary: oklch(0.43 0.17 268);
+  --primary-hover: oklch(0.355 0.15 268);
+  --primary-foreground: oklch(1 0 0);
 
-  --accent: oklch(0.72 0.13 46);
-  --accent-hover: oklch(0.805 0.09 50);
-  --accent-foreground: oklch(0.145 0.005 62);
+  --accent: oklch(0.55 0.14 40);
+  --accent-hover: oklch(0.455 0.12 38);
+  --accent-foreground: oklch(1 0 0);
 
-  --danger: oklch(0.68 0.17 22);
-  --success: oklch(0.7 0.13 150);
+  /* Status colours sit far enough from clay to stay legible next to it. */
+  --danger: oklch(0.52 0.19 22);
+  --success: oklch(0.52 0.13 150);
 
-  --ring: oklch(0.62 0.15 268 / 0.4);
-  --selection: oklch(0.62 0.15 268 / 0.28);
+  --ring: oklch(0.43 0.17 268 / 0.35);
+  --selection: oklch(0.43 0.17 268 / 0.18);
 
-  --shadow-weak: oklch(0 0 0 / 0.2);
-  --shadow-base: oklch(0 0 0 / 0.35);
+  --shadow-weak: oklch(0.145 0.005 62 / 0.05);
+  --shadow-base: oklch(0.145 0.005 62 / 0.08);
 
-  --ambient: oklch(0.62 0.15 268 / 0.1);
+  /* Single ambient wash, replacing eight stacked radial gradients. */
+  --ambient: oklch(0.43 0.17 268 / 0.05);
 
-  --surface-translucent: oklch(0.195 0.006 64 / 0.8);
+  --surface-translucent: oklch(1 0 0 / 0.8);
 }
 
 * {

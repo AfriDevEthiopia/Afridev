@@ -81,7 +81,7 @@ export function ChatInput({ onSend, isLoading, placeholder = "Type your message.
         <motion.button
           onClick={handleSubmit}
           disabled={!input.trim() || isLoading || isOverLimit}
-          className={`flex-shrink-0 w-9 h-9 rounded-xl flex items-center justify-center transition-colors disabled:opacity-50 disabled:cursor-not-allowed ${
+          className={`shrink-0 w-9 h-9 rounded-xl flex items-center justify-center transition-colors disabled:opacity-50 disabled:cursor-not-allowed ${
             input.trim() && !isOverLimit ? "bg-primary" : "bg-transparent"
           }`}
           whileHover={input.trim() && !isOverLimit ? { scale: 1.05 } : {}}

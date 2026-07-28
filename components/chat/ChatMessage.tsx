@@ -28,7 +28,7 @@ export function ChatMessageComponent({ message, index }: ChatMessageProps) {
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}
         transition={{ delay: 0.1, type: "spring", stiffness: 400, damping: 20 }}
-        className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center ${
+        className={`shrink-0 w-8 h-8 rounded-full flex items-center justify-center ${
           isUser ? "bg-accent text-accent-foreground" : "bg-primary text-primary-foreground"
         }`}
       >
@@ -44,7 +44,7 @@ export function ChatMessageComponent({ message, index }: ChatMessageProps) {
         }`}
       >
         {/* Message content with markdown-like formatting */}
-        <div className="text-sm leading-relaxed whitespace-pre-wrap break-words">
+        <div className="text-sm leading-relaxed whitespace-pre-wrap wrap-break-word">
           {formatMessage(message.content)}
         </div>
 
@@ -72,7 +72,7 @@ function formatMessage(content: string) {
       // Italic text
       line = line.replace(/\*(.*?)\*/g, "<em>$1</em>");
       // Inline code
-      line = line.replace(/`(.*?)`/g, '<code class="bg-white/10 px-1 py-0.5 rounded text-xs">$1</code>');
+      line = line.replace(/`(.*?)`/g, '<code class="bg-black/10 px-1 py-0.5 rounded text-xs">$1</code>');
       
       return (
         <span key={i}>

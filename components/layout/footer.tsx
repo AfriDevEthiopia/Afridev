@@ -51,7 +51,7 @@ export function Footer() {
                     <div className="h-8 sm:h-10 w-auto bg-transparent" />
                   ) : (
                     <Image
-                      src="/images/logos/logo-white.png"
+                      src="/images/logos/logo-black.png"
                       alt="AfriDev Logo"
                       width={120}
                       height={40}

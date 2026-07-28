@@ -11,30 +11,27 @@ import {
 // Generate unique ID
 const generateId = () => `msg_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
 
+function loadStoredMessages(): ChatMessage[] {
+  if (typeof window === "undefined") return [];
+  try {
+    const stored = localStorage.getItem(CHAT_CONSTANTS.STORAGE_KEY);
+    if (!stored) return [];
+    const parsed = JSON.parse(stored) as ChatMessage[];
+    return parsed.map((msg) => ({
+      ...msg,
+      timestamp: new Date(msg.timestamp),
+    }));
+  } catch {
+    return [];
+  }
+}
+
 export function useChat() {
-  const [messages, setMessages] = useState<ChatMessage[]>([]);
+  const [messages, setMessages] = useState<ChatMessage[]>(loadStoredMessages);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [isOpen, setIsOpen] = useState(false);
   const abortControllerRef = useRef<AbortController | null>(null);
-
-  // Load chat history from localStorage on mount
-  useEffect(() => {
-    try {
-      const stored = localStorage.getItem(CHAT_CONSTANTS.STORAGE_KEY);
-      if (stored) {
-        const parsed = JSON.parse(stored);
-        // Convert timestamp strings back to Date objects
-        const messagesWithDates = parsed.map((msg: ChatMessage) => ({
-          ...msg,
-          timestamp: new Date(msg.timestamp),
-        }));
-        setMessages(messagesWithDates);
-      }
-    } catch {
-      // Ignore localStorage errors
-    }
-  }, []);
 
   // Save chat history to localStorage
   useEffect(() => {

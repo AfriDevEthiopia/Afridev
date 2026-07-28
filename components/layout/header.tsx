@@ -80,7 +80,7 @@ export function Header() {
                   <div className="h-8 w-8 sm:h-10 sm:w-10 bg-transparent" />
                 ) : (
                   <Image
-                    src="/images/logos/logo-white.png"
+                    src="/images/logos/logo-black.png"
                     alt="AfriDev Logo"
                     width={40}
                     height={40}
