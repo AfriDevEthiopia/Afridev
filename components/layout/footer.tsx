@@ -7,6 +7,7 @@ import { useTheme } from "next-themes";
 import Image from "next/image";
 import { motion, useInView } from "motion/react";
 import { AnimatedButton, StaggerContainer, StaggerItem, Magnetic } from "@/components/animations";
+import { UpworkRankBadge } from "@/components/layout/upwork-rank-badge";
 
 const emptySubscribe = () => () => {};
 
@@ -95,6 +96,16 @@ export function Footer() {
                 </svg>
                 Hire Us on Upwork
               </AnimatedButton>
+            </motion.div>
+
+            {/* Upwork Rank Badge */}
+            <motion.div
+              className="mb-4"
+              initial={{ opacity: 0, y: 10 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ delay: 0.35 }}
+            >
+              <UpworkRankBadge />
             </motion.div>
 
             {/* Social Links */}
