@@ -29,24 +29,18 @@ export function ChatMessageComponent({ message, index }: ChatMessageProps) {
         animate={{ scale: 1 }}
         transition={{ delay: 0.1, type: "spring", stiffness: 400, damping: 20 }}
         className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center ${
-          isUser
-            ? "bg-gradient-to-br from-primary to-accent"
-            : "bg-gradient-to-br from-[#001a66] to-[#3b82f6]"
+          isUser ? "bg-accent text-accent-foreground" : "bg-primary text-primary-foreground"
         }`}
       >
-        {isUser ? (
-          <User className="w-4 h-4 text-white" />
-        ) : (
-          <Bot className="w-4 h-4 text-white" />
-        )}
+        {isUser ? <User className="w-4 h-4" /> : <Bot className="w-4 h-4" />}
       </motion.div>
 
       {/* Message bubble */}
       <div
         className={`max-w-[80%] rounded-2xl px-4 py-3 ${
           isUser
-            ? "bg-gradient-to-br from-primary to-accent text-white rounded-br-sm"
-            : "glass-card text-foreground rounded-bl-sm"
+            ? "bg-primary text-primary-foreground rounded-br-sm"
+            : "glass text-foreground rounded-bl-sm"
         }`}
       >
         {/* Message content with markdown-like formatting */}
@@ -57,7 +51,7 @@ export function ChatMessageComponent({ message, index }: ChatMessageProps) {
         {/* Timestamp */}
         <div
           className={`text-[10px] mt-1.5 ${
-            isUser ? "text-white/70" : "text-muted-foreground"
+            isUser ? "text-primary-foreground/70" : "text-muted-foreground"
           }`}
         >
           {formatTime(message.timestamp)}

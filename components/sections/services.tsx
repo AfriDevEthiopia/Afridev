@@ -33,7 +33,6 @@ export function Services() {
   return (
     <section id="services" className="py-16 sm:py-20 lg:py-28 relative noise-bg">
       {/* Background */}
-      <div className="absolute inset-0 bg-linear-to-b from-transparent via-primary/5 to-transparent" />
       
       <div className="relative container mx-auto">
         {/* Section Header */}
@@ -81,14 +80,9 @@ export function Services() {
                     transition: { type: "spring", stiffness: 300, damping: 20 }
                   }}
                 >
-                  {/* Icon with unified Navy Blue background - Enterprise look */}
-                  <motion.div 
-                    className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-[#001a66]/90 dark:bg-[#001a66] flex items-center justify-center mb-4 sm:mb-5 border border-[#001a66]/20 dark:border-white/10"
-                    whileHover={{ scale: 1.05 }}
-                    transition={{ type: "spring", stiffness: 400, damping: 17 }}
-                  >
-                    <service.Icon className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
-                  </motion.div>
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-primary flex items-center justify-center mb-4 sm:mb-5">
+                    <service.Icon className="w-6 h-6 sm:w-7 sm:h-7 text-primary-foreground" />
+                  </div>
 
                   {/* Title */}
                   <h3 className="text-base sm:text-lg lg:text-xl font-bold mb-2 sm:mb-3 group-hover:text-primary transition-colors">
@@ -107,8 +101,8 @@ export function Services() {
                         key={idx} 
                         className="flex items-start gap-2.5 sm:gap-3 text-xs sm:text-sm text-foreground/90"
                       >
-                        <span className="w-5 h-5 rounded-full bg-[#001a66] dark:bg-[#3b82f6] flex items-center justify-center shrink-0 mt-0.5">
-                          <Check className="w-3 h-3 text-white" strokeWidth={3} />
+                        <span className="w-5 h-5 rounded-full bg-accent flex items-center justify-center shrink-0 mt-0.5">
+                          <Check className="w-3 h-3 text-accent-foreground" strokeWidth={3} />
                         </span>
                         <span>{benefit}</span>
                       </li>

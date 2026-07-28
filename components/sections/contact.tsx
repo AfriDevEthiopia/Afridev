@@ -60,14 +60,8 @@ export function Contact() {
   };
 
   const inputVariants = {
-    idle: { 
-      scale: 1,
-      boxShadow: "0 0 0 0 rgba(0, 26, 102, 0)"
-    },
-    focused: { 
-      scale: 1.01,
-      boxShadow: "0 0 0 4px rgba(0, 26, 102, 0.1), 0 0 30px rgba(59, 130, 246, 0.08)"
-    }
+    idle: { scale: 1 },
+    focused: { scale: 1.005 }
   };
 
   const labelVariants = {
@@ -78,7 +72,6 @@ export function Contact() {
   return (
     <section id="contact" className="py-16 sm:py-20 lg:py-28 relative noise-bg">
       {/* Background */}
-      <div className="absolute inset-0 bg-linear-to-b from-accent/5 via-transparent to-primary/5" />
       
       <div className="relative container mx-auto">
         {/* Section Header */}
@@ -318,7 +311,7 @@ export function Contact() {
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: -10, scale: 0.95 }}
                   transition={{ duration: 0.3, ease: "easeOut" }}
-                  className="p-3 sm:p-4 rounded-lg sm:rounded-xl bg-red-500/10 border border-red-500/20 text-red-500 text-xs sm:text-sm text-center"
+                  className="p-3 sm:p-4 rounded-lg sm:rounded-xl bg-danger/10 border border-danger/20 text-danger text-xs sm:text-sm text-center"
                 >
                   {t("error")}
                 </motion.div>

@@ -40,7 +40,6 @@ export function Portfolio() {
   return (
     <section id="portfolio" className="py-16 sm:py-20 lg:py-28 relative">
       {/* Background */}
-      <div className="absolute inset-0 bg-linear-to-b from-transparent via-accent/5 to-transparent" />
       
       <div className="relative container mx-auto">
         {/* Section Header */}
@@ -102,25 +101,24 @@ export function Portfolio() {
                     />
                   ) : (
                     /* Fallback placeholder with project initial */
-                    <div className="absolute inset-0 bg-gradient-to-br from-[#001a66] to-[#0047ab] flex items-center justify-center">
-                      <span className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white/30">
+                    <div className="absolute inset-0 bg-primary flex items-center justify-center">
+                      <span className="text-4xl sm:text-5xl lg:text-6xl font-bold text-primary-foreground/30">
                         {project.title.charAt(0)}
                       </span>
                     </div>
                   )}
                   
-                  {/* Subtle Navy Blue overlay on hover */}
-                  <div className="absolute inset-0 bg-[#001a66]/0 group-hover:bg-[#001a66]/20 transition-all duration-300" />
+                  <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/20 transition-colors duration-300" />
 
                   {/* Zoom button - appears on hover */}
                   {project.image && (
                     <motion.button
                       onClick={(e) => openLightbox(e, project.image!, project.title)}
-                      className="absolute top-3 right-3 sm:top-4 sm:right-4 z-10 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/90 dark:bg-black/70 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-white dark:hover:bg-black hover:scale-110 shadow-lg cursor-zoom-in"
+                      className="absolute top-3 right-3 sm:top-4 sm:right-4 z-10 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-surface/90 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-surface hover:scale-110 shadow-md cursor-zoom-in"
                       aria-label={`View ${project.title} image full size`}
                       whileTap={{ scale: 0.9 }}
                     >
-                      <svg className="w-4 h-4 sm:w-5 sm:h-5 text-[#001a66] dark:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                      <svg className="w-4 h-4 sm:w-5 sm:h-5 text-foreground" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
                         <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6" />
                       </svg>
                     </motion.button>
@@ -133,7 +131,7 @@ export function Portfolio() {
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.2 }}
                   >
-                    <span className="px-2.5 sm:px-3 py-1 sm:py-1.5 bg-white/90 dark:bg-[#001a66]/90 backdrop-blur-sm rounded-full text-[10px] sm:text-xs text-[#001a66] dark:text-white font-medium shadow-lg">
+                    <span className="px-2.5 sm:px-3 py-1 sm:py-1.5 bg-surface/90 backdrop-blur-sm rounded-full text-[10px] sm:text-xs text-foreground font-medium shadow-sm">
                       {project.type}
                     </span>
                   </motion.div>
@@ -160,12 +158,12 @@ export function Portfolio() {
                           transition={{ delay: 0.1 * idx }}
                         >
                           <motion.span 
-                            className="w-5 h-5 rounded-full bg-[#001a66] dark:bg-[#3b82f6] flex items-center justify-center shrink-0 mt-0.5"
+                            className="w-5 h-5 rounded-full bg-accent flex items-center justify-center shrink-0 mt-0.5"
                             initial={{ scale: 0 }}
                             whileInView={{ scale: 1 }}
                             transition={{ delay: 0.2 + 0.1 * idx, type: "spring", stiffness: 500 }}
                           >
-                            <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg className="w-3 h-3 text-accent-foreground" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                             </svg>
                           </motion.span>

@@ -13,7 +13,6 @@ export function Reviews() {
   return (
     <section id="testimonials" className="py-16 sm:py-20 lg:py-28 relative overflow-hidden scroll-mt-24">
       {/* Background */}
-      <div className="absolute inset-0 bg-linear-to-b from-transparent via-primary/5 to-transparent" />
       
       <div className="relative container mx-auto">
         {/* Reviews Header */}
@@ -256,7 +255,7 @@ function ReviewCard({ testimonial }: { testimonial: typeof TESTIMONIALS[0] }) {
           {[...Array(5)].map((_, i) => (
             <motion.svg
               key={i}
-              className={`w-3.5 h-3.5 sm:w-4 sm:h-4 ${i < testimonial.rating ? "text-yellow-500" : "text-muted-foreground/30"}`}
+              className={`w-3.5 h-3.5 sm:w-4 sm:h-4 ${i < testimonial.rating ? "text-accent" : "text-muted-foreground/30"}`}
               fill="currentColor"
               viewBox="0 0 20 20"
               initial={{ opacity: 0, scale: 0 }}

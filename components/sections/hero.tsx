@@ -19,25 +19,6 @@ export function Hero() {
 
   return (
     <section id="home" className="relative min-h-screen flex items-center overflow-hidden noise-bg">
-      {/* Animated background elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.5, ease: "easeOut" }}
-          className="absolute top-1/4 -left-32 w-48 sm:w-72 lg:w-96 h-48 sm:h-72 lg:h-96 bg-primary/20 rounded-full blur-[80px] sm:blur-[128px] animate-pulse-glow" 
-        />
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.5, delay: 0.3, ease: "easeOut" }}
-          className="absolute bottom-1/4 -right-32 w-48 sm:w-72 lg:w-96 h-48 sm:h-72 lg:h-96 bg-accent/20 rounded-full blur-[80px] sm:blur-[128px] animate-pulse-glow" 
-          style={{ animationDelay: "1.5s" }} 
-        />
-        <div className="hidden sm:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] lg:w-[800px] h-[600px] lg:h-[800px] bg-linear-to-r from-primary/5 to-accent/5 rounded-full blur-[100px]" />
-        <div className="hidden md:block absolute inset-0 bg-[linear-gradient(rgba(99,102,241,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(99,102,241,0.03)_1px,transparent_1px)] bg-size-[32px_32px] lg:bg-size-[64px_64px]" />
-      </div>
-
       <div className="relative z-10 container mx-auto pt-28 sm:pt-32 lg:pt-36 pb-12 sm:pb-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 xl:gap-16 items-center">
           {/* Left Content */}
@@ -55,7 +36,7 @@ export function Hero() {
               transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
             >
               {t("title")}{" "}
-              <span className="gradient-text">{t("titleHighlight")}</span>{" "}
+              <span className="text-accent">{t("titleHighlight")}</span>{" "}
               {t("titleEnd")}
             </motion.h1>
 
@@ -74,40 +55,34 @@ export function Hero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.3, ease: "easeOut" }}
-              className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-8 sm:mb-12"
+              className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 mb-8 sm:mb-12"
             >
-              <motion.a
-                href={UPWORK_AGENCY_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 px-5 py-2 sm:px-6 sm:py-2.5 rounded-lg sm:rounded-xl bg-[#14a800] hover:bg-[#14a800]/90 text-white font-semibold transition-all shadow-lg shadow-[#14a800]/30 w-full sm:w-auto text-xs sm:text-sm"
-                whileHover={{ scale: 1.03, y: -2 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M18.561 13.158c-1.102 0-2.135-.467-3.074-1.227l.228-1.076.008-.042c.207-1.143.849-3.06 2.839-3.06 1.492 0 2.703 1.212 2.703 2.703-.001 1.489-1.212 2.702-2.704 2.702zm0-8.14c-2.539 0-4.51 1.649-5.31 4.366-1.22-1.834-2.148-4.036-2.687-5.892H7.828v7.112c-.002 1.406-1.141 2.546-2.547 2.548-1.405-.002-2.543-1.143-2.545-2.548V3.492H0v7.112c0 2.914 2.37 5.303 5.281 5.303 2.913 0 5.283-2.389 5.283-5.303v-1.19c.529 1.107 1.182 2.229 1.974 3.221l-1.673 7.873h2.797l1.213-5.71c1.063.679 2.285 1.109 3.686 1.109 3 0 5.439-2.452 5.439-5.45 0-3-2.439-5.439-5.439-5.439z" />
-                </svg>
-                Hire Us on Upwork
-              </motion.a>
-              <motion.button
+              <button
                 className="btn-primary flex items-center justify-center gap-2 group w-full sm:w-auto"
                 onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
-                whileHover={{ scale: 1.03, y: -2 }}
-                whileTap={{ scale: 0.98 }}
               >
                 {t("cta")}
                 <svg className="w-4 h-4 sm:w-5 sm:h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
-              </motion.button>
-              <motion.button
-                className="bg-white text-[#001a66] border-2 border-[#001a66] dark:bg-white dark:text-[#001a66] dark:border-white/20 font-semibold px-5 py-2 sm:px-6 sm:py-2.5 rounded-lg sm:rounded-xl transition-all shadow-md hover:shadow-lg hover:bg-gray-50 dark:hover:bg-gray-100 w-full sm:w-auto text-xs sm:text-sm"
+              </button>
+              <button
+                className="btn-secondary w-full sm:w-auto"
                 onClick={() => document.getElementById("portfolio")?.scrollIntoView({ behavior: "smooth" })}
-                whileHover={{ scale: 1.03, y: -2 }}
-                whileTap={{ scale: 0.98 }}
               >
                 {t("ctaSecondary")}
-              </motion.button>
+              </button>
+              <a
+                href={UPWORK_AGENCY_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center sm:justify-start gap-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+              >
+                <svg className="w-5 h-5 text-[#14a800]" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M18.561 13.158c-1.102 0-2.135-.467-3.074-1.227l.228-1.076.008-.042c.207-1.143.849-3.06 2.839-3.06 1.492 0 2.703 1.212 2.703 2.703-.001 1.489-1.212 2.702-2.704 2.702zm0-8.14c-2.539 0-4.51 1.649-5.31 4.366-1.22-1.834-2.148-4.036-2.687-5.892H7.828v7.112c-.002 1.406-1.141 2.546-2.547 2.548-1.405-.002-2.543-1.143-2.545-2.548V3.492H0v7.112c0 2.914 2.37 5.303 5.281 5.303 2.913 0 5.283-2.389 5.283-5.303v-1.19c.529 1.107 1.182 2.229 1.974 3.221l-1.673 7.873h2.797l1.213-5.71c1.063.679 2.285 1.109 3.686 1.109 3 0 5.439-2.452 5.439-5.45 0-3-2.439-5.439-5.439-5.439z" />
+                </svg>
+                Hire us on Upwork
+              </a>
             </motion.div>
 
             {/* Stats Grid */}
@@ -118,13 +93,9 @@ export function Hero() {
                   initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.4, delay: 0.4 + index * 0.1, ease: "easeOut" }}
-                  whileHover={{ 
-                    scale: 1.05, 
-                    borderColor: "rgba(0, 26, 102, 0.4)",
-                  }}
-                  className="text-center p-3 sm:p-4 rounded-lg sm:rounded-xl bg-secondary/30 border border-border transition-colors"
+                  className="text-center p-3 sm:p-4 rounded-lg sm:rounded-xl bg-surface border border-border hover:border-border-strong transition-colors"
                 >
-                  <div className="text-xl sm:text-2xl lg:text-3xl font-bold gradient-text">
+                  <div className="text-xl sm:text-2xl lg:text-3xl font-bold text-foreground">
                     <CountUp value={stat.value} delay={0.5 + index * 0.1} />
                   </div>
                   <div className="text-[10px] sm:text-xs text-muted-foreground mt-0.5 sm:mt-1 line-clamp-1">
@@ -143,20 +114,8 @@ export function Hero() {
             className="order-1 lg:order-2 w-full"
           >
             <div className="relative w-full">
-              {/* Glow effect behind video */}
-              <motion.div 
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.8, delay: 0.3 }}
-                className="absolute -inset-1 sm:-inset-2 md:-inset-4 bg-linear-to-r from-primary/20 to-accent/20 rounded-xl sm:rounded-2xl md:rounded-3xl blur-lg sm:blur-xl md:blur-2xl" 
-              />
-              
               {/* Video Container */}
-              <motion.div 
-                className="relative glass rounded-lg sm:rounded-xl md:rounded-2xl p-1 sm:p-1.5 md:p-2 glow-sm sm:glow"
-                whileHover={{ scale: 1.02 }}
-                transition={{ type: "spring", stiffness: 300, damping: 20 }}
-              >
+              <div className="relative glass rounded-lg sm:rounded-xl md:rounded-2xl p-1 sm:p-1.5 md:p-2 shadow-lg">
                 <div className="aspect-video rounded-md sm:rounded-lg md:rounded-xl overflow-hidden bg-black">
                   <iframe
                     src="https://www.youtube.com/embed/DOEM7pu9shU"
@@ -171,32 +130,26 @@ export function Hero() {
                 {/* Video Label */}
                 <div className="flex items-center justify-between mt-1.5 sm:mt-2 md:mt-3 px-0.5 sm:px-1 md:px-2">
                   <div className="flex items-center gap-1.5 sm:gap-2">
-                    <motion.div 
-                      className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 rounded sm:rounded-md md:rounded-lg bg-linear-to-br from-primary to-accent flex items-center justify-center shrink-0"
-                      whileHover={{ scale: 1.1, rotate: 5 }}
-                      transition={{ type: "spring", stiffness: 400, damping: 17 }}
-                    >
-                      <svg className="w-2.5 h-2.5 sm:w-3 sm:h-3 md:w-4 md:h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <div className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 rounded sm:rounded-md md:rounded-lg bg-primary flex items-center justify-center shrink-0">
+                      <svg className="w-2.5 h-2.5 sm:w-3 sm:h-3 md:w-4 md:h-4 text-primary-foreground" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M8 5v14l11-7z" />
                       </svg>
-                    </motion.div>
+                    </div>
                     <div className="min-w-0">
                       <p className="text-[10px] sm:text-xs md:text-sm font-medium truncate">Watch Our Intro</p>
                       <p className="text-[9px] sm:text-[10px] md:text-xs text-muted-foreground hidden sm:block">Learn more about AfriDev</p>
                     </div>
                   </div>
-                  <motion.a
+                  <a
                     href="https://youtu.be/DOEM7pu9shU"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-[9px] sm:text-[10px] md:text-xs text-primary hover:underline hidden md:block shrink-0"
-                    whileHover={{ x: 3 }}
-                    transition={{ type: "spring", stiffness: 400, damping: 17 }}
                   >
                     Open in YouTube →
-                  </motion.a>
+                  </a>
                 </div>
-              </motion.div>
+              </div>
             </div>
           </motion.div>
         </div>

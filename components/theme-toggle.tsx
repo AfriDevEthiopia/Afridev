@@ -11,20 +11,20 @@ export function ThemeToggle() {
 
   if (!mounted) {
     return (
-      <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl glass flex items-center justify-center border border-white/10" />
+      <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl glass flex items-center justify-center" />
     );
   }
 
   return (
     <button
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-      className="relative w-9 h-9 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl glass flex items-center justify-center hover:bg-white/10 transition-colors group border border-white/10"
+      className="relative w-9 h-9 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl glass flex items-center justify-center hover:border-border-strong transition-colors"
       aria-label="Toggle theme"
     >
       <div className="relative w-4 h-4 sm:w-5 sm:h-5">
         {/* Sun Icon */}
         <svg
-          className={`absolute inset-0 w-full h-full text-yellow-500 transition-all duration-500 ${
+          className={`absolute inset-0 w-full h-full text-accent transition-all duration-500 ${
             theme === "dark" 
               ? "rotate-90 scale-0 opacity-0" 
               : "rotate-0 scale-100 opacity-100"
@@ -43,7 +43,7 @@ export function ThemeToggle() {
 
         {/* Moon Icon */}
         <svg
-          className={`absolute inset-0 w-full h-full text-indigo-400 transition-all duration-500 ${
+          className={`absolute inset-0 w-full h-full text-primary transition-all duration-500 ${
             theme === "dark"
               ? "rotate-0 scale-100 opacity-100"
               : "-rotate-90 scale-0 opacity-0"
@@ -60,9 +60,6 @@ export function ThemeToggle() {
           />
         </svg>
       </div>
-      
-      {/* Hover glow effect */}
-      <div className="absolute inset-0 rounded-lg sm:rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white/5 blur-sm -z-10" />
     </button>
   );
 }

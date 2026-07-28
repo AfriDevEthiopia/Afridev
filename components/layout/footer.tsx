@@ -64,7 +64,7 @@ export function Footer() {
                     />
                   )}
                   <span className="text-lg sm:text-xl font-bold">
-                    Afri<span className="gradient-text">Dev</span>
+                    Afri<span className="text-primary">Dev</span>
                   </span>
                 </motion.div>
               </Magnetic>

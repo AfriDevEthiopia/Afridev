@@ -67,29 +67,12 @@ export function ChatWindow({
             maxHeight: "calc(100vh - 180px)", // Leave space for header (80px) + button (100px)
           }}
         >
-          {/* Glass overlay */}
-          <div className="absolute inset-0 glass-mirror pointer-events-none" />
-
           {/* Header */}
-          <div className="relative z-10 flex items-center justify-between px-4 py-3 border-b border-border bg-linear-to-r from-gradient-start/10 to-[#3b82f6]/10">
+          <div className="relative z-10 flex items-center justify-between px-4 py-3 border-b border-border bg-surface">
             <div className="flex items-center gap-3">
-              {/* Animated logo */}
-              <motion.div
-                className="w-10 h-10 rounded-xl flex items-center justify-center overflow-hidden"
-                style={{
-                  background: "linear-gradient(135deg, #001a66 0%, #3b82f6 100%)",
-                }}
-                animate={{
-                  boxShadow: [
-                    "0 0 20px rgba(59, 130, 246, 0.3)",
-                    "0 0 30px rgba(59, 130, 246, 0.5)",
-                    "0 0 20px rgba(59, 130, 246, 0.3)",
-                  ],
-                }}
-                transition={{ duration: 2, repeat: Infinity }}
-              >
-                <Headset className="w-5 h-5 text-white" />
-              </motion.div>
+              <div className="w-10 h-10 rounded-xl flex items-center justify-center bg-primary shrink-0">
+                <Headset className="w-5 h-5 text-primary-foreground" />
+              </div>
               <div>
                 <h3 className="font-semibold text-foreground text-sm">
                   {t("title")}
@@ -137,19 +120,9 @@ export function ChatWindow({
                 animate={{ opacity: 1 }}
                 className="flex flex-col items-center justify-center h-full text-center py-8"
               >
-                <motion.div
-                  className="w-16 h-16 rounded-2xl flex items-center justify-center mb-4"
-                  style={{
-                    background: "linear-gradient(135deg, #001a66 0%, #3b82f6 100%)",
-                  }}
-                  animate={{
-                    scale: [1, 1.05, 1],
-                    rotate: [0, 5, -5, 0],
-                  }}
-                  transition={{ duration: 3, repeat: Infinity }}
-                >
-                  <Headset className="w-8 h-8 text-white" />
-                </motion.div>
+                <div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-4 bg-primary">
+                  <Headset className="w-8 h-8 text-primary-foreground" />
+                </div>
                 <h4 className="font-semibold text-foreground mb-1">
                   {t("welcomeTitle")}
                 </h4>
@@ -182,10 +155,10 @@ export function ChatWindow({
                     animate={{ opacity: 1 }}
                     className="flex items-center gap-3"
                   >
-                    <div className="w-8 h-8 rounded-full bg-linear-to-r from-gradient-start to-[#3b82f6] flex items-center justify-center">
-                      <Headset className="w-4 h-4 text-white" />
+                    <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0">
+                      <Headset className="w-4 h-4 text-primary-foreground" />
                     </div>
-                    <div className="glass-card px-4 py-3 rounded-2xl rounded-bl-sm">
+                    <div className="glass px-4 py-3 rounded-2xl rounded-bl-sm">
                       <div className="flex gap-1">
                         {[0, 1, 2].map((i) => (
                           <motion.div
@@ -220,9 +193,9 @@ export function ChatWindow({
                 initial={{ opacity: 0, height: 0 }}
                 animate={{ opacity: 1, height: "auto" }}
                 exit={{ opacity: 0, height: 0 }}
-                className="relative z-10 px-4 py-2 bg-red-500/10 border-t border-red-500/20"
+                className="relative z-10 px-4 py-2 bg-danger/10 border-t border-danger/20"
               >
-                <p className="text-xs text-red-500">{error}</p>
+                <p className="text-xs text-danger">{error}</p>
               </motion.div>
             )}
           </AnimatePresence>

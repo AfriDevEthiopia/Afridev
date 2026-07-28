@@ -1,6 +1,6 @@
 # AfriDev - Professional Agency Website
 
-> A modern, animated, and multilingual website for **AfriDev** - Full Stack Developers | AI, LLM & Automation Experts
+> A modern, animated website for **AfriDev** - Full Stack Developers | AI, LLM & Automation Experts
 
 [![Next.js](https://img.shields.io/badge/Next.js-16.0.8-black?style=flat-square&logo=next.js)](https://nextjs.org/)
 [![React](https://img.shields.io/badge/React-19.2.1-blue?style=flat-square&logo=react)](https://reactjs.org/)
@@ -13,7 +13,7 @@
 ## Table of Contents
 
 - [Features](#features)
-- [Internationalization](#internationalization)
+- [Content and Copy](#content-and-copy)
 - [Project Architecture](#project-architecture)
 - [Tech Stack](#tech-stack)
 - [Getting Started](#getting-started)
@@ -35,9 +35,9 @@
 ### Core Features
 - **Next.js 16** with App Router and Turbopack for blazing-fast development
 - **TypeScript** for type safety and enhanced developer experience
-- **Tailwind CSS v4** with custom slate color system and dark mode support
+- **Tailwind CSS v4** with an OKLCH two-hue color system and dark mode support
 - **Motion (Framer Motion)** for smooth scroll animations and micro-interactions
-- **next-intl** for comprehensive internationalization
+- **next-intl** for centralised, type-safe UI copy (English only)
 - **Fully Responsive** - Mobile-first design that works on all devices
 - **SEO Optimized** - Meta tags, semantic HTML, and performance optimized
 - **Clean Architecture** - Decoupled components, organized folder structure
@@ -57,22 +57,26 @@
 
 ---
 
-## Internationalization
+## Content and Copy
 
-The website supports three languages with full translation coverage:
+The site ships in English only.
 
 | Language | Code | Status |
 |----------|------|--------|
 | English | `en` | Complete |
-| አማርኛ (Amharic) | `am` | Complete |
-| Afaan Oromo | `om` | Complete |
 
-### How i18n Works
+All user-facing copy is centralised in `messages/en.json` and read through
+`next-intl`'s `useTranslations` hook, so strings live in one place rather than
+being scattered across components.
 
-1. **URL-based routing**: `/en/`, `/am/`, `/om/`
-2. **Translation files**: Located in `messages/` directory
-3. **Dynamic language switching**: Real-time language toggle without page reload
-4. **Fallback support**: Defaults to English if translation missing
+### How it works
+
+1. **Single locale**: `en` is declared in `i18n/routing.ts` as the only locale
+2. **Clean URLs**: `localePrefix: "as-needed"` means English is served from `/` with no prefix
+3. **Copy file**: `messages/en.json`, grouped by section (`nav`, `hero`, `services`, ...)
+
+To add another language later, add its code to `locales` in `i18n/routing.ts`,
+add a matching `messages/<code>.json`, and widen the matcher in `proxy.ts`.
 
 ---
 
@@ -111,26 +115,23 @@ afridev/
 │   │   ├── team.tsx              # Team members
 │   │   └── contact.tsx           # Contact form
 │   ├── ui/                       # Reusable UI components
-│   │   ├── button.tsx            # Custom button component
-│   │   └── language-switcher.tsx # Language toggle dropdown
+│   │   └── button.tsx            # Custom button component
 │   ├── theme-provider.tsx        # Next-themes provider wrapper
 │   └── theme-toggle.tsx          # Dark/light mode toggle
 │
 ├── hooks/                        # Custom React hooks
 │   └── useChat.ts                # Chat logic & state management
 │
-├── i18n/                         # Internationalization config
-│   ├── request.ts                # i18n request handler
+├── i18n/                         # next-intl config (English only)
+│   ├── request.ts                # Message loader
 │   └── routing.ts                # Locale routing configuration
 │
 ├── lib/                          # Utility libraries
 │   ├── constants.ts              # App-wide constants & data
 │   └── utils.ts                  # Helper functions (cn, etc.)
 │
-├── messages/                     # Translation files (JSON)
-│   ├── en.json                   # English translations
-│   ├── am.json                   # Amharic translations
-│   └── om.json                   # Oromo translations
+├── messages/                     # UI copy (JSON)
+│   └── en.json                   # English strings
 │
 ├── public/                       # Static assets
 │   └── images/
@@ -155,10 +156,10 @@ afridev/
 
 | Directory | Purpose | Key Files |
 |-----------|---------|-----------|
-| `app/[locale]/` | Internationalized pages | `page.tsx`, `layout.tsx` |
+| `app/[locale]/` | Application pages | `page.tsx`, `layout.tsx` |
 | `components/sections/` | Main page sections | `hero.tsx`, `services.tsx`, etc. |
 | `components/chat/` | AI chat feature | `ChatWindow.tsx`, `useChat.ts` |
-| `messages/` | Translation files | `en.json`, `am.json`, `om.json` |
+| `messages/` | UI copy | `en.json` |
 | `lib/` | Utilities & constants | `utils.ts`, `constants.ts` |
 | `types/` | TypeScript definitions | `chat.ts`, `index.ts` |
 
@@ -184,11 +185,11 @@ afridev/
 | [Motion](https://motion.dev/) | 12.23.26 | Animation library (Framer Motion successor) |
 | [Lucide React](https://lucide.dev/) | 0.559.0 | Icon library |
 
-### Internationalization & State
+### Content & State
 
 | Technology | Version | Purpose |
 |------------|---------|---------|
-| [next-intl](https://next-intl-docs.vercel.app/) | 4.5.8 | i18n for Next.js App Router |
+| [next-intl](https://next-intl-docs.vercel.app/) | 4.5.8 | Centralised UI copy for the App Router |
 | [next-themes](https://github.com/pacocoursey/next-themes) | 0.4.6 | Theme management (dark/light mode) |
 | [react-hook-form](https://react-hook-form.com/) | 7.68.0 | Form validation & management |
 
@@ -260,10 +261,7 @@ npm run dev
 
 Navigate to [http://localhost:3000](http://localhost:3000)
 
-The default language is English. Access other languages:
-- English: `http://localhost:3000/en`
-- Amharic: `http://localhost:3000/am`
-- Oromo: `http://localhost:3000/om`
+The site is English-only and served from the root path.
 
 ---
 
@@ -468,61 +466,65 @@ export function MyComponent({ title, onAction }: MyComponentProps) {
 
 ### Color System
 
-The website uses a professional **Slate** color palette with CSS variables:
+Two brand hues on a warm neutral ramp, all defined in OKLCH. Tailwind v4 CSS-first
+theming means there is no `tailwind.config` file; everything lives in the `@theme`
+block at the top of `app/globals.css`.
+
+- **Navy** at hue 268, the brand anchor. Deliberately a few degrees off the blue
+  axis toward violet so it does not read as a default framework blue.
+- **Clay** at hue 40-46, a warm accent that carries emphasis on its own. This is
+  what lets the design avoid gradient text and coloured glows for hierarchy.
+- **Neutrals** at hue 62-80 with very low chroma, so they read as a faintly warm
+  grey rather than the blue-grey that would compound the navy.
+
+OKLCH keeps lightness steps perceptually even, which means a ramp position maps
+to a predictable contrast ratio, and both themes can share one hue.
 
 ```css
-/* Light Mode */
+@theme {
+  /* Ramps are static; every step holds hue constant. */
+  --color-navy-400: oklch(0.62 0.15 268);
+  --color-navy-600: oklch(0.43 0.17 268);
+  --color-clay-400: oklch(0.72 0.13 46);
+  --color-clay-600: oklch(0.55 0.14 40);
+  --color-neutral-50: oklch(0.985 0.003 80);
+  --color-neutral-950: oklch(0.145 0.005 62);
+
+  /* Semantic tokens indirect through :root / .dark. */
+  --color-primary: var(--primary);
+  --color-accent: var(--accent);
+  --color-surface: var(--surface);
+}
+```
+
+The brand hue is identical in both themes and varies only in lightness, so
+identity survives a theme toggle:
+
+```css
 :root {
-  --background: #ffffff;           /* Pure white background */
-  --foreground: #0f172a;           /* Deep slate text */
-  --card: #f8fafc;                 /* Light card background */
-  --card-foreground: #0f172a;      /* Card text */
-  --primary: #475569;              /* Primary slate */
-  --primary-foreground: #f8fafc;   /* Text on primary */
-  --secondary: #f1f5f9;            /* Secondary background */
-  --secondary-foreground: #1e293b; /* Secondary text */
-  --muted: #f1f5f9;                /* Muted background */
-  --muted-foreground: #64748b;     /* Muted text */
-  --accent: #3b82f6;               /* Blue accent */
-  --accent-foreground: #ffffff;    /* Text on accent */
-  --border: #e2e8f0;               /* Border color */
-  --input: #e2e8f0;                /* Input border */
-  --ring: #3b82f6;                 /* Focus ring */
+  --primary: oklch(0.43 0.17 268);   /* navy-600 */
+  --surface: oklch(1 0 0);           /* opaque, so cards read without a glow */
 }
 
-/* Dark Mode */
 .dark {
-  --background: #0f172a;
-  --foreground: #f8fafc;
-  --card: #1e293b;
-  --card-foreground: #f8fafc;
-  /* ... other dark mode colors */
+  --primary: oklch(0.62 0.15 268);   /* navy-400, same hue 268 */
+  --surface: oklch(0.195 0.006 64);
 }
 ```
 
-### Custom Utility Classes
+Every text and background pairing in both themes meets WCAG AA for normal text.
 
-```css
-/* Glass Morphism */
-.glass-card {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
+### Conventions
 
-/* Gradient Text */
-.gradient-text {
-  background: linear-gradient(135deg, #001a66 0%, #3b82f6 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-/* Custom Scrollbar */
-.scrollbar-thin {
-  scrollbar-width: thin;
-  scrollbar-color: var(--border) transparent;
-}
-```
+- **Never hardcode a brand hex in a component.** Use the semantic utilities
+  (`bg-primary`, `text-accent`, `border-border`) so a token change propagates.
+  Third-party marks such as Upwork green are the only permitted exception.
+- **Shadows are neutral and describe elevation, never brand.** Use the
+  `shadow-xs` through `shadow-xl` scale; do not add coloured or stacked glows.
+- **Two surface treatments only**: `.glass` for cards and panels, `.glass-header`
+  for the sticky header.
+- **Animations run once**, on mount or scroll. Nothing loops indefinitely.
+- Status colours use `--danger` and `--success` rather than raw red or green.
 
 ### Dark Mode Implementation
 
@@ -947,19 +949,19 @@ curl https://api.openai.com/v1/models \
 ping api.openai.com
 ```
 
-#### 2. Translations Not Loading
+#### 2. Copy Not Loading
 
 **Symptoms:**
 - Missing text
-- English text in other languages
+- Raw translation keys rendered instead of text
 - `[object Object]` displayed
 
 **Solutions:**
 
-**Verify translation files exist**
+**Verify the message file exists**
 ```bash
 ls -la messages/
-# Should show: en.json, am.json, om.json
+# Should show: en.json
 ```
 
 **Check JSON syntax**

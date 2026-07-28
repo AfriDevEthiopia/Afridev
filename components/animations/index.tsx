@@ -495,7 +495,8 @@ export function CursorGlow() {
       <div 
         className="w-[300px] h-[300px] rounded-full opacity-20"
         style={{
-          background: "radial-gradient(circle, rgba(0, 26, 102, 0.35) 0%, rgba(59, 130, 246, 0.18) 40%, transparent 70%)",
+          background:
+            "radial-gradient(circle, color-mix(in oklch, var(--primary) 35%, transparent) 0%, transparent 70%)",
         }}
       />
     </motion.div>

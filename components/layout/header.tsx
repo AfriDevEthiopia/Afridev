@@ -3,7 +3,6 @@
 import { useState, useEffect, useRef, useSyncExternalStore } from "react";
 import { Link } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
-import { LanguageSwitcher } from "@/components/ui/language-switcher";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { useTheme } from "next-themes";
 import Image from "next/image";
@@ -101,7 +100,7 @@ export function Header() {
                   />
                 )}
                 <span className="text-lg sm:text-xl font-bold text-foreground">
-                  Afri<span className="gradient-text">Dev</span>
+                  Afri<span className="text-primary">Dev</span>
                 </span>
               </motion.div>
             </Magnetic>
@@ -128,19 +127,10 @@ export function Header() {
 
           {/* Right Section */}
           <div className="flex items-center gap-2 sm:gap-4">
-            <motion.div 
-              className="hidden sm:block"
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.4, delay: 0.5 }}
-            >
-              <LanguageSwitcher />
-            </motion.div>
-            
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.4, delay: 0.55 }}
+              transition={{ duration: 0.4, delay: 0.5 }}
             >
               <ThemeToggle />
             </motion.div>
@@ -148,7 +138,7 @@ export function Header() {
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.4, delay: 0.6 }}
+              transition={{ duration: 0.4, delay: 0.55 }}
             >
               <AnimatedButton
                 href="#contact"
@@ -162,7 +152,7 @@ export function Header() {
             <motion.button
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.4, delay: 0.65 }}
+              transition={{ duration: 0.4, delay: 0.6 }}
               whileTap={{ scale: 0.9 }}
               className="lg:hidden p-2 text-foreground hover:text-primary rounded-lg hover:bg-primary/10 transition-colors z-50"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -231,9 +221,9 @@ export function Header() {
                         hidden: { opacity: 0, x: -20 },
                         visible: { opacity: 1, x: 0 }
                       }}
-                      whileHover={{ x: 10, backgroundColor: "rgba(0, 26, 102, 0.08)" }}
+                      whileHover={{ x: 10 }}
                       whileTap={{ scale: 0.98 }}
-                      className="px-4 py-4 text-lg font-medium text-foreground hover:text-primary rounded-xl transition-colors"
+                      className="px-4 py-4 text-lg font-medium text-foreground hover:text-primary hover:bg-muted rounded-xl transition-colors"
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
                       {item.label}
@@ -252,11 +242,6 @@ export function Header() {
                     <ThemeToggle />
                   </div>
 
-                  <div className="flex items-center justify-between px-4 sm:hidden">
-                    <p className="text-sm text-foreground/70">Language</p>
-                    <LanguageSwitcher />
-                  </div>
-                  
                   <AnimatedButton
                     href="#contact"
                     className="btn-primary w-full text-center py-4 text-lg block"

@@ -81,12 +81,9 @@ export function ChatInput({ onSend, isLoading, placeholder = "Type your message.
         <motion.button
           onClick={handleSubmit}
           disabled={!input.trim() || isLoading || isOverLimit}
-          className="flex-shrink-0 w-9 h-9 rounded-xl flex items-center justify-center transition-all disabled:opacity-50 disabled:cursor-not-allowed"
-          style={{
-            background: input.trim() && !isOverLimit
-              ? "linear-gradient(135deg, #001a66 0%, #3b82f6 100%)"
-              : "transparent",
-          }}
+          className={`flex-shrink-0 w-9 h-9 rounded-xl flex items-center justify-center transition-colors disabled:opacity-50 disabled:cursor-not-allowed ${
+            input.trim() && !isOverLimit ? "bg-primary" : "bg-transparent"
+          }`}
           whileHover={input.trim() && !isOverLimit ? { scale: 1.05 } : {}}
           whileTap={input.trim() && !isOverLimit ? { scale: 0.95 } : {}}
         >
@@ -95,7 +92,7 @@ export function ChatInput({ onSend, isLoading, placeholder = "Type your message.
           ) : (
             <Send
               className={`w-4 h-4 ${
-                input.trim() && !isOverLimit ? "text-white" : "text-muted-foreground"
+                input.trim() && !isOverLimit ? "text-primary-foreground" : "text-muted-foreground"
               }`}
             />
           )}

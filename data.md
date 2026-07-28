@@ -254,15 +254,12 @@ For each service, provide detailed information:
 
 ---
 
-## Translations
+## Copy
 
-### Amharic (አማርኛ)
-- [ ] Review and verify all Amharic translations
-- [ ] Native speaker review recommended
+The site is English-only. All UI strings live in `messages/en.json`.
 
-### Afaan Oromo
-- [ ] Review and verify all Oromo translations
-- [ ] Native speaker review recommended
+- [ ] Proofread all sections
+- [ ] Confirm tone and terminology are consistent
 
 ---
 
