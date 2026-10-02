@@ -21,16 +21,18 @@ const inputClass =
 export function Contact() {
   const [sent, setSent] = useState(false);
 
-  // Hands the enquiry to Calendly with the details pre-filled (custom questions a1 and a2)
+  // Opens the visitor's email app with the enquiry addressed to AfriDev, ready to send
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const data = new FormData(e.currentTarget);
-    const url = new URL(LINKS.calendly);
-    url.searchParams.set("name", String(data.get("name") ?? ""));
-    url.searchParams.set("email", String(data.get("email") ?? ""));
-    url.searchParams.set("a1", String(data.get("subject") ?? ""));
-    url.searchParams.set("a2", String(data.get("message") ?? ""));
-    window.open(url.toString(), "_blank", "noopener");
+    const name = String(data.get("name") ?? "").trim();
+    const email = String(data.get("email") ?? "").trim();
+    const projectType = String(data.get("subject") ?? "");
+    const details = String(data.get("message") ?? "").trim();
+
+    const subject = `Project enquiry: ${projectType} – ${name}`;
+    const body = [`Name: ${name}`, `Email: ${email}`, `Project type: ${projectType}`, "", details].join("\n");
+    window.location.href = `mailto:${LINKS.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     setSent(true);
   };
 
@@ -46,7 +48,7 @@ export function Contact() {
             eyebrow="Contact"
             id="contact-title"
             title="Let’s talk about your project"
-            description="Tell us what you’re building and book a free 30-minute consultation to talk it through with our team."
+            description="Tell us what you’re building, or book a free 30-minute consultation to talk it through with our team."
           />
           <ul className="mt-10 divide-y divide-border border-y border-border">
             {[
@@ -86,27 +88,28 @@ export function Contact() {
             <div className="flex h-full flex-col justify-center py-10" role="status">
               <p className="inline-flex items-center gap-2 text-sm font-medium text-emerald-700">
                 <CheckIcon className="h-4 w-4" />
-                Scheduling page opened
+                Message ready to send
               </p>
               <h3 className="mt-3 text-2xl font-semibold tracking-[-0.02em] text-foreground">
-                Pick a time that suits you
+                Check your email app
               </h3>
               <p className="mt-3 text-[15px] leading-relaxed text-body">
-                Calendly opened in a new tab with your details filled in. If it didn’t open, use{" "}
+                We opened a message to{" "}
+                <a
+                  href={`mailto:${LINKS.email}`}
+                  className="font-medium text-primary-text underline underline-offset-4"
+                >
+                  {LINKS.email}
+                </a>{" "}
+                with your details filled in. Press send and our team will reply by email. If nothing opened, write to
+                us at that address directly, or{" "}
                 <a
                   href={LINKS.calendly}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="font-medium text-primary-text underline underline-offset-4"
                 >
-                  this link
-                </a>{" "}
-                or email us at{" "}
-                <a
-                  href={`mailto:${LINKS.email}`}
-                  className="font-medium text-primary-text underline underline-offset-4"
-                >
-                  {LINKS.email}
+                  book a call
                 </a>
                 .
               </p>
@@ -176,10 +179,10 @@ export function Contact() {
                 type="submit"
                 className="inline-flex h-12 w-full items-center justify-center rounded-xl bg-primary px-6 text-[15px] font-semibold text-white transition-colors hover:bg-primary-hover"
               >
-                Continue to scheduling
+                Send message
               </button>
               <p className="text-center text-[13px] text-muted-foreground">
-                You’ll pick a call time on Calendly. Your details are filled in for you.
+                Opens your email app with a message to {LINKS.email}.
               </p>
             </form>
           )}

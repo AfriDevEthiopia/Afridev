@@ -5,7 +5,7 @@
 
 export const LINKS = {
   calendly: process.env.NEXT_PUBLIC_CALENDLY_LINK || "https://calendly.com/afridevet/30min",
-  email: "contact@afridev.io",
+  email: "talent@afridev.io",
   upwork: "https://www.upwork.com/agencies/1937186981697230253/",
   github: "https://github.com/AfriDevEthiopia",
   linkedin: "https://www.linkedin.com/company/afridevet",
