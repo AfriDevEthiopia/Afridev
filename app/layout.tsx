@@ -1,5 +1,8 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
+import { Inter } from "next/font/google";
 import "./globals.css";
+
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -59,7 +62,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/images/logos/logo-black.png",
+        url: "/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "AfriDev Software & AI Development Agency",
@@ -71,7 +74,7 @@ export const metadata: Metadata = {
     title: "AfriDev - Full Stack Developers | AI, LLM & Automation Experts",
     description:
       "At AfriDev, we help startups and tech teams build cloud-native, scalable, and AI-powered applications using modern technologies.",
-    images: ["/images/logos/logo-black.png"],
+    images: ["/og-image.jpg"],
   },
   keywords: [
     "AfriDev",
@@ -92,13 +95,17 @@ export const metadata: Metadata = {
   },
 };
 
+export const viewport: Viewport = {
+  themeColor: "#7c3aed",
+};
+
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" style={{ colorScheme: "light" }}>
+    <html lang="en" className={inter.variable} style={{ colorScheme: "light" }}>
       <head>
         <meta name="color-scheme" content="light" />
         <script
@@ -106,9 +113,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="antialiased">
-        <div className="relative z-10">{children}</div>
-      </body>
+      <body className="font-sans antialiased">{children}</body>
     </html>
   );
 }

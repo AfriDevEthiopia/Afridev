@@ -1,559 +1,101 @@
 @import "tailwindcss";
 
+/* AfriDev: violet brand on warm gray, matching tamiratkebede.com and talent.afridev.io */
 @theme {
-  /* ===== RAMPS =====
-     Built in OKLCH so lightness steps are perceptually even and both themes
-     can share a hue. Hue is held constant within each ramp. */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
 
-  /* Neutrals carry a faint warm cast so the brand navy is the only cool note. */
-  --color-neutral-50: oklch(0.985 0.003 80);
-  --color-neutral-100: oklch(0.967 0.004 80);
-  --color-neutral-200: oklch(0.925 0.005 78);
-  --color-neutral-300: oklch(0.866 0.006 76);
-  --color-neutral-400: oklch(0.715 0.007 74);
-  --color-neutral-500: oklch(0.575 0.008 72);
-  --color-neutral-600: oklch(0.465 0.008 70);
-  --color-neutral-700: oklch(0.375 0.008 68);
-  --color-neutral-800: oklch(0.265 0.007 66);
-  --color-neutral-900: oklch(0.195 0.006 64);
-  --color-neutral-950: oklch(0.145 0.005 62);
-
-  /* Navy anchor. Hue 268 sits just off the blue axis toward violet. */
-  --color-navy-50: oklch(0.965 0.012 268);
-  --color-navy-100: oklch(0.925 0.028 268);
-  --color-navy-200: oklch(0.855 0.055 268);
-  --color-navy-300: oklch(0.755 0.095 268);
-  --color-navy-400: oklch(0.62 0.15 268);
-  --color-navy-500: oklch(0.52 0.175 268);
-  --color-navy-600: oklch(0.43 0.17 268);
-  --color-navy-700: oklch(0.355 0.15 268);
-  --color-navy-800: oklch(0.285 0.125 268);
-  --color-navy-900: oklch(0.225 0.1 268);
-  --color-navy-950: oklch(0.165 0.075 268);
-
-  /* Clay accent. Warm counterweight that carries emphasis on its own. */
-  --color-clay-50: oklch(0.975 0.012 60);
-  --color-clay-100: oklch(0.945 0.028 58);
-  --color-clay-200: oklch(0.89 0.055 54);
-  --color-clay-300: oklch(0.805 0.09 50);
-  --color-clay-400: oklch(0.72 0.13 46);
-  --color-clay-500: oklch(0.64 0.15 42);
-  --color-clay-600: oklch(0.55 0.14 40);
-  --color-clay-700: oklch(0.455 0.12 38);
-  --color-clay-800: oklch(0.37 0.098 36);
-  --color-clay-900: oklch(0.3 0.078 34);
-
-  /* ===== SEMANTIC TOKENS =====
-     Indirected through :root CSS custom properties. */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-surface: var(--surface);
-  --color-surface-raised: var(--surface-raised);
-  --color-muted: var(--muted);
+  --color-surface-raised: var(--surface);
+  --color-tint: var(--tint);
+  --color-body: var(--body);
+  --color-muted: var(--tint);
   --color-muted-foreground: var(--muted-foreground);
-  --color-subtle-foreground: var(--subtle-foreground);
+  --color-subtle-foreground: var(--muted-foreground);
   --color-border: var(--border);
   --color-border-strong: var(--border-strong);
   --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
   --color-primary-hover: var(--primary-hover);
-  --color-secondary: var(--secondary);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-accent-hover: var(--accent-hover);
-  --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-text: var(--primary-text);
+  --color-primary-soft: var(--primary-soft);
+  --color-secondary: var(--tint);
+  --color-accent: var(--primary-soft);
+  --color-accent-foreground: var(--primary-text);
+  --color-accent-hover: var(--primary-soft);
+  --color-card: var(--surface);
+  --color-card-foreground: var(--foreground);
   --color-danger: var(--danger);
   --color-success: var(--success);
 
-  /* ===== ELEVATION =====
-     Neutral only. Shadows describe height, never brand. */
-  --shadow-2xs: 0 1px 1px var(--shadow-weak);
-  --shadow-xs: 0 1px 2px var(--shadow-weak);
-  --shadow-sm: 0 1px 2px var(--shadow-weak), 0 2px 4px var(--shadow-weak);
-  --shadow-md: 0 2px 4px var(--shadow-weak), 0 4px 12px var(--shadow-base);
-  --shadow-lg: 0 4px 8px var(--shadow-weak), 0 12px 24px var(--shadow-base);
-  --shadow-xl: 0 8px 16px var(--shadow-weak), 0 20px 40px var(--shadow-base);
+  --shadow-xs: 0 1px 2px rgb(17 24 39 / 0.04);
+  --shadow-sm: 0 1px 2px rgb(17 24 39 / 0.04), 0 2px 6px rgb(17 24 39 / 0.04);
+  --shadow-md: 0 1px 2px rgb(17 24 39 / 0.04), 0 8px 24px -12px rgb(17 24 39 / 0.12);
+  --shadow-lg: 0 2px 4px rgb(17 24 39 / 0.04), 0 16px 40px -16px rgb(17 24 39 / 0.18);
 }
 
 :root {
-  --background: oklch(0.985 0.003 80);
-  --foreground: oklch(0.195 0.006 64);
-
-  /* Opaque, stepped surfaces. Cards must read without help from a glow. */
-  --surface: oklch(1 0 0);
-  --surface-raised: oklch(1 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.195 0.006 64);
-
-  --muted: oklch(0.967 0.004 80);
-  --muted-foreground: oklch(0.465 0.008 70);
-  --subtle-foreground: oklch(0.545 0.008 72);
-  --secondary: oklch(0.967 0.004 80);
-
-  --border: oklch(0.925 0.005 78);
-  --border-strong: oklch(0.866 0.006 76);
-
-  --primary: oklch(0.43 0.17 268);
-  --primary-hover: oklch(0.355 0.15 268);
-  --primary-foreground: oklch(1 0 0);
-
-  --accent: oklch(0.55 0.14 40);
-  --accent-hover: oklch(0.455 0.12 38);
-  --accent-foreground: oklch(1 0 0);
-
-  /* Status colours sit far enough from clay to stay legible next to it. */
-  --danger: oklch(0.52 0.19 22);
-  --success: oklch(0.52 0.13 150);
-
-  --ring: oklch(0.43 0.17 268 / 0.35);
-  --selection: oklch(0.43 0.17 268 / 0.18);
-
-  --shadow-weak: oklch(0.145 0.005 62 / 0.05);
-  --shadow-base: oklch(0.145 0.005 62 / 0.08);
-
-  /* Single ambient wash, replacing eight stacked radial gradients. */
-  --ambient: oklch(0.43 0.17 268 / 0.05);
-
-  --surface-translucent: oklch(1 0 0 / 0.8);
+  --background: #fafafa;
+  --surface: #ffffff;
+  --tint: #f5f3ff;
+  --foreground: #111827;
+  --body: #4b5563;
+  --muted-foreground: #6b7280;
+  --border: #e5e7eb;
+  --border-strong: #d1d5db;
+  --primary: #7c3aed;
+  --primary-hover: #6d28d9;
+  --primary-foreground: #ffffff;
+  --primary-text: #6d28d9;
+  --primary-soft: rgb(124 58 237 / 0.08);
+  --danger: #dc2626;
+  --success: #059669;
+  --surface-translucent: rgb(255 255 255 / 0.85);
 }
 
-* {
-  box-sizing: border-box;
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
+}
+
+body {
+  background: var(--background);
+  color: var(--body);
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 ::selection {
-  background: var(--selection);
-  color: var(--foreground);
-}
-
-::-moz-selection {
-  background: var(--selection);
+  background: rgb(124 58 237 / 0.18);
   color: var(--foreground);
 }
 
 a,
 button,
 [role="button"],
-[type="button"],
-[type="submit"],
-[type="reset"],
-input[type="checkbox"],
-input[type="radio"],
-select,
-label[for],
-.cursor-pointer,
-summary {
+[type="submit"] {
   cursor: pointer;
 }
 
-a[disabled],
-button[disabled] {
-  cursor: default;
+/* Form fields carry their own focus styles; everything else gets a clear outline */
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible,
+[tabindex]:not(input):not(textarea):not(select):focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+  border-radius: 6px;
 }
 
-html {
-  scroll-behavior: smooth;
-  -webkit-text-size-adjust: 100%;
-}
-
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
-body {
-  background-color: var(--background);
-  color: var(--foreground);
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  min-height: 100vh;
-  position: relative;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-/* One soft ambient wash from the top. */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background: radial-gradient(ellipse 90% 55% at 50% 0%, var(--ambient) 0%, transparent 70%);
-  pointer-events: none;
-  z-index: 0;
-}
-
-::-webkit-scrollbar {
-  width: 6px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--muted);
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--border-strong);
-  border-radius: 3px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--muted-foreground);
-}
-
-/* ===== SURFACES =====
-   Two variants: a card surface and the sticky header. */
-
+/* ===== Chat assistant ===== */
 .glass {
   background: var(--surface);
   border: 1px solid var(--border);
-  box-shadow: var(--shadow-sm);
-  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
-}
-
-.glass-header {
-  background: var(--surface-translucent);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--border);
-}
-
-/* Interactive card lift. Neutral shadow, no tint. */
-.card-hover,
-.card-lift {
-  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.25s ease,
-    border-color 0.2s ease;
-}
-
-.card-hover:hover,
-.card-lift:hover {
-  transform: translateY(-3px);
   box-shadow: var(--shadow-lg);
-  border-color: var(--border-strong);
 }
-
-@media (max-width: 768px) {
-  .card-hover:hover,
-  .card-lift:hover {
-    transform: none;
-    box-shadow: var(--shadow-md);
-  }
-}
-
-.divider {
-  height: 1px;
-  background: var(--border);
-}
-
-/* ===== BUTTONS ===== */
-
-.btn-primary {
-  background: var(--primary);
-  color: var(--primary-foreground);
-  font-weight: 600;
-  padding: 10px 24px;
-  border-radius: 10px;
-  border: 1px solid transparent;
-  transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
-  cursor: pointer;
-  font-size: 14px;
-  white-space: nowrap;
-  box-shadow: var(--shadow-xs);
-}
-
-.btn-primary:hover {
-  background: var(--primary-hover);
-  box-shadow: var(--shadow-md);
-  transform: translateY(-1px);
-}
-
-.btn-primary:active {
-  transform: translateY(0);
-}
-
-.btn-secondary {
-  background: var(--surface);
-  color: var(--foreground);
-  font-weight: 600;
-  padding: 10px 24px;
-  border-radius: 10px;
-  border: 1px solid var(--border-strong);
-  transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease,
-    transform 0.2s ease;
-  cursor: pointer;
-  font-size: 14px;
-  white-space: nowrap;
-  box-shadow: var(--shadow-xs);
-}
-
-.btn-secondary:hover {
-  border-color: var(--primary);
-  color: var(--primary);
-  box-shadow: var(--shadow-sm);
-  transform: translateY(-1px);
-}
-
-.btn-secondary:active {
-  transform: translateY(0);
-}
-
-@media (min-width: 640px) {
-  .btn-primary,
-  .btn-secondary {
-    padding: 12px 28px;
-    font-size: 16px;
-  }
-}
-
-@media (max-width: 640px) {
-  .btn-primary:hover,
-  .btn-secondary:hover {
-    transform: none;
-  }
-}
-
-/* ===== FORM FIELDS ===== */
-
-input:focus,
-textarea:focus,
-select:focus {
-  outline: none;
-  border-color: var(--primary);
-  box-shadow: 0 0 0 3px var(--ring);
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
-}
-
-/* ===== LAYOUT ===== */
-
-section {
-  position: relative;
-  z-index: 1;
-}
-
-.container {
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 1rem;
-  padding-right: 1rem;
-}
-
-@media (min-width: 480px) {
-  .container {
-    padding-left: 1.25rem;
-    padding-right: 1.25rem;
-  }
-}
-
-@media (min-width: 640px) {
-  .container {
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-  }
-}
-
-@media (min-width: 768px) {
-  .container {
-    padding-left: 2rem;
-    padding-right: 2rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  .container {
-    padding-left: 2rem;
-    padding-right: 2rem;
-    max-width: 1280px;
-  }
-}
-
-@media (min-width: 1280px) {
-  .container {
-    padding-left: 2.5rem;
-    padding-right: 2.5rem;
-  }
-}
-
-/* Grain overlay. Subtle enough to read as paper texture. */
-.noise-bg::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-  opacity: 0.02;
-  pointer-events: none;
-  z-index: 0;
-}
-
-/* ===== TYPOGRAPHY ===== */
-
-h1 {
-  font-size: 2rem;
-  line-height: 1.15;
-  letter-spacing: -0.02em;
-}
-
-@media (min-width: 640px) {
-  h1 {
-    font-size: 2.5rem;
-  }
-}
-
-@media (min-width: 768px) {
-  h1 {
-    font-size: 3rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  h1 {
-    font-size: 3.5rem;
-  }
-}
-
-h2 {
-  font-size: 1.75rem;
-  line-height: 1.2;
-  letter-spacing: -0.015em;
-}
-
-@media (min-width: 640px) {
-  h2 {
-    font-size: 2rem;
-  }
-}
-
-@media (min-width: 768px) {
-  h2 {
-    font-size: 2.5rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  h2 {
-    font-size: 3rem;
-  }
-}
-
-@media (max-width: 768px) {
-  button,
-  a {
-    min-height: 44px;
-    min-width: 44px;
-  }
-}
-
-/* ===== ENTRANCE ANIMATIONS =====
-   Triggered once on mount or scroll. Nothing loops. */
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes scaleIn {
-  from {
-    opacity: 0;
-    transform: scale(0.97);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-@keyframes slideInFromLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-24px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes slideInFromRight {
-  from {
-    opacity: 0;
-    transform: translateX(24px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-.animate-in {
-  animation: fadeInUp 0.6s ease-out forwards;
-}
-
-.animate-scale-in {
-  animation: scaleIn 0.5s ease-out forwards;
-}
-
-.animate-slide-left {
-  animation: slideInFromLeft 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-}
-
-.animate-slide-right {
-  animation: slideInFromRight 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-}
-
-.stagger-children > * {
-  opacity: 0;
-  transform: translateY(20px);
-}
-
-.stagger-children.animate > *:nth-child(1) {
-  animation: fadeInUp 0.5s ease-out 0.1s forwards;
-}
-.stagger-children.animate > *:nth-child(2) {
-  animation: fadeInUp 0.5s ease-out 0.15s forwards;
-}
-.stagger-children.animate > *:nth-child(3) {
-  animation: fadeInUp 0.5s ease-out 0.2s forwards;
-}
-.stagger-children.animate > *:nth-child(4) {
-  animation: fadeInUp 0.5s ease-out 0.25s forwards;
-}
-.stagger-children.animate > *:nth-child(5) {
-  animation: fadeInUp 0.5s ease-out 0.3s forwards;
-}
-.stagger-children.animate > *:nth-child(6) {
-  animation: fadeInUp 0.5s ease-out 0.35s forwards;
-}
-
-a,
-button,
-[role="button"] {
-  transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease,
-    transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-@supports (padding: env(safe-area-inset-bottom)) {
-  body {
-    padding-left: env(safe-area-inset-left);
-    padding-right: env(safe-area-inset-right);
-  }
-}
-
-/* ===== CHAT ASSISTANT ===== */
 
 .scrollbar-thin::-webkit-scrollbar {
   width: 4px;
@@ -611,12 +153,15 @@ button,
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
   *,
   *::before,
   *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
   }
 }

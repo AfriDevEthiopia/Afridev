@@ -12,7 +12,7 @@ export const PROJECTS: Project[] = [
       "User reviews and ratings to guide dining decisions",
       "Advanced search and filtering for cuisines",
     ],
-    image: "/images/projects/rateeat.jpg",
+    image: "/images/projects/rateeat-cover.jpg",
     link: "https://rateeat.app/en",
   },
   {
@@ -26,7 +26,7 @@ export const PROJECTS: Project[] = [
       "Organized exam resources",
       "Interactive learning tools",
     ],
-    image: "/images/projects/skillbridge.jpg",
+    image: "/images/projects/skillbridge-cover.jpg",
     link: "https://skillbridge.academy/en",
   },
   {
@@ -40,7 +40,7 @@ export const PROJECTS: Project[] = [
       "Studio-quality voice synthesis in 40+ languages",
       "Multi-layer video editing with professional transitions",
     ],
-    image: "/images/projects/smartaivideo.png",
+    image: "/images/projects/smartaivideo-cover.jpg",
     link: "https://smartaivideo.ai/",
   },
   {
@@ -54,7 +54,7 @@ export const PROJECTS: Project[] = [
       "3x more conversions with personalized follow-up calls",
       "Professional voice quality that builds credibility",
     ],
-    image: "/images/projects/investorcallback.png",
+    image: "/images/projects/investorcallback-cover.jpg",
     link: "https://investorcallback.com/",
   },
 ];
