@@ -42,6 +42,8 @@ export function SiteNav() {
               <li key={item.label}>
                 <a
                   href={item.href}
+                  data-afd-event="nav_click"
+                  data-afd-prop-to={item.label}
                   className="rounded-lg px-3 py-2 text-sm font-medium text-body transition-colors hover:text-foreground"
                 >
                   {item.label}
@@ -53,6 +55,9 @@ export function SiteNav() {
           <div className="flex items-center gap-1">
             <a
               href="#contact"
+              data-afd-event="cta_click"
+              data-afd-prop-cta="hire"
+              data-afd-prop-location="nav"
               className="hidden h-10 items-center rounded-xl bg-primary px-4 text-sm font-semibold text-white transition-colors hover:bg-primary-hover md:inline-flex"
             >
               Book a call
@@ -77,6 +82,8 @@ export function SiteNav() {
                 <li key={item.label}>
                   <a
                     href={item.href}
+                    data-afd-event="nav_click"
+                    data-afd-prop-to={item.label}
                     onClick={() => setOpen(false)}
                     className="block rounded-lg px-3 py-3 text-[15px] font-medium text-foreground hover:bg-tint"
                   >
@@ -87,6 +94,9 @@ export function SiteNav() {
             </ul>
             <a
               href="#contact"
+              data-afd-event="cta_click"
+              data-afd-prop-cta="hire"
+              data-afd-prop-location="mobile_nav"
               onClick={() => setOpen(false)}
               className="mt-2 flex h-11 items-center justify-center rounded-xl bg-primary text-[15px] font-semibold text-white"
             >

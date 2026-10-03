@@ -4,7 +4,7 @@ import { IntroVideo } from "./intro-video";
 
 export function Hero() {
   return (
-    <header id="top" className="border-b border-border bg-gradient-to-b from-tint to-background">
+    <header id="top" data-afd-section="hero" className="border-b border-border bg-gradient-to-b from-tint to-background">
       <div className="mx-auto max-w-6xl px-5 pb-12 pt-32 sm:px-8 sm:pb-16 sm:pt-40">
         <div className="grid items-center gap-10 md:grid-cols-[1.15fr_1fr] md:gap-10 lg:grid-cols-[1.25fr_1fr] lg:gap-14">
           <div>
@@ -24,11 +24,14 @@ export function Hero() {
             <div className="mt-8 flex flex-col items-start gap-4 sm:mt-9 sm:flex-row sm:items-center sm:gap-x-7">
               <a
                 href="#contact"
+                data-afd-event="cta_click"
+                data-afd-prop-cta="contact"
+                data-afd-prop-location="hero"
                 className="inline-flex h-12 w-full items-center justify-center rounded-xl bg-primary px-6 text-[15px] font-semibold text-white transition-colors hover:bg-primary-hover sm:w-auto"
               >
                 Book a free call
               </a>
-              <a href="#work" className="group inline-flex items-center gap-1.5 text-[15px] font-medium text-foreground">
+              <a href="#work" data-afd-event="cta_click" data-afd-prop-cta="work" data-afd-prop-location="hero" className="group inline-flex items-center gap-1.5 text-[15px] font-medium text-foreground">
                 See our work
                 <ArrowRightIcon className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
               </a>

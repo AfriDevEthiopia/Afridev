@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
@@ -113,7 +114,16 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="min-h-screen overflow-x-hidden font-sans antialiased">{children}</body>
+      <body className="min-h-screen overflow-x-hidden font-sans antialiased">
+        {children}
+        {/* First-party visitor analytics (no cookies, no third parties) */}
+        <Script
+          src="https://talent.afridev.io/api/v1/va/script.js"
+          data-site="afridev"
+          data-key="pk_afridev_0997ee279a3ba7d9"
+          strategy="afterInteractive"
+        />
+      </body>
     </html>
   );
 }

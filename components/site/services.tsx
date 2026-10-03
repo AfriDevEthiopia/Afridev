@@ -4,7 +4,7 @@ import { SectionHeading } from "./section-heading";
 
 export function Services() {
   return (
-    <section id="services" aria-labelledby="services-title">
+    <section id="services" data-afd-section="services" aria-labelledby="services-title">
       <div className="mx-auto max-w-6xl px-5 pb-20 pt-16 sm:px-8 sm:pb-28 sm:pt-24">
         <SectionHeading
           eyebrow="Services"

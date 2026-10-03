@@ -5,7 +5,7 @@ import { SectionHeading } from "./section-heading";
 
 export function Team() {
   return (
-    <section id="team" aria-labelledby="team-title" className="border-t border-border">
+    <section id="team" data-afd-section="team" aria-labelledby="team-title" className="border-t border-border">
       <div className="mx-auto grid max-w-6xl gap-12 px-5 py-16 sm:px-8 sm:py-28 md:grid-cols-[1.15fr_1fr] md:gap-12 lg:grid-cols-[1.2fr_1fr] lg:gap-20">
         <div>
           <SectionHeading eyebrow="The team" id="team-title" title="A note from our founder" />

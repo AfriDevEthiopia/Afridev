@@ -74,7 +74,13 @@ export function SiteFooter() {
             <ul className="mt-4 space-y-3">
               {column.links.map((link) => (
                 <li key={link.label}>
-                  <a href={link.href} className="text-sm text-muted-foreground transition-colors hover:text-foreground">
+                  <a
+                    href={link.href}
+                    data-afd-event="nav_click"
+                    data-afd-prop-to={link.label}
+                    data-afd-prop-location="footer"
+                    className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                  >
                     {link.label}
                   </a>
                 </li>

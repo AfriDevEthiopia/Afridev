@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
+import { useRef, useState, type FormEvent } from "react";
+import { track } from "@/lib/analytics";
 import { LINKS } from "@/lib/site";
 import { CalendarIcon, CheckIcon, ChevronDownIcon, MailIcon, UpworkIcon } from "./icons";
 import { SectionHeading } from "./section-heading";
@@ -20,6 +21,7 @@ const inputClass =
 
 export function Contact() {
   const [sent, setSent] = useState(false);
+  const started = useRef(false);
 
   // Opens the visitor's email app with the enquiry addressed to AfriDev, ready to send
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
@@ -32,6 +34,7 @@ export function Contact() {
 
     const subject = `Project enquiry: ${projectType} – ${name}`;
     const body = [`Name: ${name}`, `Email: ${email}`, `Project type: ${projectType}`, "", details].join("\n");
+    track("contact_submit", { project_type: projectType });
     window.location.href = `mailto:${LINKS.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     setSent(true);
   };
@@ -39,6 +42,7 @@ export function Contact() {
   return (
     <section
       id="contact"
+      data-afd-section="contact"
       aria-labelledby="contact-title"
       className="border-t border-border bg-gradient-to-b from-background to-tint"
     >
@@ -57,13 +61,17 @@ export function Contact() {
                 label: "Book a 30-minute call",
                 detail: "Free, no commitment",
                 href: LINKS.calendly,
+                cta: "calendly",
               },
-              { icon: MailIcon, label: LINKS.email, detail: "Email us directly", href: `mailto:${LINKS.email}` },
-              { icon: UpworkIcon, label: "Hire us on Upwork", detail: "Top Rated agency", href: LINKS.upwork },
-            ].map(({ icon: Icon, label, detail, href }) => (
+              { icon: MailIcon, label: LINKS.email, detail: "Email us directly", href: `mailto:${LINKS.email}`, cta: "email" },
+              { icon: UpworkIcon, label: "Hire us on Upwork", detail: "Top Rated agency", href: LINKS.upwork, cta: "hire" },
+            ].map(({ icon: Icon, label, detail, href, cta }) => (
               <li key={label}>
                 <a
                   href={href}
+                  data-afd-event="cta_click"
+                  data-afd-prop-cta={cta}
+                  data-afd-prop-location="contact"
                   target={href.startsWith("http") ? "_blank" : undefined}
                   rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
                   className="group flex items-center gap-3.5 py-3.5 sm:gap-4 sm:py-4"
@@ -122,7 +130,15 @@ export function Contact() {
               </button>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="space-y-5">
+            <form
+              onSubmit={handleSubmit}
+              onFocusCapture={() => {
+                if (started.current) return;
+                started.current = true;
+                track("contact_start");
+              }}
+              className="space-y-5"
+            >
               <div className="grid gap-5 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2">
                 <Field label="Name" htmlFor="name">
                   <input
