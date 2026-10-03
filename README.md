@@ -19,8 +19,6 @@
 - [Getting Started](#getting-started)
 - [Development Guide](#development-guide)
 - [Styling & Theming](#styling--theming)
-- [AI Chat Assistant](#ai-chat-assistant)
-- [API Routes](#api-routes)
 - [Build & Deployment](#build--deployment)
 - [Testing & Quality](#testing--quality)
 - [Troubleshooting](#troubleshooting)
@@ -41,12 +39,6 @@
 - **Fully Responsive** - Mobile-first design that works on all devices
 - **SEO Optimized** - Meta tags, semantic HTML, and performance optimized
 - **Clean Architecture** - Decoupled components, organized folder structure
-
-### AI-Powered Features
-- **AI Chat Assistant** - Integrated OpenAI-powered chat for visitor engagement
-- **Quick Actions** - Pre-defined conversation starters for common queries
-- **Conversation History** - Persistent chat history with localStorage
-- **Theme-Aware UI** - Chat interface adapts to light/dark mode
 
 ### Design Features
 - **Cursor Glow Effect** - Interactive cursor effects on desktop
@@ -89,22 +81,12 @@ afridev/
 │   ├── [locale]/                 # Internationalized routes
 │   │   ├── layout.tsx            # Root layout with i18n & theme providers
 │   │   └── page.tsx              # Home page (client component)
-│   ├── api/                      # API routes
-│   │   └── chat/
-│   │       └── route.ts          # AI chat endpoint (OpenAI integration)
 │   ├── globals.css               # Global styles & CSS variables
 │   └── icon.svg                  # App favicon
 │
 ├── components/                   # React components
 │   ├── animations/               # Animation components
 │   │   └── index.tsx             # CursorGlow, PageTransition, etc.
-│   ├── chat/                     # AI Chat Assistant
-│   │   ├── ChatButton.tsx        # Floating chat button
-│   │   ├── ChatInput.tsx         # Message input with send button
-│   │   ├── ChatMessage.tsx       # Individual message component
-│   │   ├── ChatWindow.tsx        # Main chat window
-│   │   ├── QuickActions.tsx      # Pre-defined quick action buttons
-│   │   └── index.tsx             # ChatAssistant wrapper
 │   ├── layout/                   # Layout components
 │   │   ├── header.tsx            # Navigation header
 │   │   └── footer.tsx            # Site footer
@@ -118,9 +100,6 @@ afridev/
 │   │   └── button.tsx            # Custom button component
 │   ├── theme-provider.tsx        # Next-themes provider wrapper
 │   └── theme-toggle.tsx          # Dark/light mode toggle
-│
-├── hooks/                        # Custom React hooks
-│   └── useChat.ts                # Chat logic & state management
 │
 ├── i18n/                         # next-intl config (English only)
 │   ├── request.ts                # Message loader
@@ -141,7 +120,6 @@ afridev/
 │       └── teams/                # Team member photos
 │
 ├── types/                        # TypeScript type definitions
-│   ├── chat.ts                   # Chat-related types
 │   └── index.ts                  # General type definitions
 │
 ├── proxy.ts                      # Next.js middleware for i18n routing
@@ -158,10 +136,9 @@ afridev/
 |-----------|---------|-----------|
 | `app/[locale]/` | Application pages | `page.tsx`, `layout.tsx` |
 | `components/sections/` | Main page sections | `hero.tsx`, `services.tsx`, etc. |
-| `components/chat/` | AI chat feature | `ChatWindow.tsx`, `useChat.ts` |
 | `messages/` | UI copy | `en.json` |
 | `lib/` | Utilities & constants | `utils.ts`, `constants.ts` |
-| `types/` | TypeScript definitions | `chat.ts`, `index.ts` |
+| `types/` | TypeScript definitions | `index.ts` |
 
 ---
 
@@ -192,13 +169,6 @@ afridev/
 | [next-intl](https://next-intl-docs.vercel.app/) | 4.5.8 | Centralised UI copy for the App Router |
 | [next-themes](https://github.com/pacocoursey/next-themes) | 0.4.6 | Theme management (dark/light mode) |
 | [react-hook-form](https://react-hook-form.com/) | 7.68.0 | Form validation & management |
-
-### AI & APIs
-
-| Technology | Version | Purpose |
-|------------|---------|---------|
-| [@google/genai](https://www.npmjs.com/package/@google/genai) | 1.33.0 | Google Generative AI SDK |
-| OpenAI API | GPT-4o-mini | AI chat assistant backend |
 
 ### Utilities
 
@@ -235,21 +205,13 @@ cd afridev
 npm install
 ```
 
-3. **Set up environment variables**
+3. **Set up environment variables (Optional)**
 
-Create a `.env.local` file in the root directory:
+Create a `.env.local` file if you wish to configure custom options:
 
 ```env
-# OpenAI API Key (required for AI chat assistant)
-OPENAI_API_KEY=your_openai_api_key_here
-
-# Optional: Google Generative AI API Key
-GOOGLE_GENAI_API_KEY=your_google_api_key_here
+NEXT_PUBLIC_CALENDLY_LINK=https://calendly.com/afridevet/30min
 ```
-
-> **Getting API Keys:**
-> - OpenAI: [platform.openai.com/api-keys](https://platform.openai.com/api-keys)
-> - Google AI: [makersuite.google.com/app/apikey](https://makersuite.google.com/app/apikey)
 
 4. **Run the development server**
 
@@ -562,183 +524,6 @@ export function ThemeToggle() {
   Responsive text
 </div>
 ```
-
----
-
-## AI Chat Assistant
-
-### Overview
-
-The AI Chat Assistant is powered by OpenAI's GPT-4o-mini model and provides intelligent responses about AfriDev's services, team, and capabilities.
-
-### Architecture
-
-```
-┌─────────────────┐
-│  ChatButton.tsx │  ← Floating button (bottom-right)
-└────────┬────────┘
-         │ Opens
-         ▼
-┌─────────────────┐
-│ ChatWindow.tsx  │  ← Main chat interface
-│  ├─ Header      │
-│  ├─ Messages    │  ← ChatMessage.tsx (individual messages)
-│  ├─ Input       │  ← ChatInput.tsx
-│  └─ Actions     │  ← QuickActions.tsx
-└────────┬────────┘
-         │ Uses
-         ▼
-┌─────────────────┐
-│   useChat.ts    │  ← Custom hook (state management)
-└────────┬────────┘
-         │ Calls
-         ▼
-┌─────────────────┐
-│ /api/chat/route │  ← API endpoint
-│  ├─ Validation  │
-│  ├─ Rate Limit  │
-│  └─ OpenAI API  │
-└─────────────────┘
-```
-
-### Configuration
-
-#### API Route (`app/api/chat/route.ts`)
-
-**Key Features:**
-- Rate limiting (10 requests/minute per IP)
-- Message validation (max 2000 characters)
-- Conversation history (last 10 messages)
-- Error handling with specific error messages
-- 30-second timeout protection
-
-**Environment Variables:**
-
-```env
-OPENAI_API_KEY=sk-proj-...your-key-here
-```
-
-#### Chat Hook (`hooks/useChat.ts`)
-
-**Features:**
-- Persistent chat history (localStorage)
-- Automatic message management
-- Error handling
-- Loading states
-
-**Usage:**
-
-```typescript
-const {
-  messages,
-  isLoading,
-  error,
-  sendMessage,
-  clearHistory,
-} = useChat();
-```
-
-### Customizing Chat Behavior
-
-#### Modify System Prompt
-
-Edit `app/api/chat/route.ts`:
-
-```typescript
-const AFRIDEV_SYSTEM_PROMPT = `You are the official AI assistant for AfriDev...
-// Add your custom instructions here
-`;
-```
-
-#### Add Quick Actions
-
-Edit `types/chat.ts`:
-
-```typescript
-export const DEFAULT_QUICK_ACTIONS: QuickAction[] = [
-  {
-    id: "services",
-    label: "What services do you offer?",
-    icon: "💼",
-  },
-  // Add more quick actions
-];
-```
-
-#### Customize Rate Limits
-
-Edit `app/api/chat/route.ts`:
-
-```typescript
-const RATE_LIMIT = 10;          // Requests per window
-const RATE_WINDOW = 60000;      // Window duration (ms)
-const MAX_MESSAGE_LENGTH = 2000; // Max characters
-```
-
----
-
-## API Routes
-
-### Available Endpoints
-
-#### `POST /api/chat`
-
-**Description:** AI chat endpoint for the chat assistant
-
-**Request Body:**
-
-```json
-{
-  "message": "What services do you offer?",
-  "history": [
-    {
-      "role": "user",
-      "content": "Hello"
-    },
-    {
-      "role": "assistant",
-      "content": "Hi! How can I help you?"
-    }
-  ]
-}
-```
-
-**Response (Success):**
-
-```json
-{
-  "response": "AfriDev offers full-stack development, mobile apps..."
-}
-```
-
-**Response (Error):**
-
-```json
-{
-  "error": "Rate limit exceeded. Please try again later."
-}
-```
-
-**Status Codes:**
-
-| Code | Meaning |
-|------|---------|
-| `200` | Success |
-| `400` | Bad request (invalid input) |
-| `429` | Rate limit exceeded |
-| `500` | Server error |
-| `503` | Network error (OpenAI unavailable) |
-| `504` | Request timeout |
-
-### Security Features
-
-1. **Rate Limiting**: 10 requests per minute per IP
-2. **Input Validation**: Message length and format checks
-3. **History Limits**: Max 20 messages, only last 10 sent to AI
-4. **Timeout Protection**: 30-second request timeout
-5. **Error Sanitization**: No sensitive data in error messages
-
----
 
 ## Build & Deployment
 
@@ -1215,9 +1000,7 @@ Special thanks to:
 
 ### Known Issues
 
-- [ ] Chat history not syncing across devices (localStorage limitation)
 - [ ] Dark mode flash on initial load (theme hydration)
-- [ ] Mobile keyboard pushes chat window up (iOS Safari)
 
 ### Contributing
 
