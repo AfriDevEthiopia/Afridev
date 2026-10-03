@@ -11,9 +11,11 @@ jobs:
       issues: write
       pull-requests: write
     steps:
-    - name: 'Auto-assign issue'
-      uses: pozil/auto-assign-issue@v1
-      with:
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
-          assignees: kika1s1
-          numOfAssignee: 1
+      # gh handles both issues and pull requests (the previous action only understood issues)
+      - name: Assign to kika1s1
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          NUMBER: ${{ github.event.issue.number || github.event.pull_request.number }}
+          KIND: ${{ github.event_name == 'issues' && 'issue' || 'pr' }}
+        run: gh "$KIND" edit "$NUMBER" --repo "$REPO" --add-assignee kika1s1
