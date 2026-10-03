@@ -36,10 +36,9 @@ export function IntroVideo() {
               className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
               priority
             />
-            <span className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
-            <span className="absolute bottom-4 left-4 inline-flex items-center gap-2.5 rounded-full bg-white py-1.5 pl-1.5 pr-4 text-sm font-semibold text-foreground shadow-lg transition-transform group-hover:scale-[1.03]">
-              <span className="flex h-7 w-7 items-center justify-center rounded-full bg-primary text-white">
-                <PlayIcon className="ml-0.5 h-3.5 w-3.5" />
+            <span className="absolute bottom-3 left-3 inline-flex items-center gap-2 rounded-full bg-white py-1 pl-1 pr-3.5 text-xs font-semibold text-foreground shadow-lg transition-transform group-hover:scale-[1.03] sm:bottom-4 sm:left-4 sm:gap-2.5 sm:py-1.5 sm:pl-1.5 sm:pr-4 sm:text-sm">
+              <span className="flex h-6 w-6 items-center justify-center rounded-full bg-primary text-white sm:h-7 sm:w-7">
+                <PlayIcon className="ml-0.5 h-3 w-3 sm:h-3.5 sm:w-3.5" />
               </span>
               Watch the intro
             </span>

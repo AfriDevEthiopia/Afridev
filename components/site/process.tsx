@@ -6,7 +6,7 @@ export function Process() {
     <section id="process" aria-labelledby="process-title">
       <div className="mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-28">
         <SectionHeading eyebrow="Process" id="process-title" title="How we work with you" />
-        <ol className="mt-14 grid gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
+        <ol className="mt-12 grid gap-x-8 gap-y-10 sm:mt-14 sm:grid-cols-2 lg:grid-cols-4 lg:gap-y-12">
           {PROCESS.map((step, index) => (
             <li key={step.title} className="border-t border-border pt-6">
               <span className="text-[13px] font-medium tabular-nums text-primary-text">

@@ -31,7 +31,7 @@ export function SiteNav() {
           open ? "bg-surface" : "bg-surface/85"
         } ${scrolled || open ? "border-border shadow-md" : "border-border/70 shadow-xs"}`}
       >
-        <div className="flex h-14 items-center justify-between pl-4 pr-2 sm:pl-6">
+        <div className="flex h-14 items-center justify-between pl-3.5 pr-1.5 sm:pl-6 sm:pr-2">
           <a href="#top" className="flex items-center gap-2.5" aria-label="AfriDev home">
             <Image src="/images/icons/Icon-Color.svg" alt="" width={22} height={24} priority />
             <span className="text-[15px] font-semibold tracking-tight text-foreground">AfriDev</span>
@@ -53,7 +53,7 @@ export function SiteNav() {
           <div className="flex items-center gap-1">
             <a
               href="#contact"
-              className="hidden h-10 items-center rounded-xl bg-primary px-4 text-sm font-semibold text-white transition-colors hover:bg-primary-hover sm:inline-flex"
+              className="hidden h-10 items-center rounded-xl bg-primary px-4 text-sm font-semibold text-white transition-colors hover:bg-primary-hover md:inline-flex"
             >
               Book a call
             </a>
@@ -71,7 +71,7 @@ export function SiteNav() {
         </div>
 
         {open && (
-          <div id="mobile-menu" className="border-t border-border px-2 pb-3 pt-2 md:hidden">
+          <div id="mobile-menu" className="max-h-[calc(100dvh-5.5rem)] overflow-y-auto border-t border-border px-2 pb-3 pt-2 md:hidden">
             <ul>
               {NAV_ITEMS.map((item) => (
                 <li key={item.label}>

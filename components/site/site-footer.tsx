@@ -41,7 +41,7 @@ const SOCIAL = [
 export function SiteFooter() {
   return (
     <footer className="border-t border-border bg-surface">
-      <div className="mx-auto grid max-w-6xl gap-12 px-5 py-16 sm:px-8 lg:grid-cols-[1.4fr_repeat(3,1fr)]">
+      <div className="mx-auto grid max-w-6xl gap-10 px-5 py-12 sm:grid-cols-2 sm:gap-12 sm:px-8 sm:py-16 md:grid-cols-4 lg:grid-cols-[1.4fr_repeat(3,1fr)]">
         <div>
           <a href="#top" className="flex items-center gap-2.5" aria-label="AfriDev home">
             <Image src="/images/icons/Icon-Color.svg" alt="" width={22} height={24} />
@@ -85,9 +85,11 @@ export function SiteFooter() {
       </div>
 
       <div className="border-t border-border">
-        <div className="mx-auto flex max-w-6xl flex-col gap-4 px-5 py-6 sm:flex-row sm:items-center sm:justify-between sm:px-8">
-          <p className="text-[13px] text-muted-foreground">© {new Date().getFullYear()} AfriDev. All rights reserved.</p>
-          <UpworkRankBadge className="min-h-[40px]" />
+        <div className="mx-auto flex max-w-6xl flex-col items-start gap-4 px-5 py-6 sm:flex-row sm:items-center sm:justify-between sm:px-8">
+          <p className="text-xs text-muted-foreground sm:text-[13px]">© {new Date().getFullYear()} AfriDev. All rights reserved.</p>
+          <div className="max-w-full overflow-hidden">
+            <UpworkRankBadge className="min-h-[40px]" />
+          </div>
         </div>
       </div>
     </footer>

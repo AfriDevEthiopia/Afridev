@@ -105,7 +105,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={inter.variable} style={{ colorScheme: "light" }}>
+    <html lang="en" className={`${inter.variable} overflow-x-hidden`} style={{ colorScheme: "light" }}>
       <head>
         <meta name="color-scheme" content="light" />
         <script
@@ -113,7 +113,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="font-sans antialiased">{children}</body>
+      <body className="min-h-screen overflow-x-hidden font-sans antialiased">{children}</body>
     </html>
   );
 }

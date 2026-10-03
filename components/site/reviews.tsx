@@ -31,7 +31,7 @@ export function Reviews() {
             </a>
           }
         />
-        <ul className="mt-14 grid gap-x-10 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
+        <ul className="mt-12 grid gap-x-8 gap-y-10 sm:mt-14 sm:grid-cols-2 lg:grid-cols-3 lg:gap-x-10 lg:gap-y-12">
           {TESTIMONIALS.map((review) => (
             <li key={review.id} className="flex flex-col border-t border-border pt-6">
               <div className="flex gap-0.5 text-amber-500" role="img" aria-label={`Rated ${review.rating} out of 5`}>
@@ -40,7 +40,7 @@ export function Reviews() {
                 ))}
               </div>
               <blockquote className="mt-4 flex-1 text-[15px] leading-relaxed text-foreground">“{review.quote}”</blockquote>
-              <p className="mt-5 text-[13px] leading-snug text-muted-foreground">
+              <p className="mt-5 text-xs leading-snug text-muted-foreground break-words sm:text-[13px]">
                 <span className="text-body">{review.project.replace(/\s+-\s+/g, " – ")}</span>
                 <br />
                 Upwork client · {endMonth(review.period)}

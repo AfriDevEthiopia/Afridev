@@ -12,9 +12,9 @@ export function Services() {
           title="What we build"
           description="End-to-end product engineering, from the first prototype to production infrastructure."
         />
-        <ul className="mt-14 grid gap-x-10 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
+        <ul className="mt-12 grid gap-x-8 gap-y-10 sm:mt-14 sm:grid-cols-2 lg:grid-cols-3 lg:gap-x-10 lg:gap-y-12">
           {SERVICES.map((service, index) => (
-            <li key={service.title} className="border-t border-border pt-6">
+            <li key={service.title} className="flex flex-col border-t border-border pt-6">
               <span className="text-[13px] font-medium tabular-nums text-primary-text">
                 {String(index + 1).padStart(2, "0")}
               </span>

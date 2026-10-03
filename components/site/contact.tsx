@@ -16,7 +16,7 @@ const PROJECT_TYPES = [
 ];
 
 const inputClass =
-  "w-full rounded-xl border border-border bg-surface px-4 py-3 text-[15px] text-foreground placeholder:text-muted-foreground outline-none transition-shadow focus:border-primary focus:ring-4 focus:ring-primary-soft";
+  "w-full rounded-xl border border-border bg-surface px-3.5 py-3 text-base text-foreground placeholder:text-muted-foreground outline-none transition-shadow focus:border-primary focus:ring-4 focus:ring-primary-soft sm:px-4 sm:text-[15px]";
 
 export function Contact() {
   const [sent, setSent] = useState(false);
@@ -42,7 +42,7 @@ export function Contact() {
       aria-labelledby="contact-title"
       className="border-t border-border bg-gradient-to-b from-background to-tint"
     >
-      <div className="mx-auto grid max-w-6xl gap-14 px-5 py-20 sm:px-8 sm:py-28 lg:grid-cols-[1fr_1.1fr] lg:gap-20">
+      <div className="mx-auto grid max-w-6xl gap-12 px-5 py-16 sm:px-8 sm:py-28 md:grid-cols-2 md:gap-10 lg:grid-cols-[1fr_1.1fr] lg:gap-20">
         <div>
           <SectionHeading
             eyebrow="Contact"
@@ -50,7 +50,7 @@ export function Contact() {
             title="Let’s talk about your project"
             description="Tell us what you’re building, or book a free 30-minute consultation to talk it through with our team."
           />
-          <ul className="mt-10 divide-y divide-border border-y border-border">
+          <ul className="mt-8 divide-y divide-border border-y border-border sm:mt-10">
             {[
               {
                 icon: CalendarIcon,
@@ -66,16 +66,16 @@ export function Contact() {
                   href={href}
                   target={href.startsWith("http") ? "_blank" : undefined}
                   rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
-                  className="group flex items-center gap-4 py-4"
+                  className="group flex items-center gap-3.5 py-3.5 sm:gap-4 sm:py-4"
                 >
-                  <span className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-primary-soft text-primary-text">
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary-soft text-primary-text">
                     <Icon className="h-5 w-5" />
                   </span>
-                  <span>
-                    <span className="block text-[15px] font-semibold text-foreground group-hover:text-primary-text">
+                  <span className="min-w-0">
+                    <span className="block truncate text-sm font-semibold text-foreground group-hover:text-primary-text sm:text-[15px]">
                       {label}
                     </span>
-                    <span className="block text-[13px] text-muted-foreground">{detail}</span>
+                    <span className="block text-xs text-muted-foreground sm:text-[13px]">{detail}</span>
                   </span>
                 </a>
               </li>
@@ -83,7 +83,7 @@ export function Contact() {
           </ul>
         </div>
 
-        <div className="rounded-2xl border border-border bg-surface p-6 shadow-md sm:p-8">
+        <div className="rounded-2xl border border-border bg-surface p-5 shadow-md sm:p-8">
           {sent ? (
             <div className="flex h-full flex-col justify-center py-10" role="status">
               <p className="inline-flex items-center gap-2 text-sm font-medium text-emerald-700">
@@ -123,7 +123,7 @@ export function Contact() {
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-5">
-              <div className="grid gap-5 sm:grid-cols-2">
+              <div className="grid gap-5 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2">
                 <Field label="Name" htmlFor="name">
                   <input
                     id="name"

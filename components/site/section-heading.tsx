@@ -15,15 +15,15 @@ export function SectionHeading({
   aside?: ReactNode;
 }) {
   return (
-    <div className="flex flex-wrap items-end justify-between gap-6">
+    <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between sm:gap-6">
       <div className="max-w-2xl">
         <span className="inline-block rounded-full bg-primary-soft px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-primary-text">
           {eyebrow}
         </span>
-        <h2 id={id} className="mt-4 text-3xl font-semibold tracking-[-0.03em] text-foreground text-balance sm:text-[2.5rem] sm:leading-[1.1]">
+        <h2 id={id} className="mt-3 text-[1.75rem] font-semibold tracking-[-0.03em] text-foreground text-balance sm:mt-4 sm:text-3xl md:text-[2.5rem] sm:leading-[1.1]">
           {title}
         </h2>
-        {description && <p className="mt-4 text-[17px] leading-relaxed text-body text-pretty">{description}</p>}
+        {description && <p className="mt-3 text-[15px] leading-relaxed text-body text-pretty sm:mt-4 sm:text-[17px]">{description}</p>}
       </div>
       {aside}
     </div>

@@ -27,11 +27,11 @@ export function Work() {
           title="Products we’ve shipped"
           description="A selection of recent client work across AI, web and mobile."
         />
-        <ul className="mt-14 grid gap-x-10 gap-y-16 sm:grid-cols-2">
+        <ul className="mt-12 grid gap-x-8 gap-y-12 sm:mt-14 sm:grid-cols-2 lg:gap-x-10 lg:gap-y-16">
           {projects.map((project, index) => (
             <li key={project.id}>
               <a href={project.link} target="_blank" rel="noopener noreferrer" className="group block">
-                <div className="relative aspect-[2/1] overflow-hidden rounded-2xl border border-border bg-tint">
+                <div className="relative aspect-[16/10] overflow-hidden rounded-2xl border border-border bg-tint sm:aspect-[16/9] lg:aspect-[2/1]">
                   <Image
                     src={project.image}
                     alt={`${project.title} product screenshot`}
@@ -41,14 +41,14 @@ export function Work() {
                     priority={index < 2}
                   />
                 </div>
-                <div className="mt-6 flex items-baseline justify-between gap-4">
-                  <h3 className="text-xl font-semibold tracking-[-0.02em] text-foreground">{project.title}</h3>
-                  <span className="text-[13px] text-muted-foreground">{CATEGORY[project.type] ?? project.type}</span>
+                <div className="mt-5 flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1 sm:mt-6">
+                  <h3 className="text-lg font-semibold tracking-[-0.02em] text-foreground sm:text-xl">{project.title}</h3>
+                  <span className="shrink-0 text-xs text-muted-foreground sm:text-[13px]">{CATEGORY[project.type] ?? project.type}</span>
                 </div>
-                <p className="mt-2 text-[15px] leading-relaxed text-body">{project.description}</p>
+                <p className="mt-2 text-sm leading-relaxed text-body sm:text-[15px]">{project.description}</p>
                 <span className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-primary-text">
-                  Visit {new URL(project.link).hostname.replace(/^www\./, "")}
-                  <ExternalIcon className="h-3.5 w-3.5" />
+                  <span className="break-all sm:break-normal">Visit {new URL(project.link).hostname.replace(/^www\./, "")}</span>
+                  <ExternalIcon className="h-3.5 w-3.5 shrink-0" />
                 </span>
               </a>
             </li>
