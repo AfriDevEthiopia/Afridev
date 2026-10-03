@@ -12,7 +12,7 @@ const endMonth = (period: string) => {
 
 export function Reviews() {
   return (
-    <section id="reviews" aria-labelledby="reviews-title" className="border-t border-border bg-surface">
+    <section id="reviews" data-afd-section="reviews" aria-labelledby="reviews-title" className="border-t border-border bg-surface">
       <div className="mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-28">
         <SectionHeading
           eyebrow="Reviews"

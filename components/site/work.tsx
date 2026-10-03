@@ -19,7 +19,7 @@ export function Work() {
   ).sort((a, b) => ORDER.indexOf(a.id) - ORDER.indexOf(b.id));
 
   return (
-    <section id="work" aria-labelledby="work-title" className="border-y border-border bg-surface">
+    <section id="work" data-afd-section="work" aria-labelledby="work-title" className="border-y border-border bg-surface">
       <div className="mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-28">
         <SectionHeading
           eyebrow="Our work"
@@ -30,7 +30,7 @@ export function Work() {
         <ul className="mt-12 grid gap-x-8 gap-y-12 sm:mt-14 sm:grid-cols-2 lg:gap-x-10 lg:gap-y-16">
           {projects.map((project, index) => (
             <li key={project.id}>
-              <a href={project.link} target="_blank" rel="noopener noreferrer" className="group block">
+              <a href={project.link} target="_blank" rel="noopener noreferrer" data-afd-event="project_open" data-afd-prop-project={project.title} className="group block">
                 <div className="relative aspect-[16/10] overflow-hidden rounded-2xl border border-border bg-tint sm:aspect-[16/9] lg:aspect-[2/1]">
                   <Image
                     src={project.image}

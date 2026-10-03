@@ -3,7 +3,7 @@ import { SectionHeading } from "./section-heading";
 
 export function Process() {
   return (
-    <section id="process" aria-labelledby="process-title">
+    <section id="process" data-afd-section="process" aria-labelledby="process-title">
       <div className="mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-28">
         <SectionHeading eyebrow="Process" id="process-title" title="How we work with you" />
         <ol className="mt-12 grid gap-x-8 gap-y-10 sm:mt-14 sm:grid-cols-2 lg:grid-cols-4 lg:gap-y-12">
