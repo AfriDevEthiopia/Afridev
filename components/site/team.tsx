@@ -16,7 +16,7 @@ export function Team() {
             <figcaption className="mt-6 flex items-center gap-4 sm:mt-8">
               <Image
                 src={FOUNDER_NOTE.photo}
-                alt=""
+                alt={`${FOUNDER_NOTE.name}, founder of AfriDev`}
                 width={48}
                 height={48}
                 className="h-12 w-12 rounded-full object-cover ring-1 ring-border"

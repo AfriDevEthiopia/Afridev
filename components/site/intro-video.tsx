@@ -30,7 +30,7 @@ export function IntroVideo() {
           >
             <Image
               src={`https://i.ytimg.com/vi/${id}/maxresdefault.jpg`}
-              alt=""
+              alt="AfriDev introduction video: how we build web, mobile and AI products"
               fill
               sizes="(min-width: 1024px) 520px, 100vw"
               className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
