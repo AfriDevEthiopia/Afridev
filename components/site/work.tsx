@@ -11,7 +11,7 @@ const CATEGORY: Record<string, string> = {
 };
 
 // Show the strongest work first
-const ORDER = ["smartvid", "leadconnector", "rateeat", "skillbridge"];
+const ORDER = ["agentx", "smartvid", "leadconnector", "masscardrequests"];
 
 export function Work() {
   const projects = PROJECTS.filter(

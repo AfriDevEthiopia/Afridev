@@ -2,32 +2,32 @@ import type { Project, Testimonial } from "@/types";
 
 export const PROJECTS: Project[] = [
   {
-    id: "rateeat",
-    title: "RateEat",
-    type: "Mobile Development",
-    description:
-      "A mobile application that helps users discover the best restaurants and food spots across Ethiopia.",
-    features: [
-      "Comprehensive restaurant listings with detailed profiles, menus, and contact info",
-      "User reviews and ratings to guide dining decisions",
-      "Advanced search and filtering for cuisines",
-    ],
-    image: "/images/projects/rateeat-cover.jpg",
-    link: "https://rateeat.app/en",
-  },
-  {
-    id: "skillbridge",
-    title: "Skill Bridge",
+    id: "agentx",
+    title: "AgentX",
     type: "AI Apps & Integration",
     description:
-      "A study platform for Ethiopian students preparing for university entrance exams.",
+      "An AI RevOps assistant for field sales teams. It captures every sales meeting, updates HubSpot automatically, and flags deal risks with the next best action, so new reps sell like top closers from day one.",
     features: [
-      "Personalized study materials",
-      "Organized exam resources",
-      "Interactive learning tools",
+      "Meeting notes, action items and next steps captured automatically",
+      "Contacts, deals and tasks written to HubSpot with zero manual logging",
+      "Deal risk scoring from 500+ signals, with one-click next actions",
     ],
-    image: "/images/projects/skillbridge-cover.jpg",
-    link: "https://skillbridge.academy/en",
+    image: "/images/projects/agentx-cover.jpg",
+    link: "https://operatorx.barrierx.ai/",
+  },
+  {
+    id: "masscardrequests",
+    title: "Mass Card Requests",
+    type: "Web Application",
+    description:
+      "An online platform where Catholic parishes receive Mass intentions. Families choose a Mass, share their intention and make an offering in about three minutes, with canon law built into every step.",
+    features: [
+      "Guided request flow in about three minutes, no account required",
+      "Secure offerings through Stripe with an emailed, printable PDF receipt",
+      "Parish registration and staff sign-in to receive and manage intentions",
+    ],
+    image: "/images/projects/masscardrequests-cover.jpg",
+    link: "https://masscardrequests.com/",
   },
   {
     id: "smartvid",
