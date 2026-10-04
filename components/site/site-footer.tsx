@@ -25,7 +25,7 @@ const COLUMNS = [
   {
     title: "Contact",
     links: [
-      { label: "Book a call", href: LINKS.calendly },
+      { label: "Book a call", href: "#contact" },
       { label: LINKS.email, href: `mailto:${LINKS.email}` },
       { label: "Upwork agency", href: LINKS.upwork },
     ],
@@ -83,6 +83,7 @@ export function SiteFooter() {
                     data-afd-event="nav_click"
                     data-afd-prop-to={link.label}
                     data-afd-prop-location="footer"
+                    {...(link.label === "Book a call" ? { "data-afd-book": "" } : {})}
                     className="text-sm text-muted-foreground transition-colors hover:text-foreground"
                   >
                     {link.label}

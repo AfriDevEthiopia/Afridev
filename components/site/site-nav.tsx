@@ -58,6 +58,7 @@ export function SiteNav() {
               data-afd-event="cta_click"
               data-afd-prop-cta="hire"
               data-afd-prop-location="nav"
+              data-afd-book=""
               className="hidden h-10 items-center rounded-xl bg-primary px-4 text-sm font-semibold text-white transition-colors hover:bg-primary-hover md:inline-flex"
             >
               Book a call
@@ -97,6 +98,7 @@ export function SiteNav() {
               data-afd-event="cta_click"
               data-afd-prop-cta="hire"
               data-afd-prop-location="mobile_nav"
+              data-afd-book=""
               onClick={() => setOpen(false)}
               className="mt-2 flex h-11 items-center justify-center rounded-xl bg-primary text-[15px] font-semibold text-white"
             >

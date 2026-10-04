@@ -2,19 +2,10 @@
 
 import { useRef, useState, type FormEvent } from "react";
 import { track } from "@/lib/analytics";
-import { LINKS } from "@/lib/site";
+import { LINKS, PROJECT_TYPES } from "@/lib/site";
 import { CalendarIcon, CheckIcon, ChevronDownIcon, MailIcon, UpworkIcon } from "./icons";
+import { bookingEnabled, openBooking } from "./booking-modal";
 import { SectionHeading } from "./section-heading";
-
-const PROJECT_TYPES = [
-  "Web application",
-  "AI integration",
-  "Mobile app",
-  "Desktop app",
-  "Cloud & DevOps",
-  "Consulting",
-  "Something else",
-];
 
 const inputClass =
   "w-full rounded-xl border border-border bg-surface px-3.5 py-3 text-base text-foreground placeholder:text-muted-foreground outline-none transition-shadow focus:border-primary focus:ring-4 focus:ring-primary-soft sm:px-4 sm:text-[15px]";
@@ -23,7 +14,8 @@ export function Contact() {
   const [sent, setSent] = useState(false);
   const started = useRef(false);
 
-  // Opens the visitor's email app with the enquiry addressed to AfriDev, ready to send
+  // Carries the enquiry into the booking calendar (Google Meet). If booking is off, opens the
+  // visitor's email app with the enquiry addressed to AfriDev instead.
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const data = new FormData(e.currentTarget);
@@ -32,9 +24,11 @@ export function Contact() {
     const projectType = String(data.get("subject") ?? "");
     const details = String(data.get("message") ?? "").trim();
 
+    track("contact_submit", { project_type: projectType });
+    if (openBooking({ name, email, projectType, message: details }, "contact_form")) return;
+
     const subject = `Project enquiry: ${projectType} – ${name}`;
     const body = [`Name: ${name}`, `Email: ${email}`, `Project type: ${projectType}`, "", details].join("\n");
-    track("contact_submit", { project_type: projectType });
     window.location.href = `mailto:${LINKS.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     setSent(true);
   };
@@ -60,8 +54,8 @@ export function Contact() {
                 icon: CalendarIcon,
                 label: "Book a 30-minute call",
                 detail: "Free, no commitment",
-                href: LINKS.calendly,
-                cta: "calendly",
+                href: "#contact",
+                cta: "book",
               },
               { icon: MailIcon, label: LINKS.email, detail: "Email us directly", href: `mailto:${LINKS.email}`, cta: "email" },
               { icon: UpworkIcon, label: "Hire us on Upwork", detail: "Top Rated agency", href: LINKS.upwork, cta: "hire" },
@@ -72,6 +66,7 @@ export function Contact() {
                   data-afd-event="cta_click"
                   data-afd-prop-cta={cta}
                   data-afd-prop-location="contact"
+                  {...(cta === "book" ? { "data-afd-book": "" } : {})}
                   target={href.startsWith("http") ? "_blank" : undefined}
                   rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
                   className="group flex items-center gap-3.5 py-3.5 sm:gap-4 sm:py-4"
@@ -112,9 +107,8 @@ export function Contact() {
                 with your details filled in. Press send and our team will reply by email. If nothing opened, write to
                 us at that address directly, or{" "}
                 <a
-                  href={LINKS.calendly}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="#contact"
+                  data-afd-book=""
                   className="font-medium text-primary-text underline underline-offset-4"
                 >
                   book a call
@@ -195,10 +189,12 @@ export function Contact() {
                 type="submit"
                 className="inline-flex h-12 w-full items-center justify-center rounded-xl bg-primary px-6 text-[15px] font-semibold text-white transition-colors hover:bg-primary-hover"
               >
-                Send message
+                {bookingEnabled ? "Choose a time" : "Send message"}
               </button>
               <p className="text-center text-[13px] text-muted-foreground">
-                Opens your email app with a message to {LINKS.email}.
+                {bookingEnabled
+                  ? "Next, pick a time for a free 30-minute Google Meet call."
+                  : `Opens your email app with a message to ${LINKS.email}.`}
               </p>
             </form>
           )}

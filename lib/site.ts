@@ -4,7 +4,6 @@
  */
 
 export const LINKS = {
-  calendly: process.env.NEXT_PUBLIC_CALENDLY_LINK || "https://calendly.com/afridevet/30min",
   email: "talent@afridev.io",
   upwork: "https://www.upwork.com/agencies/1937186981697230253/",
   github: "https://github.com/AfriDevEthiopia",
@@ -17,6 +16,17 @@ export const LINKS = {
   founder: "https://tamiratkebede.com",
   introVideoId: "DOEM7pu9shU",
 };
+
+/** Shared by the contact form and the booking modal */
+export const PROJECT_TYPES = [
+  "Web application",
+  "AI integration",
+  "Mobile app",
+  "Desktop app",
+  "Cloud & DevOps",
+  "Consulting",
+  "Something else",
+];
 
 export const NAV_ITEMS = [
   { label: "Services", href: "#services" },

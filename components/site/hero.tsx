@@ -27,6 +27,7 @@ export function Hero() {
                 data-afd-event="cta_click"
                 data-afd-prop-cta="contact"
                 data-afd-prop-location="hero"
+                data-afd-book=""
                 className="inline-flex h-12 w-full items-center justify-center rounded-xl bg-primary px-6 text-[15px] font-semibold text-white transition-colors hover:bg-primary-hover sm:w-auto"
               >
                 Book a free call

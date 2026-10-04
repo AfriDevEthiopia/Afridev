@@ -70,7 +70,7 @@ const jsonLd = {
         "@type": "ContactPoint",
         contactType: "sales",
         email: LINKS.email,
-        url: LINKS.calendly,
+        url: `${SITE}/#contact`,
         availableLanguage: "English",
       },
     },

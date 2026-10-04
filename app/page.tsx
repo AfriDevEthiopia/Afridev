@@ -1,3 +1,4 @@
+import { BookingModal } from "@/components/site/booking-modal";
 import { Contact } from "@/components/site/contact";
 import { Hero } from "@/components/site/hero";
 import { Process } from "@/components/site/process";
@@ -28,6 +29,7 @@ export default function HomePage() {
         <Contact />
       </main>
       <SiteFooter />
+      <BookingModal />
     </>
   );
 }

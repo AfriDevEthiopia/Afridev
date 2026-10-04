@@ -15,7 +15,7 @@ export function GET() {
 - Location: Addis Ababa, Ethiopia; works with clients worldwide, remotely
 - Founder: ${FOUNDER_NOTE.name} (${LINKS.founder})
 - Contact: ${LINKS.email}
-- Book a free 30-minute call: ${LINKS.calendly}
+- Book a free 30-minute call: ${SITE}/#contact
 - Upwork agency profile: ${LINKS.upwork}
 - GitHub: ${LINKS.github}
 - LinkedIn: ${LINKS.linkedin}

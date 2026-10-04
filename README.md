@@ -210,7 +210,7 @@ npm install
 Create a `.env.local` file if you wish to configure custom options:
 
 ```env
-NEXT_PUBLIC_CALENDLY_LINK=https://calendly.com/afridevet/30min
+NEXT_PUBLIC_BOOKING_API_URL=https://talent.afridev.io/api/v1
 ```
 
 4. **Run the development server**
