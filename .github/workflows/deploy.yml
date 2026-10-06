@@ -50,6 +50,7 @@ jobs:
           cd /opt/afridev/apps/afridev-web
           git fetch --prune origin
           git reset --hard "$1"
+          git clean -fd
           npm ci --no-audit --no-fund
           npm run build
           pm2 startOrReload /opt/afridev/ecosystem.config.cjs --only afridev-web --update-env
