@@ -42,7 +42,7 @@ const jsonLd = {
         url: LINKS.founder,
         jobTitle: "Founder",
       },
-      sameAs: [LINKS.github, LINKS.linkedin, LINKS.upwork, LINKS.careers],
+      sameAs: [LINKS.github, LINKS.linkedin, LINKS.tiktok, LINKS.instagram, LINKS.x, LINKS.youtube, LINKS.upwork, LINKS.careers],
       knowsAbout: [
         "Software Engineering",
         "Full Stack Development",

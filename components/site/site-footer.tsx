@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { UpworkRankBadge } from "@/components/layout/upwork-rank-badge";
 import { LINKS } from "@/lib/site";
-import { GithubIcon, LinkedinIcon, UpworkIcon } from "./icons";
+import { GithubIcon, InstagramIcon, LinkedinIcon, TiktokIcon, UpworkIcon, XIcon, YoutubeIcon } from "./icons";
 
 const COLUMNS = [
   {
@@ -35,6 +35,10 @@ const COLUMNS = [
 const SOCIAL = [
   { label: "AfriDev on GitHub", href: LINKS.github, icon: GithubIcon },
   { label: "AfriDev on LinkedIn", href: LINKS.linkedin, icon: LinkedinIcon },
+  { label: "AfriDev on TikTok", href: LINKS.tiktok, icon: TiktokIcon },
+  { label: "AfriDev on Instagram", href: LINKS.instagram, icon: InstagramIcon },
+  { label: "AfriDev on X", href: LINKS.x, icon: XIcon },
+  { label: "AfriDev on YouTube", href: LINKS.youtube, icon: YoutubeIcon },
   { label: "AfriDev on Upwork", href: LINKS.upwork, icon: UpworkIcon },
 ];
 
@@ -51,7 +55,7 @@ export function SiteFooter() {
             Software agency building web, mobile and AI products for startups and tech teams. Based in Addis Ababa,
             working with clients worldwide.
           </p>
-          <ul className="mt-6 flex gap-2">
+          <ul className="mt-6 flex flex-wrap gap-2">
             {SOCIAL.map(({ label, href, icon: Icon }) => (
               <li key={label}>
                 <a

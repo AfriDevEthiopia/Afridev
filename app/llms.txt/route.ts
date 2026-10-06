@@ -19,6 +19,10 @@ export function GET() {
 - Upwork agency profile: ${LINKS.upwork}
 - GitHub: ${LINKS.github}
 - LinkedIn: ${LINKS.linkedin}
+- TikTok: ${LINKS.tiktok}
+- Instagram: ${LINKS.instagram}
+- X: ${LINKS.x}
+- YouTube: ${LINKS.youtube}
 - Careers and open roles: ${LINKS.careers} (role list for AI tools: ${LINKS.careers}/llms.txt)
 
 ## Services
