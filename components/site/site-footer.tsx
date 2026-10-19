@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { UpworkRankBadge } from "@/components/layout/upwork-rank-badge";
 import { LINKS } from "@/lib/site";
+import { FooterAd } from "./footer-ad";
 import { GithubIcon, InstagramIcon, LinkedinIcon, TiktokIcon, UpworkIcon, XIcon, YoutubeIcon } from "./icons";
 
 const COLUMNS = [
@@ -44,6 +45,8 @@ const SOCIAL = [
 
 export function SiteFooter() {
   return (
+    <>
+    <FooterAd />
     <footer className="border-t border-border bg-surface">
       <div className="mx-auto grid max-w-6xl gap-10 px-5 py-12 sm:grid-cols-2 sm:gap-12 sm:px-8 sm:py-16 md:grid-cols-4 lg:grid-cols-[1.4fr_repeat(3,1fr)]">
         <div>
@@ -104,5 +107,6 @@ export function SiteFooter() {
         </div>
       </div>
     </footer>
+    </>
   );
 }

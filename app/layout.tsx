@@ -155,6 +155,7 @@ export default function RootLayout({
     <html lang="en" className={`${inter.variable} overflow-x-hidden`} style={{ colorScheme: "light" }}>
       <head>
         <meta name="color-scheme" content="light" />
+        <meta name="google-adsense-account" content="ca-pub-3587873357935808" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
@@ -163,6 +164,12 @@ export default function RootLayout({
       <body className="min-h-screen overflow-x-hidden font-sans antialiased">
         {children}
         {/* First-party visitor analytics (no cookies, no third parties) */}
+        <Script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3587873357935808"
+          crossOrigin="anonymous"
+          strategy="beforeInteractive"
+        />
         <Script
           src="https://talent.afridev.io/api/v1/va/script.js"
           data-site="afridev"
